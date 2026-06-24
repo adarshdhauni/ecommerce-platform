@@ -238,7 +238,7 @@ duration-150 px-2"
   "
           >
             <img
-              src="/images/google.png"
+              src="/imagesSection/google.png"
               alt="Google"
               draggable="false"
               className="h-5 w-5 shrink-0"

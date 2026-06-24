@@ -410,7 +410,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
   "
           >
             <img
-              src="/images/google.png"
+              src="/imagesSection/google.png"
               alt="Google"
               draggable="false"
               className="h-5 w-5 shrink-0"
@@ -426,7 +426,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
           Already have an account?{" "}
           <button
             type="button"
-            onClick={() => setMode("signup")}
+            onClick={() => setMode("signin")}
             className="font-medium text-black transition-all
       duration-150
       hover-supported:hover:text-black/60
