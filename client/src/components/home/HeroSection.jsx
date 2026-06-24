@@ -1,0 +1,100 @@
+import React, { memo } from "react";
+import { Button } from "@/components/ui/button";
+import PrimaryButton from "../customButtons/PrimaryButton";
+
+const HeroSection = ({ navigate }) => {
+  return (
+    <div className="w-full relative overflow-hidden">
+      <div className="w-full aspect-[9/16] sm:aspect-[16/9] 2xl:aspect-[21/9] relative">
+        <picture>
+          <source
+            media="(min-width: 640px)"
+            srcSet="
+           /imagesSection/pexels-cottonbro-6070177-600.webp 600w,
+           /imagesSection/pexels-cottonbro-6070177-800.webp 800w,
+           /imagesSection/pexels-cottonbro-6070177-1200.webp 1200w,
+           /imagesSection/pexels-cottonbro-6070177-1600.webp 1600w,
+           /imagesSection/pexels-cottonbro-6070177-2000.webp 2000w,
+           /imagesSection/pexels-cottonbro-6070177-2400.webp 2400w,
+           /imagesSection/pexels-cottonbro-6070177-3000.webp 3000w,
+         "
+            sizes="100vw"
+          />
+
+          <img
+            src="/imagesSection/mike-von-YsiSAp3ccvk-unsplash-400.webp"
+            srcSet="
+           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-400.webp 400w,
+           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-600.webp 600w,
+           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-800.webp 800w,
+           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-1200.webp 1200w
+         "
+            sizes="100vw"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            width={600}
+            height={800}
+            alt="Hero Section"
+            className="w-full h-full object-cover object-[center_top] hero-img"
+          />
+        </picture>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40 " />
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white space-y-3">
+        <h1 className="hero-title text-4xl md:text-7xl font-light tracking-wide">
+          NOVA STONE <span className="font-semibold">& CO.</span>
+        </h1>
+
+        <p className="hero-sub  text-lg md:text-3xl font-light">
+          Introducing the Capsule Collection
+        </p>
+        <Button
+          onClick={() => navigate("/products")}
+          className="
+          hero-btn
+    h-12
+    px-9
+
+    bg-white
+    text-black
+    border
+    border-white
+
+    rounded-none
+
+    text-[11px]
+    font-medium
+    uppercase
+    tracking-[0.18em]
+    leading-none
+
+    transition-all
+    duration-150
+
+    hover-supported:hover:bg-black
+    hover-supported:hover:text-white
+    hover-supported:hover:border-black
+
+    active:scale-[0.985]
+
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-white
+    focus-visible:ring-offset-2
+    focus-visible:ring-offset-black
+  "
+        >
+          SHOP NOW
+        </Button>
+      </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white opacity-70 scroll-indicator">
+        <span className="text-[10px] tracking-[0.3em]">SCROLL</span>
+        <div className="w-[1px] h-6 bg-white mt-2"></div>
+      </div>
+    </div>
+  );
+};
+
+export default memo(HeroSection);
