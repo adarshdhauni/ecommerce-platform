@@ -6,6 +6,7 @@ import {
   useUpdateProductMutation,
 } from "@/redux/api/apiSlice";
 import { toast } from "@/hooks/use-toast";
+import ProductEditorSkeleton from "@/components/loadingStates/ProductEditorSkeleton";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -37,7 +38,7 @@ const EditProduct = () => {
   };
 
   if (isLoading) {
-    return <div className="p-8 text-gray-400 text-sm">Loading product...</div>;
+    return <ProductEditorSkeleton />;
   }
 
   return (

@@ -77,6 +77,7 @@ const Product = () => {
     isLoading: loadingRelatedProducts,
     isError: relatedProductsError,
     refetch: relatedProductsRefetch,
+    isFetching: fetchingRelatedProducts,
   } = useGetRelatedProductsQuery(id);
 
   const displayedRelated = useMemo(
@@ -228,9 +229,11 @@ px-6
     setQuantity(1);
   };
 
+  console.log(recentProducts)
+
   const showRecentlyViewed =
     token &&
-    (loadingRecentlyViewed || recentlyViewedError || recentProducts.length > 0);
+    (loadingRecentlyViewed || recentlyViewedError || filteredItems.length > 0);
 
   if (isLoading) {
     return (
@@ -338,7 +341,7 @@ px-6
                 <ErrorState
                   compact
                   refetch={relatedProductsRefetch}
-                  isLoading={loadingRelatedProducts}
+                  isFetching={fetchingRelatedProducts}
                   title={"Failed to load related products"}
                   description={
                     " Something went wrong while loading related products. Please try again later."

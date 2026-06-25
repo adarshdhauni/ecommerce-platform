@@ -25,7 +25,7 @@ const Home = () => {
   const [previewProduct, setPreviewProduct] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const { data, isLoading, isError, refetch } = useGetFeaturedProductsQuery();
+  const { data, isLoading, isError, refetch, isFetching } = useGetFeaturedProductsQuery();
   const products = data?.products || [];
 
   const {
@@ -83,7 +83,7 @@ const Home = () => {
                   <ProductsErrorState
                     compact
                     refetch={refetch}
-                    isLoading={isLoading}
+                    isFetching={isFetching}
                     title={"Failed to load featured products"}
                     description={
                       " Something went wrong while loading the featured collection. Please try again later."
