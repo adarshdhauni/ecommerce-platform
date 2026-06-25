@@ -220,43 +220,48 @@ ease-out
             setOpen(true);
           }}
           className="
-  hidden
-  hover-supported:flex
+          hidden
+          hover-supported:block
+      pointer-events-auto
 
-  pointer-events-auto
+      h-11
+      w-[85%]
 
-  h-11
-  w-[85%]
+      border
+      border-white
 
-  border
-  border-white
+      rounded-none
 
-  bg-white
-  text-black
+      bg-white
+      text-black
 
-  text-[11px]
-  font-medium
-  uppercase
-  tracking-[0.18em]
+      text-[11px]
+      font-medium
+      uppercase
+      tracking-[0.18em]
+      leading-none
 
-  opacity-0
-  translate-y-2
+      opacity-0
+      translate-y-2
 
-  hover-supported:group-hover:opacity-100
-  hover-supported:group-hover:translate-y-0
+      hover-supported:group-hover:opacity-100
+      hover-supported:group-hover:translate-y-0
 
-  transition-all
-  duration-150
+      transition-all
+      duration-150
 
-  hover-supported:hover:bg-black
-  hover-supported:hover:text-white
-  hover-supported:hover:border-black
+      hover-supported:hover:bg-black
+      hover-supported:hover:text-white
+      hover-supported:hover:border-black
 
-  active:scale-[0.985]
+      active:scale-[0.985]
 
-  focus-visible:outline-none
-  focus-visible:ring-2
-"
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-white
+      focus-visible:ring-offset-2
+      focus-visible:ring-offset-black
+    "
         >
           QUICK VIEW
         </button>
