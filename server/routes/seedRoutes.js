@@ -5,6 +5,6 @@ const protect = require("../middlewares/isAuth.js");
 
 const router = express.Router();
 
-router.post("/seed/products", protect, adminOnly, seedProducts);
+router.post("/seed/products", seedProducts);
 
 module.exports = router;
