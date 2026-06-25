@@ -24,7 +24,7 @@ const adminRoutes = require("./routes/adminRoute.js");
 const seedRoutes = require("./routes/seedRoutes.js");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 const allowedOrigins = ["http://localhost:5173", process.env.CLIENT_URL];
 
