@@ -4,5 +4,6 @@
 /client/dist
 
 /server/.env
+/client/.env
 
 Thumbs.db
