@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Product = require("../models/product.js");
-const Review = require("../models/Review.js");
+const Review = require("../models/review.js");
 const User = require("../models/user.js");
 
 exports.postReviews = async (req, res, next) => {
