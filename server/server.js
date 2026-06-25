@@ -26,9 +26,16 @@ const seedRoutes = require("./routes/seedRoutes.js");
 const app = express();
 const port = process.env.PORT || 5000;
 
+const allowedOrigins = ["http://localhost:5173", process.env.CLIENT_URL];
+
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL, process.env.CLIENT_PREVIEW_URL],
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );
