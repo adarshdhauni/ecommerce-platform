@@ -68,9 +68,9 @@ app.use("/api", orderRoutes);
 app.use("/api", wishlistRoutes);
 app.use("/api", reviewRoutes);
 app.use("/api", adminRoutes);
-// if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development") {
   app.use("/api", seedRoutes);
-// }
+}
 
 app.use((req, res, next) => {
   const error = new Error("Invalid route, please try again!");
