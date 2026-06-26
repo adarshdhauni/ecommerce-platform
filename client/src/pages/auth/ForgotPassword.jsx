@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useForgotPasswordMutation } from "@/redux/api/apiSlice";
@@ -11,6 +11,7 @@ const ForgotPassword = () => {
   const [values, setValues] = useState({
     email: "",
   });
+  const emailRef = useRef(null);
 
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -21,14 +22,14 @@ const ForgotPassword = () => {
 
   const isEmailValid = /\S+@\S+\.\S+/.test(values.email);
 
-  const isFormValid = values.email && isEmailValid;
-
   const validateForm = () => {
     const { email } = values;
     if (!email) {
-      return "Please fill in email fields";
+      emailRef.current.focus();
+      return "Please fill in email field";
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
+      emailRef.current.focus();
       return "Invalid email format";
     }
     return null;
@@ -82,7 +83,7 @@ justify-center px-4 "
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-10">
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <label
                     className="
     text-[12px]
@@ -90,9 +91,10 @@ justify-center px-4 "
     text-black/65
   "
                   >
-                    EMAIL
+                    Email
                   </label>
                   <input
+                    ref={emailRef}
                     id="email"
                     type="email"
                     placeholder="Email"
@@ -112,7 +114,7 @@ px-2"
                 <div className="space-y-4 pt-4">
                   <PrimaryButton
                     type="submit"
-                    disabled={isLoading || !isFormValid}
+                    disabled={isLoading}
                     className="w-full"
                   >
                     {isLoading ? "Submitting..." : "Submit"}

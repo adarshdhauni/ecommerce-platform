@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useResetPasswordMutation } from "@/redux/api/apiSlice";
 import { useToast } from "@/hooks/use-toast";
@@ -18,6 +18,9 @@ const ResetPassword = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
 
   const handleChange = (e) => {
     setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -40,33 +43,52 @@ const ResetPassword = () => {
   const passwordStrength = getPasswordStrength();
   const isPasswordMatch =
     values.password && values.password === values.confirmPassword;
-  const isFormValid =
-    Object.values(passwordRules).every(Boolean) && isPasswordMatch;
 
   const validateForm = () => {
     const { password, confirmPassword } = values;
-    if (!password || !confirmPassword) {
-      return "Please fill in all fields";
+
+    if (!password.trim()) {
+      passwordRef.current?.focus();
+      return "Enter your password";
     }
+
     if (password !== confirmPassword) {
+      confirmPasswordRef.current?.focus();
       return "Passwords do not match";
     }
+
+    if (!confirmPassword.trim()) {
+      confirmPasswordRef.current?.focus();
+      return "Confirm your password";
+    }
+
     if (password.length < 8) {
+      passwordRef.current?.focus();
       return "Password must be at least 8 characters";
     }
+
     if (password.length > 64) {
+      passwordRef.current.focus();
       return "Password cannot exceed 64 characters";
     }
+
     if (!/[A-Z]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 uppercase letter";
     }
+
     if (!/[a-z]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 lowercase letter";
     }
+
     if (!/\d/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 number";
     }
+
     if (!/[@$!%*?&]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 special character";
     }
     return null;
@@ -269,7 +291,7 @@ duration-150 px-2"
                 <div className="space-y-4 pt-4">
                   <PrimaryButton
                     type="submit"
-                    disabled={isLoading || !isFormValid}
+                    disabled={isLoading}
                     className="w-full"
                   >
                     {isLoading ? "Resetting..." : "Reset"}

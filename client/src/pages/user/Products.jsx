@@ -239,9 +239,9 @@ const Products = () => {
                   <ProductsErrorState
                     refetch={refetch}
                     isFetching={isFetching}
-                    title={"Failed to load featured products"}
+                    title={"Unable to Load Products"}
                     description={
-                      " Something went wrong while loading the featured collection. Please try again later."
+                      "We couldn't load the products right now. Please try again in a moment."
                     }
                   />
                 ) : isEmpty ? (

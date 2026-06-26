@@ -188,7 +188,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
     text-black/65
   "
               >
-                NAME
+                Name
               </label>
               <input
                 ref={nameRef}
@@ -212,7 +212,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
     text-black/65
   "
               >
-                PHONE
+                Phone
               </label>
               <input
                 ref={phoneRef}
@@ -237,7 +237,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
     text-black/65
   "
             >
-              EMAIL
+              Email
             </label>
             <input
               ref={emailRef}
@@ -265,7 +265,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
     text-black/65
   "
               >
-                PASSWORD
+                Password
               </label>
 
               <div className="relative">
@@ -354,7 +354,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
 
           <div className="space-y-2.5 relative">
             <label className="text-[12px] font-medium text-black/65">
-              CONFIRM PASSWORD
+              Confirm Password
             </label>
 
             <div className="relative">
