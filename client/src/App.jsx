@@ -28,6 +28,7 @@ const AddProduct = lazy(() => import("./pages/admin/AddProduct"));
 const EditProduct = lazy(() => import("./pages/admin/EditProduct"));
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 const AdminUserDetails = lazy(() => import("./pages/admin/AdminUserDetails"));
+const NotFound = lazy(() => import("./pages/notFound/NotFound"));
 
 import Topbar from "./components/admin/topbar/Topbar";
 import Sidebar from "./components/admin/sidebar/Sidebar";
@@ -37,6 +38,7 @@ import ScrollToTop from "./components/globalComponents/ScrollToTop";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 import AdminRoute from "./components/admin/adminRoute/AdminRoute";
 import GlobalLoader from "./components/globalComponents/GlobalLoader";
+import RouteError from "./components/routeError/RouteError";
 
 const AppLayout = () => {
   return (
@@ -83,6 +85,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin",
+        errorElement: <RouteError />,
         element: <AdminLayout />,
         children: [
           {
@@ -149,19 +152,30 @@ const router = createBrowserRouter([
               </AdminRoute>
             ),
           },
+          {
+            path: "*",
+            element: <NotFound />,
+          },
         ],
       },
       {
         path: "/auth",
+        errorElement: <RouteError />,
         element: <AuthLayout />,
         children: [
           { path: "", element: <Authentication /> },
           { path: "forgot-password", element: <ForgotPassword /> },
           { path: "reset-password/:token", element: <ResetPassword /> },
+
+          {
+            path: "*",
+            element: <NotFound />,
+          },
         ],
       },
       {
         path: "/",
+        errorElement: <RouteError />,
         element: <RootLayout />,
         children: [
           { path: "", element: <Home /> },
@@ -213,6 +227,10 @@ const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          {
+            path: "*",
+            element: <NotFound />,
+          },
         ],
       },
     ],
@@ -222,7 +240,7 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <Suspense fallback={<GlobalLoader />}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Suspense>
   );
 };

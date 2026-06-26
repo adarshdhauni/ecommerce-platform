@@ -1,18 +1,15 @@
-import React from "react";
+import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../errorFallback/ErrorFallback";
 
-class ErrorBoundary extends React.Component {
-  state = { hasError: false };
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h2>Something went wrong.</h2>;
-    }
-    return this.props.children;
-  }
-}
+const ErrorBoundary = ({ children }) => {
+  return (
+    <ReactErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => window.location.reload()}
+    >
+      {children}
+    </ReactErrorBoundary>
+  );
+};
 
 export default ErrorBoundary;

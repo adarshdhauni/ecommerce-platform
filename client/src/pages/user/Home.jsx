@@ -25,7 +25,8 @@ const Home = () => {
   const [previewProduct, setPreviewProduct] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const { data, isLoading, isError, refetch, isFetching } = useGetFeaturedProductsQuery();
+  const { data, isLoading, isError, refetch, isFetching } =
+    useGetFeaturedProductsQuery();
   const products = data?.products || [];
 
   const {
