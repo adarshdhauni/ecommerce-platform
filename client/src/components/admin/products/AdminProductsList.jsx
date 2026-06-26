@@ -23,6 +23,12 @@ const highlightText = (text, query) => {
   );
 };
 
+const formatCurrency = (num) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(num || 0);
+
 const AdminProductsList = ({
   product,
   debouncedSearch,
@@ -250,7 +256,7 @@ const AdminProductsList = ({
           text-black/90
         "
           >
-            ₹{Number(product.price).toLocaleString()}
+            {formatCurrency(product.price)}
           </p>
         </div>
 
