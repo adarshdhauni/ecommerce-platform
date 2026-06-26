@@ -4,18 +4,8 @@ const Order = require("../models/orderDetails.js");
 const ShippingDetail = require("../models/shippingDetails.js");
 const PaymentDetail = require("../models/paymentDetails.js");
 const Product = require("../models/product.js");
-
-const updateOrderStatus = (order, newStatus) => {
-  order.status = newStatus;
-
-  const now = new Date();
-
-  if (newStatus === "Processing") order.processedAt = now;
-  if (newStatus === "Shipped") order.shippedAt = now;
-  if (newStatus === "Out for Delivery") order.outForDeliveryAt = now;
-  if (newStatus === "Delivered") order.deliveredAt = now;
-  if (newStatus === "Cancelled") order.cancelledAt = now;
-};
+const updateOrderStatus = require("../utils/updateOrderStatus.js");
+const cancelOrderLogic = require("../utils/orderUtils.js");
 
 exports.placeOrder = async (req, res, next) => {
   try {
@@ -301,26 +291,7 @@ exports.cancelOrder = async (req, res, next) => {
       throw new Error("Order already cancelled");
     }
 
-    for (const item of order.items) {
-      const product = await Product.findById(item.productId);
-
-      if (!product) continue;
-
-      product.sold = Math.max(0, product.sold - item.quantity);
-
-      const size = product.sizes.find((s) => s.size === item.size);
-
-      if (size) {
-        size.stock += item.quantity;
-        size.sold = Math.max(0, size.sold - item.quantity);
-      }
-
-      await product.save();
-    }
-
-    order.status = "Cancelled";
-    updateOrderStatus(order, "Cancelled");
-    await order.save();
+    await cancelOrderLogic(order);
 
     res.json({ message: "Order cancelled successfully" });
   } catch (err) {

@@ -2,6 +2,7 @@ const { default: mongoose } = require("mongoose");
 const User = require("../models/user.js");
 const Order = require("../models/orderDetails.js");
 const Product = require("../models/product.js");
+const cancelOrderLogic = require("../utils/orderUtils.js");
 
 const getStats = async (req, res, next) => {
   try {
@@ -183,6 +184,13 @@ const updateOrderStatus = async (req, res, next) => {
       });
     }
 
+    if (order.status === "Cancelled") {
+      return res.status(400).json({
+        success: false,
+        message: "Cancelled orders cannot be updated",
+      });
+    }
+
     if (
       status !== "Cancelled" &&
       statusFlow[status] < statusFlow[order.status]
@@ -190,6 +198,15 @@ const updateOrderStatus = async (req, res, next) => {
       return res.status(400).json({
         success: false,
         message: "Cannot move order backwards",
+      });
+    }
+
+    if (status === "Cancelled") {
+      await cancelOrderLogic(order);
+
+      return res.json({
+        success: true,
+        message: "Order cancelled successfully",
       });
     }
 
