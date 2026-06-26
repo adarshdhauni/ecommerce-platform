@@ -28,6 +28,8 @@ const port = process.env.PORT || 3000;
 
 const allowedOrigins = ["http://localhost:5173", process.env.CLIENT_URL];
 
+app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin(origin, callback) {
