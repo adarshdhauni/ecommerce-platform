@@ -19,7 +19,7 @@ const PasswordInput = ({
   autoFocus = false,
 }) => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2.5">
       <Label
         htmlFor={id}
         className="

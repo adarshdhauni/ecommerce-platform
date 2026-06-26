@@ -55,6 +55,8 @@ const ProductQuickView = ({ product, open, setOpen }) => {
     useWishlistApiMutation();
   const isInWishlist = wishlist.some((item) => item._id === product?._id);
 
+  const [optimisticWishlist, setOptimisticWishlist] = useState(isInWishlist);
+
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
 
@@ -63,6 +65,7 @@ const ProductQuickView = ({ product, open, setOpen }) => {
 
   const handleWishlist = async () => {
     if (loadingToggle) return;
+
     if (!token) {
       navigate("/auth", {
         state: { from: location.pathname },
@@ -70,23 +73,29 @@ const ProductQuickView = ({ product, open, setOpen }) => {
       return;
     }
 
-    const wasInWishlist = isInWishlist;
+    const previous = optimisticWishlist;
+
+    setOptimisticWishlist(!previous);
 
     try {
       await toggleWishlist(product._id).unwrap();
 
       toast({
-        description: wasInWishlist
-          ? "Removed from wishlist"
-          : "Added to wishlist",
+        description: previous ? "Removed from wishlist" : "Added to wishlist",
       });
     } catch (err) {
+      setOptimisticWishlist(previous);
+
       toast({
         variant: "destructive",
         description: err?.data?.message || "Something went wrong. Try again.",
       });
     }
   };
+
+  useEffect(() => {
+    setOptimisticWishlist(isInWishlist);
+  }, [isInWishlist]);
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -270,7 +279,7 @@ scrollbar-none p-6 sm:p-8 rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.2)] curso
                       <Heart
                         className={`
         w-5 h-5 transition-all duration-150
-        ${isInWishlist ? "fill-black stroke-black" : "stroke-black"}
+        ${optimisticWishlist ? "fill-black stroke-black" : "stroke-black"}
       `}
                       />
                     </button>

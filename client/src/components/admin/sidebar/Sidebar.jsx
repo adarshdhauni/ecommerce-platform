@@ -273,10 +273,7 @@ const Sidebar = () => {
               onClick={() => {
                 localStorage.clear();
                 window.dispatchEvent(new Event("storage"));
-                toast({ description: "Logged out" });
-                setTimeout(() => {
-                  window.location.replace("/");
-                }, 500);
+                window.location.replace("/");
               }}
               className="
         flex items-center gap-3
@@ -423,10 +420,7 @@ active:text-red-500"
                       setOpen(false);
                       localStorage.clear();
                       window.dispatchEvent(new Event("storage"));
-                      toast({ description: "Logged out" });
-                      setTimeout(() => {
-                        window.location.replace("/");
-                      }, 500);
+                      window.location.replace("/");
                     }}
                     className="flex items-center gap-3 text-sm text-gray-400 transition-colors duration-150 hover-supported:hover:text-red-500 active:text-red-500"
                   >

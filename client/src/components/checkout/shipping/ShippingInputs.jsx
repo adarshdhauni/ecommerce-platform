@@ -10,7 +10,7 @@ const ShippingInputs = ({
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-1">
+        <div className="space-y-2.5">
           <Label
             className="  text-[12px]
     font-medium
@@ -35,7 +35,7 @@ const ShippingInputs = ({
           />
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-2.5">
           <Label
             className="  text-[12px]
     font-medium
@@ -55,7 +55,7 @@ const ShippingInputs = ({
         </div>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2.5">
         <Label
           className="  text-[12px]
     font-medium
@@ -74,7 +74,7 @@ const ShippingInputs = ({
         />
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2.5">
         <Label
           className="  text-[12px]
     font-medium
@@ -93,7 +93,7 @@ const ShippingInputs = ({
         />
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2.5">
         <Label
           className="  text-[12px]
     font-medium
@@ -113,7 +113,7 @@ const ShippingInputs = ({
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="space-y-1">
+        <div className="space-y-2.5">
           <Label
             className="  text-[12px]
     font-medium
@@ -133,7 +133,7 @@ const ShippingInputs = ({
           />
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-2.5">
           <Label
             className="  text-[12px]
     font-medium
@@ -159,7 +159,7 @@ const ShippingInputs = ({
         </div>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2.5">
         <Label
           className="  text-[12px]
     font-medium

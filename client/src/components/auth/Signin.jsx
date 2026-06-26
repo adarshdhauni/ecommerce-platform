@@ -1,10 +1,9 @@
-import React, { memo, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { useLoginUserMutation } from "@/redux/api/apiSlice";
 import { Eye, EyeOff } from "lucide-react";
 import PrimaryButton from "../customButtons/PrimaryButton";
-import TextButton from "../customButtons/TextButton";
 import SecondaryButton from "../customButtons/SecondaryButton";
 
 const Signin = ({ setMode, handleAuthSuccess }) => {
@@ -17,11 +16,12 @@ const Signin = ({ setMode, handleAuthSuccess }) => {
   });
   const [showPassword, setShowPassword] = useState(false);
 
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   const [loginUser, { isLoading: isLoggingIn }] = useLoginUserMutation();
 
   const isEmailValid = /\S+@\S+\.\S+/.test(values.email);
-  const isFormValid =
-    values.email.trim() && values.password.trim() && isEmailValid;
 
   const handleChange = (e) => {
     setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -30,12 +30,19 @@ const Signin = ({ setMode, handleAuthSuccess }) => {
   const validateForm = () => {
     const { email, password } = values;
 
-    if (!email || !password) {
-      return "Please fill in all fields";
+    if (!email.trim()) {
+      emailRef.current?.focus();
+      return "Enter your email";
     }
 
     if (!/\S+@\S+\.\S+/.test(email)) {
+      emailRef.current?.focus();
       return "Invalid email format";
+    }
+
+    if (!password.trim()) {
+      passwordRef.current?.focus();
+      return "Enter your password";
     }
 
     return null;
@@ -65,7 +72,6 @@ const Signin = ({ setMode, handleAuthSuccess }) => {
         password: "",
       });
     } catch (err) {
-      console.log(err)
       toast({
         title: err?.data?.message || "Login failed",
         variant: "destructive",
@@ -84,17 +90,19 @@ const Signin = ({ setMode, handleAuthSuccess }) => {
         </div>
 
         <form onSubmit={handleLogin} className="space-y-10">
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             <label
+              htmlFor="email"
               className="
     text-[12px]
     font-medium
     text-black/65
   "
             >
-              EMAIL
+              Email
             </label>
             <input
+              ref={emailRef}
               id="email"
               type="email"
               placeholder="Email"
@@ -113,19 +121,21 @@ const Signin = ({ setMode, handleAuthSuccess }) => {
           </div>
 
           <div className="space-y-2">
-            <div className="space-y-2 relative">
+            <div className="space-y-2.5 relative">
               <label
+                htmlFor="password"
                 className="
     text-[12px]
     font-medium
     text-black/65
   "
               >
-                PASSWORD
+                Password
               </label>
 
               <div className="relative">
                 <input
+                  ref={passwordRef}
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -184,7 +194,7 @@ duration-150 px-2"
           <div className="space-y-4 pt-4">
             <PrimaryButton
               type="submit"
-              disabled={isLoggingIn || !isFormValid}
+              disabled={isLoggingIn}
               className="w-full"
             >
               {isLoggingIn ? "Signing in..." : "Sign in"}

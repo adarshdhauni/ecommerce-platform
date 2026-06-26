@@ -297,24 +297,25 @@ exports.cancelOrder = async (req, res, next) => {
       throw new Error("Order cannot be cancelled");
     }
 
-    if (order.status === "cancelled") {
+    if (order.status === "Cancelled") {
       throw new Error("Order already cancelled");
     }
 
     for (const item of order.items) {
-      await Product.updateOne(
-        {
-          _id: item.productId,
-          "sizes.size": item.size,
-        },
-        {
-          $inc: {
-            "sizes.$.stock": item.quantity,
-            "sizes.$.sold": -item.quantity,
-            sold: -item.quantity,
-          },
-        },
-      );
+      const product = await Product.findById(item.productId);
+
+      if (!product) continue;
+
+      product.sold = Math.max(0, product.sold - item.quantity);
+
+      const size = product.sizes.find((s) => s.size === item.size);
+
+      if (size) {
+        size.stock += item.quantity;
+        size.sold = Math.max(0, size.sold - item.quantity);
+      }
+
+      await product.save();
     }
 
     order.status = "Cancelled";

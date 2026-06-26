@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { useSubscribedUsersMutation } from "../../redux/api/apiSlice.js";
 import PrimaryButton from "../customButtons/PrimaryButton.jsx";
+import { useRef } from "react";
+import { Label } from "../ui/label.jsx";
 
 const FOOTER_ITEMS = [
   { label: "SHOP", path: "/products" },
@@ -21,6 +23,8 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [localError, setLocalError] = useState("");
 
+  const emailRef = useRef(null);
+
   const [subscribeUser, { isLoading }] = useSubscribedUsersMutation();
 
   const year = new Date().getFullYear();
@@ -33,11 +37,13 @@ const Footer = () => {
     const cleanedEmail = email.trim().toLowerCase();
 
     if (!cleanedEmail) {
+      emailRef.current.focus();
       setLocalError("Email cannot be empty");
       return;
     }
 
     if (!EMAIL_REGEX.test(cleanedEmail)) {
+      emailRef.current.focus();
       setLocalError("Please enter a valid email");
       return;
     }
@@ -83,20 +89,30 @@ const Footer = () => {
             onSubmit={handleSubmit}
             className="max-w-md mx-auto space-y-4 text-left"
           >
-            <label htmlFor="email" className="sr-only">
-              Email address
-            </label>
+            <div className="space-y-2.5">
+              <Label
+                htmlFor="email"
+                className="text-[12px]
+              font-medium
+              text-black/65"
+              >
+                Email*
+              </Label>
 
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
-                focus:outline-none  focus:border-black transition-all 
-duration-200 px-2"
-            />
+              <input
+                ref={emailRef}
+                id="email"
+                type="email"
+                value={email}
+                autoComplete="email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+              focus:outline-none  focus:border-black transition-all 
+              duration-200 px-2"
+              />
+            </div>
 
             {localError && <p className="text-red-500 text-xs">{localError}</p>}
             <PrimaryButton

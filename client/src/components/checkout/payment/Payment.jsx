@@ -20,7 +20,6 @@ import PrimaryButton from "@/components/customButtons/PrimaryButton";
 import ErrorState from "@/components/ErrorState/ErrorState";
 import SavedDetailsSkeleton from "@/components/loadingStates/SavedDetailsSkeleton";
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 const ConfirmModal = lazy(() => import("@/components/modals/ConfirmModal"));
 
 const cardNumberRegex = /^[0-9]{16}$/;
@@ -64,7 +63,6 @@ const normalizePayment = (data = {}) => ({
 });
 const Payment = ({ setCurrentStep }) => {
   const { toast } = useToast();
-  const navigate = useNavigate();
 
   const couponData = safeParse("coupon");
   const note = localStorage.getItem("orderNote");
@@ -209,23 +207,17 @@ const Payment = ({ setCurrentStep }) => {
     }
   };
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     if (isLoading) return;
 
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1;
-
     const nameVal = paymentValue.name.trim();
     const cardVal = paymentValue.cardNumber.trim();
     const monthVal = paymentValue.month.trim();
     const yearVal = paymentValue.year.trim();
     const cvvVal = paymentValue.cvv.trim();
-
-    const requiredFields = ["name", "cardNumber", "month", "year", "cvv"];
-
-    const emptyField = requiredFields.find(
-      (field) => !paymentValue[field]?.trim(),
-    );
 
     if (usingSaved && !selectedPaymentId) {
       toast({ title: "Invalid saved payment", variant: "destructive" });
@@ -233,13 +225,44 @@ const Payment = ({ setCurrentStep }) => {
     }
 
     if (!usingSaved) {
-      if (emptyField) {
-        toast({
+      if (!nameVal) {
+        focusField("name");
+        return toast({
           variant: "destructive",
-          title: "Please fill all required fields",
+          title: "Enter the name on the card",
         });
-        focusField(emptyField);
-        return;
+      }
+
+      if (!cardVal) {
+        focusField("cardNumber");
+        return toast({
+          variant: "destructive",
+          title: "Enter your card number",
+        });
+      }
+
+      if (!monthVal) {
+        focusField("month");
+        return toast({
+          variant: "destructive",
+          title: "Enter the expiry month",
+        });
+      }
+
+      if (!yearVal) {
+        focusField("year");
+        return toast({
+          variant: "destructive",
+          title: "Enter the expiry year",
+        });
+      }
+
+      if (!cvvVal) {
+        focusField("cvv");
+        return toast({
+          variant: "destructive",
+          title: "Enter the CVV",
+        });
       }
 
       if (!monthRegex.test(monthVal)) {
@@ -364,18 +387,6 @@ const Payment = ({ setCurrentStep }) => {
     }
   };
 
-  const hasCardDetails =
-    paymentValue.cardNumber.length === 16 && paymentValue.cvv.length >= 3;
-
-  const hasNewPaymentDetails =
-    paymentValue.name &&
-    paymentValue.month.length === 2 &&
-    paymentValue.year.length === 4;
-
-  const isFormValid = usingSaved
-    ? hasCardDetails
-    : hasCardDetails && hasNewPaymentDetails;
-
   return (
     <>
       <div className="space-y-10 w-full">
@@ -408,50 +419,36 @@ const Payment = ({ setCurrentStep }) => {
             />
           )
         )}
-        <PaymentInputs
-          paymentValue={paymentValue}
-          setPaymentValue={setPaymentValue}
-          handleChange={handleChange}
-          capitalizeWords={capitalizeWords}
-          formatCard={formatCard}
-        />
-        <div className="text-xs text-gray-400">
-          🔒 Secure checkout — encrypted & protected
-        </div>
+        <form onSubmit={handleClick}>
+          <PaymentInputs
+            paymentValue={paymentValue}
+            setPaymentValue={setPaymentValue}
+            handleChange={handleChange}
+            capitalizeWords={capitalizeWords}
+            formatCard={formatCard}
+          />
 
-        <div className="border-t border-gray-100 pt-6 flex justify-between items-center"></div>
+          <div className="mt-8 border-t border-gray-100 pt-5">
+            <p className="text-xs text-gray-400 text-center">
+              🔒 Secure checkout — encrypted & protected
+            </p>
+          </div>
 
-        <div className="flex justify-between items-center pt-6">
-          <button
-            onClick={() => setCurrentStep(1)}
-            className="
-    inline-flex
-    items-center
-    gap-2
+          <div className="flex justify-between items-center pt-8">
+            <button
+              type="button"
+              onClick={() => setCurrentStep(1)}
+              className="inline-flex items-center gap-2 text-[13px] font-medium text-black/70 transition-colors duration-150 active:scale-[0.985] hover-supported:hover:text-black"
+            >
+              <ArrowLeft size={16} />
+              Back to Shipping
+            </button>
 
-    text-[13px]
-    font-medium
-
-    text-black/70
-
-    transition-colors
-    duration-150
-    active:scale-[0.985]
-
-    hover-supported:hover:text-black
-  "
-          >
-            <ArrowLeft size={16} />
-            Back to Shipping
-          </button>
-
-          <PrimaryButton
-            disabled={isLoading || !isFormValid}
-            onClick={handleClick}
-          >
-            {isLoading ? "Processing..." : "Place Order"}
-          </PrimaryButton>
-        </div>
+            <PrimaryButton type="submit" disabled={isLoading}>
+              {isLoading ? "Processing..." : "Place Order"}
+            </PrimaryButton>
+          </div>
+        </form>
       </div>
 
       <Suspense fallback={null}>

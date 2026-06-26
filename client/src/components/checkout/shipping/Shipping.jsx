@@ -168,51 +168,82 @@ const Shipping = ({ setCurrentStep }) => {
     }
   };
 
-  const handleNext = async () => {
+  const handleNext = async (e) => {
+    e.preventDefault();
     if (isLoading) return;
-    const requiredFields = [
-      "fullName",
-      "phone",
-      "address1",
-      "postalCode",
-      "city",
-      "state",
-    ];
 
-    const emptyField = requiredFields.find(
-      (field) => !shippingValue[field]?.trim(),
-    );
+    if (!shippingValue.fullName.trim()) {
+      focusField("fullName");
 
-    if (emptyField) {
-      toast({
+      return toast({
         variant: "destructive",
-        title: "Please fill all required fields",
+        title: "Enter your full name",
       });
+    }
 
-      focusField(emptyField);
+    if (!shippingValue.phone.trim()) {
+      focusField("phone");
 
-      return;
+      return toast({
+        variant: "destructive",
+        title: "Enter your phone number",
+      });
     }
 
     if (!/^[0-9]{10}$/.test(shippingValue.phone)) {
-      toast({
+      focusField("phone");
+
+      return toast({
         variant: "destructive",
         title: "Invalid phone number",
-        description: "Phone number must be 10 digits long.",
+        description: "Phone number must be exactly 10 digits.",
       });
-      focusField("phone");
-      return;
+    }
+
+    if (!shippingValue.address1.trim()) {
+      focusField("address1");
+
+      return toast({
+        variant: "destructive",
+        title: "Enter your address",
+      });
+    }
+
+    if (!shippingValue.postalCode.trim()) {
+      focusField("postalCode");
+
+      return toast({
+        variant: "destructive",
+        title: "Enter your postal code",
+      });
     }
 
     if (!/^[1-9][0-9]{5}$/.test(shippingValue.postalCode)) {
-      toast({
+      focusField("postalCode");
+
+      return toast({
         variant: "destructive",
         title: "Invalid postal code",
-        description: "Postal code must be 6 digits long.",
+        description: "Postal code must be exactly 6 digits.",
       });
+    }
 
-      focusField("postalCode");
-      return;
+    if (!shippingValue.city.trim()) {
+      focusField("city");
+
+      return toast({
+        variant: "destructive",
+        title: "Enter your city",
+      });
+    }
+
+    if (!shippingValue.state.trim()) {
+      focusField("state");
+
+      return toast({
+        variant: "destructive",
+        title: "Enter your state",
+      });
     }
 
     const cleanedValue = Object.fromEntries(
@@ -259,14 +290,6 @@ const Shipping = ({ setCurrentStep }) => {
     }
   };
 
-  const isFormValid =
-    shippingValue.fullName &&
-    /^[0-9]{10}$/.test(shippingValue.phone) &&
-    shippingValue.address1 &&
-    /^[1-9][0-9]{5}$/.test(shippingValue.postalCode) &&
-    shippingValue.city &&
-    shippingValue.state;
-
   return (
     <>
       <div className="space-y-10 w-full">
@@ -300,46 +323,49 @@ const Shipping = ({ setCurrentStep }) => {
             />
           )
         )}
-        <ShippingInputs
-          shippingValue={shippingValue}
-          setShippingValue={setShippingValue}
-          handleChange={handleChange}
-          capitalizeWords={capitalizeWords}
-        />
+        <form onSubmit={handleNext}>
+          <ShippingInputs
+            shippingValue={shippingValue}
+            setShippingValue={setShippingValue}
+            handleChange={handleChange}
+            capitalizeWords={capitalizeWords}
+          />
 
-        <div className="border-t border-gray-100 pt-6 flex justify-between items-center"></div>
+          <div className="border-t border-gray-100 pt-6 flex justify-between items-center"></div>
 
-        <div className="flex justify-between items-center pt-6">
-          <button
-            onClick={() => navigate("/cart")}
-            className="
-    inline-flex
-    items-center
-    gap-2
+          <div className="flex justify-between items-center pt-6">
+            <button
+              type="button"
+              onClick={() => navigate("/cart")}
+              className="
+            inline-flex
+            items-center
+            gap-2
+            
+            text-[13px]
+            font-medium
+            
+            text-black/70
+            active:scale-[0.985]
+            
+            transition-colors
+            duration-150
+            
+            hover-supported:hover:text-black
+            "
+            >
+              <ArrowLeft size={16} />
+              Back to Cart
+            </button>
 
-    text-[13px]
-    font-medium
-
-    text-black/70
-    active:scale-[0.985]
-
-    transition-colors
-    duration-150
-
-    hover-supported:hover:text-black
-  "
-          >
-            <ArrowLeft size={16} />
-            Back to Cart
-          </button>
-
-          <PrimaryButton
-            onClick={handleNext}
-            disabled={isLoading || !isFormValid}
-          >
-            {isLoading ? "Saving..." : "Continue"}
-          </PrimaryButton>
-        </div>
+            <PrimaryButton
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Saving..." : "Continue"}
+            </PrimaryButton>
+          </div>
+        </form>
       </div>
 
       <Suspense fallback={null}>

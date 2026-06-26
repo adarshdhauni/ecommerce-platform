@@ -37,6 +37,7 @@ const ProductAddImageSec = ({
         {images.map((image, index) => (
           <div key={index} className="flex gap-4 items-center">
             <input
+              id={`image-${index}`}
               type="text"
               placeholder="Paste image URL"
               value={image}

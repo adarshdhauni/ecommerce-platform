@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
 const SecondaryButton = ({
+  type = "button",
   children,
   className = "",
   variant = "default",
@@ -33,6 +34,7 @@ const SecondaryButton = ({
 
   return (
     <button
+      type={type}
       disabled={disabled}
       {...props}
       className={`

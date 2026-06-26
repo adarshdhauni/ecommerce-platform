@@ -278,12 +278,7 @@ hover-supported:hover:translate-x-[2px] active:scale-[0.985]"
                     onClick={() => {
                       localStorage.clear();
                       window.dispatchEvent(new Event("storage"));
-
-                      toast({ description: "Logged out" });
-
-                      setTimeout(() => {
-                        window.location.replace("/");
-                      }, 500);
+                      window.location.replace("/");
                     }}
                     className="w-full text-left px-4 py-3 text-sm 
 hover-supported:hover:bg-black/[0.03] transition-all duration-150 

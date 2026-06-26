@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useContactMessageMutation } from "@/redux/api/apiSlice.js";
 import { useToast } from "@/hooks/use-toast";
 import FadeIn from "@/components/customFadeIn/FadeIn.jsx";
@@ -16,6 +16,11 @@ const Contact = () => {
     message: "",
   });
 
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -25,30 +30,51 @@ const Contact = () => {
 
     const { firstName, lastName, email, message } = formData;
 
-    if (!firstName.trim())
+    if (!firstName.trim()) {
+      firstNameRef.current?.focus();
+
       return toast({
         variant: "destructive",
         description: "Enter first name ❌",
       });
+    }
 
-    if (!lastName.trim())
+    if (!lastName.trim()) {
+      lastNameRef.current?.focus();
+
       return toast({
         variant: "destructive",
         description: "Enter last name ❌",
       });
+    }
 
-    if (!email.trim())
-      return toast({ variant: "destructive", description: "Enter email ❌" });
+    if (!email.trim()) {
+      emailRef.current?.focus();
+
+      return toast({
+        variant: "destructive",
+        description: "Enter email ❌",
+      });
+    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email))
+    if (!emailRegex.test(email)) {
+      emailRef.current?.focus();
+
       return toast({
         variant: "destructive",
         description: "Invalid email ❌",
       });
+    }
 
-    if (!message.trim())
-      return toast({ variant: "destructive", description: "Enter message ❌" });
+    if (!message.trim()) {
+      messageRef.current?.focus();
+
+      return toast({
+        variant: "destructive",
+        description: "Enter message ❌",
+      });
+    }
 
     try {
       await contactMessage(formData).unwrap();
@@ -155,46 +181,96 @@ const Contact = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6 text-left">
             <div className="grid grid-cols-2 gap-4">
-              <input
-                id="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                placeholder="First Name"
-                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+              <div className="space-y-2.5">
+                <label
+                  htmlFor="firstName"
+                  className="text-[12px]
+                        font-medium
+                        text-black/65"
+                >
+                  First Name*
+                </label>
+                <input
+                  ref={firstNameRef}
+                  id="firstName"
+                  autoComplete="given-name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  placeholder="First Name"
+                  className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
                 focus:outline-none  focus:border-black transition-all 
-duration-150 px-2"
-              />
-
-              <input
-                id="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                placeholder="Last Name"
-                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+                duration-150 px-2"
+                />
+              </div>
+              <div className="space-y-2.5">
+                <label
+                  htmlFor="lastName"
+                  className="  text-[12px]
+                    font-medium
+                    text-black/65"
+                >
+                  Last Name*
+                </label>
+                <input
+                  ref={lastNameRef}
+                  id="lastName"
+                  autoComplete="family-name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  placeholder="Last Name"
+                  className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
                 focus:outline-none focus:border-black transition-all 
-duration-150 px-2"
+                duration-150 px-2"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2.5">
+              <label
+                htmlFor="email"
+                className="text-[12px]
+                  font-medium
+                  text-black/65"
+              >
+                Email*
+              </label>
+              <input
+                ref={emailRef}
+                id="email"
+                type="email"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="Email"
+                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+              focus:outline-none focus:border-black transition-all 
+              duration-150 px-2"
               />
             </div>
 
-            <input
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
-                focus:outline-none focus:border-black transition-all 
-duration-150 px-2"
-            />
-
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Your message..."
-              className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
-                focus:outline-none focus:border-black transition-all 
-duration-150 px-2"
-            />
+            <div className="space-y-2.5">
+              <label
+                className="  text-[12px]
+                  font-medium
+                  text-black/65"
+              >
+                Message*
+              </label>
+              <textarea
+                ref={messageRef}
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Your message..."
+                className="resize-none min-h-32 w-full border-b border-gray-300 py-2 text-sm pr-8
+              focus:outline-none focus:border-black transition-all 
+              duration-150 px-2"
+              />
+            </div>
 
             <div className="text-center pt-4">
               <PrimaryButton type="submit" disabled={isLoading} className="">

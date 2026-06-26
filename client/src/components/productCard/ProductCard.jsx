@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Heart, Star } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -50,7 +50,6 @@ const ProductCard = ({
   const navigate = useNavigate();
 
   const { data } = useGetWishlistQuery();
-
   const wishlist = data?.wishlist || [];
 
   const [toggleWishlist, { isLoading: loadingToggle }] =
@@ -58,23 +57,35 @@ const ProductCard = ({
 
   const isInWishlist = wishlist.some((item) => item._id === product._id);
 
+  const [optimisticWishlist, setOptimisticWishlist] = useState(isInWishlist);
+
+  useEffect(() => {
+    setOptimisticWishlist(isInWishlist);
+  }, [isInWishlist]);
+
   const handleWishlist = async () => {
     if (loadingToggle) return;
+
     if (!token) {
       navigate("/auth", {
         state: { from: location.pathname },
       });
       return;
     }
-    const wasInWishlist = isInWishlist;
+
+    const previous = optimisticWishlist;
+
+    setOptimisticWishlist(!previous);
+
     try {
       await toggleWishlist(product._id).unwrap();
+
       toast({
-        description: wasInWishlist
-          ? "Removed from wishlist"
-          : "Added to wishlist",
+        description: previous ? "Removed from wishlist" : "Added to wishlist",
       });
     } catch (err) {
+      setOptimisticWishlist(previous);
+
       toast({
         variant: "destructive",
         description: err?.data?.message || "Something went wrong. Try again.",
@@ -206,7 +217,7 @@ ease-out
 
             transition-all duration-150
 
-            ${isInWishlist ? "fill-black stroke-black" : "stroke-black"}
+            ${optimisticWishlist ? "fill-black stroke-black" : "stroke-black"}
           `}
           />
         </button>

@@ -52,6 +52,7 @@ const ProductInfoSec = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2.5">
             <label
+              htmlFor="name"
               className="
            text-xs text-gray-500 tracking-wide"
             >
@@ -59,6 +60,7 @@ const ProductInfoSec = ({
             </label>
 
             <input
+              id="name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -71,6 +73,7 @@ const ProductInfoSec = ({
 
           <div className="space-y-2.5">
             <label
+              htmlFor="price"
               className="
            text-xs text-gray-500 tracking-wide"
             >
@@ -78,6 +81,7 @@ const ProductInfoSec = ({
             </label>
 
             <input
+              id="price"
               type="number"
               min={"0"}
               value={price}
@@ -90,13 +94,17 @@ const ProductInfoSec = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          id="selectSection"
+          tabIndex={-1}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           <div className="space-y-2.5 ">
             <label className="text-xs text-gray-500 tracking-wide">
               Category
             </label>
 
-            <Select value={category} onValueChange={setCategory}>
+            <Select id="category" value={category} onValueChange={setCategory}>
               <SelectTrigger
                 className={`
                   group
@@ -185,7 +193,7 @@ const ProductInfoSec = ({
               Gender
             </label>
 
-            <Select value={gender} onValueChange={setGender}>
+            <Select id="gender" value={gender} onValueChange={setGender}>
               <SelectTrigger
                 className={`
                  group
@@ -268,6 +276,7 @@ const ProductInfoSec = ({
 
         <div className="space-y-2.5">
           <label
+            htmlFor="description"
             className="
           text-xs text-gray-500 tracking-wide"
           >
@@ -275,7 +284,8 @@ const ProductInfoSec = ({
           </label>
 
           <textarea
-            rows={3}
+            id="description"
+            rows={5}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Relaxed fit heavyweight hoodie crafted from premium cotton fleece."

@@ -19,6 +19,12 @@ import ErrorState from "@/components/ErrorState/ErrorState";
 import EmptyState from "@/components/EmptyState/EmptyState";
 import TextButton from "@/components/customButtons/TextButton";
 
+const focusField = (id) => {
+  const el = document.getElementById(id);
+  el?.scrollIntoView({ behavior: "smooth", block: "center" });
+  el?.focus();
+};
+
 const Profile = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -71,36 +77,39 @@ const Profile = () => {
   const handleLogout = () => {
     localStorage.clear();
     window.dispatchEvent(new Event("storage"));
-
-    toast({ description: "Logged out" });
-
-    setTimeout(() => {
-      window.location.replace("/");
-    }, 500);
+    window.location.replace("/");
   };
 
   const validateForm = () => {
     const { email, name } = form;
 
-    if (!email.trim() || !name.trim()) {
-      return "Please fill in all fields";
+    if (!name.trim()) {
+      focusField("name");
+      return "Enter your name";
+    }
+
+    if (name.trim().length < 2) {
+      focusField("name");
+      return "Name must be at least 2 characters";
+    }
+
+    if (!email.trim()) {
+      focusField("email");
+      return "Enter your email";
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email)) {
+      focusField("email");
       return "Invalid email format";
-    }
-
-    if (name.length < 2) {
-      return "Name must be at least 2 characters";
     }
 
     return null;
   };
 
-  const handleSave = async () => {
-    if (updating) {
-      return;
-    }
+  const handleSave = async (e) => {
+    e.preventDefault();
+
+    if (updating) return;
 
     const error = validateForm();
 
@@ -121,6 +130,7 @@ const Profile = () => {
       toast({
         description: res.message || "Profile updated",
       });
+
       setOpen(false);
     } catch (err) {
       toast({
@@ -133,45 +143,66 @@ const Profile = () => {
   const validatePassword = () => {
     const { currentPassword, newPassword, confirmPassword } = password;
 
-    if (!currentPassword || !newPassword || !confirmPassword) {
-      return "Please fill in all fields";
+    if (!currentPassword.trim()) {
+      focusField("currentPassword");
+      return "Enter your current password";
     }
-    if (newPassword !== confirmPassword) {
-      return "Passwords do not match";
+
+    if (!newPassword.trim()) {
+      focusField("newPassword");
+      return "Enter your new password";
     }
 
     if (newPassword.length < 8) {
+      focusField("newPassword");
       return "Password must be at least 8 characters";
     }
 
     if (newPassword.length > 64) {
+      focusField("newPassword");
       return "Password cannot exceed 64 characters";
     }
 
     if (!/[A-Z]/.test(newPassword)) {
+      focusField("newPassword");
       return "Add at least 1 uppercase letter";
     }
 
     if (!/[a-z]/.test(newPassword)) {
+      focusField("newPassword");
       return "Add at least 1 lowercase letter";
     }
 
     if (!/\d/.test(newPassword)) {
+      focusField("newPassword");
       return "Add at least 1 number";
     }
 
     if (!/[^\w\s]/.test(newPassword)) {
+      focusField("newPassword");
       return "Add at least 1 special character";
     }
 
     if (currentPassword === newPassword) {
+      focusField("newPassword");
       return "New password must be different";
+    }
+
+    if (!confirmPassword.trim()) {
+      focusField("confirmPassword");
+      return "Confirm your new password";
+    }
+
+    if (newPassword !== confirmPassword) {
+      focusField("confirmPassword");
+      return "Passwords do not match";
     }
 
     return null;
   };
 
-  const handlePasswordChange = async () => {
+  const handlePasswordChange = async (e) => {
+    e.preventDefault();
     if (updatingPassword) {
       return;
     }
@@ -220,9 +251,6 @@ const Profile = () => {
 
   const nameVal = form.name.trim();
   const emailVal = form.email.trim();
-
-  const isValid =
-    nameVal.length >= 2 && /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(emailVal);
 
   if (isLoading) {
     return <ProfileSkeleton />;
@@ -320,9 +348,7 @@ disabled:cursor-not-allowed
 
               <button
                 onClick={() => navigate("/wishlist")}
-                className="group w-full flex items-center justify-between py-5 px-2 
-    text-sm tracking-wide transition-all duration-150 
-    hover:bg-gray-50 active:scale-[0.985]"
+                className="group w-full flex items-center justify-between py-5 px-2 text-sm tracking-wide transition-all duration-150 hover:bg-gray-50 active:scale-[0.985]"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-black">Wishlist</span>
@@ -347,9 +373,7 @@ disabled:cursor-not-allowed
               <div className="border-t border-b divide-y divide-gray-100">
                 <button
                   onClick={() => setPasswordOpen(true)}
-                  className="group w-full flex items-center justify-between py-5 px-2 
-      text-sm tracking-wide transition-all duration-150 
-      hover:bg-gray-50 active:scale-[0.995]"
+                  className="group w-full flex items-center justify-between py-5 px-2 text-sm tracking-wide transition-all duration-150 hover:bg-gray-50 active:scale-[0.995]"
                 >
                   <div className="flex flex-col items-start">
                     <span className="text-black">Change Password</span>
@@ -373,13 +397,7 @@ disabled:cursor-not-allowed
             <TextButton
               aria-label="Logout"
               onClick={handleLogout}
-              className="
-    tracking-[0.3em]
-    text-black/40
-
-    hover-supported:hover:text-red-500
-    focus-visible:ring-red-500
-  "
+              className="tracking-[0.3em] text-black/40 hover-supported:hover:text-red-500 focus-visible:ring-red-500"
             >
               LOGOUT
             </TextButton>
@@ -396,7 +414,6 @@ disabled:cursor-not-allowed
           setForm={setForm}
           isLoading={updating}
           isChanged={isChanged}
-          isValid={isValid}
         />
       </Suspense>
 

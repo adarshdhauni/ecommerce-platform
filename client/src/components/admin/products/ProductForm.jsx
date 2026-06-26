@@ -10,6 +10,15 @@ import PrimaryButton from "../../customButtons/PrimaryButton";
 
 const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
 
+const focusField = (id) => {
+  const el = document.getElementById(id);
+  el?.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+  el?.focus();
+};
+
 const ProductForm = ({
   initialData = {},
   onSubmit,
@@ -48,12 +57,12 @@ const ProductForm = ({
       .filter((img) => img !== "");
 
     if (cleanedImages.length === 0) {
-      toast({
+      focusField("image-0");
+
+      return toast({
         variant: "destructive",
         description: "Please add an image first",
       });
-
-      return;
     }
 
     const validImages = cleanedImages.every((img) => {
@@ -66,21 +75,36 @@ const ProductForm = ({
     });
 
     if (!validImages) {
-      toast({
+      const invalidIndex = images.findIndex((img) => {
+        const value = img.trim();
+
+        if (!value) return false;
+
+        try {
+          new URL(value);
+          return false;
+        } catch {
+          return true;
+        }
+      });
+
+      focusField(`image-${invalidIndex}`);
+
+      return toast({
         variant: "destructive",
         description: "Please enter valid image URLs",
       });
-
-      return;
     }
 
-    if (images.some((img) => img.trim() === "")) {
-      toast({
+    const emptyIndex = images.findIndex((img) => img.trim() === "");
+
+    if (emptyIndex !== -1) {
+      focusField(`image-${emptyIndex}`);
+
+      return toast({
         variant: "destructive",
         description: "Please complete the current image field first",
       });
-
-      return;
     }
 
     setImages([...images, ""]);
@@ -108,13 +132,15 @@ const ProductForm = ({
   };
 
   const addInfoField = () => {
-    if (productInfo.some((info) => info.trim() === "")) {
-      toast({
+    const emptyIndex = productInfo.findIndex((info) => info.trim() === "");
+
+    if (emptyIndex !== -1) {
+      focusField(`info-${emptyIndex}`);
+
+      return toast({
         variant: "destructive",
         description: "Please complete the current detail field first",
       });
-
-      return;
     }
 
     setProductInfo([...productInfo, ""]);
@@ -170,12 +196,10 @@ const ProductForm = ({
       }
     });
 
-    const cleanedSizes = sizes
-      .map((item) => ({
-        ...item,
-        stock: Number(item.stock || 0),
-      }))
-      .filter((item) => item.stock > 0);
+    const cleanedSizes = sizes.map((item) => ({
+      ...item,
+      stock: Number(item.stock || 0),
+    }));
 
     const hasValidImages = cleanedImages.every((img) => {
       try {
@@ -186,25 +210,96 @@ const ProductForm = ({
       }
     });
 
-    const isInvalid =
-      trimmedName.length < 2 ||
-      Number.isNaN(numericPrice) ||
-      numericPrice <= 0 ||
-      trimmedDescription.length < 10 ||
-      !category ||
-      !gender ||
-      cleanedImages.length === 0 ||
-      !hasValidImages ||
-      cleanedInfo.length === 0 ||
-      cleanedSizes.length === 0;
+    if (trimmedName.length < 2) {
+      focusField("name");
 
-    if (isInvalid) {
-      toast({
+      return toast({
         variant: "destructive",
-        description: "Please fill in all required fields properly",
+        description: "Product name must be at least 2 characters.",
       });
+    }
 
-      return;
+    if (Number.isNaN(numericPrice) || numericPrice <= 0) {
+      focusField("price");
+
+      return toast({
+        variant: "destructive",
+        description: "Enter a valid product price.",
+      });
+    }
+
+    if (trimmedDescription.length < 10) {
+      focusField("description");
+
+      return toast({
+        variant: "destructive",
+        description: "Description must be at least 10 characters.",
+      });
+    }
+
+    if (!category) {
+      focusField("selectSection");
+      return toast({
+        variant: "destructive",
+        description: "Please select a category.",
+      });
+    }
+
+    if (!gender) {
+      focusField("selectSection");
+      return toast({
+        variant: "destructive",
+        description: "Please select a gender.",
+      });
+    }
+
+    if (cleanedImages.length === 0) {
+      focusField("image-0");
+
+      return toast({
+        variant: "destructive",
+        description: "Please add at least one image.",
+      });
+    }
+
+    const invalidImageIndex = images.findIndex((img) => {
+      const value = img.trim();
+
+      if (!value) return false;
+
+      try {
+        new URL(value);
+        return false;
+      } catch {
+        return true;
+      }
+    });
+
+    if (!hasValidImages) {
+      focusField(`image-${invalidImageIndex}`);
+
+      return toast({
+        variant: "destructive",
+        description: "Please enter valid image URLs.",
+      });
+    }
+
+    if (!cleanedSizes.some((item) => item.stock > 0)) {
+      focusField("inventory");
+
+      return toast({
+        variant: "destructive",
+        description: "Please add stock for at least one size.",
+      });
+    }
+
+    if (cleanedInfo.length === 0) {
+      focusField("info-0");
+
+      return toast({
+        variant: "destructive",
+        description: "Please add at least one product detail.",
+      });
     }
 
     onSubmit({
@@ -267,23 +362,13 @@ const ProductForm = ({
 
           <div className="space-y-3">
             <h1
-              className="
-        text-[34px]
-        leading-none
-        font-semibold
-        tracking-[-0.06em]
+              className="text-[34px] leading-none font-semibold tracking-[-0.06em]
         text-black/90"
             >
               {initialData?._id ? "Edit Product" : "Add Product"}
             </h1>
 
-            <p
-              className="
-        max-w-[520px]
-        text-[13px]
-        leading-relaxed
-        text-black/45"
-            >
+            <p className="max-w-[520px] text-[13px] leading-relaxed text-black/45">
               Manage product information, inventory and storefront visibility
             </p>
           </div>
@@ -318,39 +403,13 @@ const ProductForm = ({
           removeInfoField={removeInfoField}
         />
 
-        <div
-          className="
-    relative
-    overflow-hidden
-    rounded-[30px]
-    border border-black/[0.045]
-    bg-white/[0.78]
-    backdrop-blur-xl
-    p-7
-    shadow-[0_10px_30px_rgba(0,0,0,0.03)]
-    transition-all duration-300
-    flex items-center justify-between gap-6
-  "
-        >
+        <div className="relative overflow-hidden rounded-[30px] border border-black/[0.045] bg-white/[0.78] backdrop-blur-xl p-7 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 flex items-center justify-between gap-6">
           <div className="space-y-1">
-            <p
-              className="
-        text-[14px]
-        font-medium
-        tracking-[-0.01em]
-        text-black/85
-      "
-            >
+            <p className="text-[14px] font-medium tracking-[-0.01em] text-black/85">
               Featured Product
             </p>
 
-            <p
-              className="
-        text-[12px]
-        leading-relaxed
-        text-black/35
-      "
-            >
+            <p className="text-[12px] leading-relaxed text-black/35">
               Display this product prominently across the storefront
             </p>
           </div>
@@ -358,14 +417,7 @@ const ProductForm = ({
           <button
             type="button"
             onClick={() => setIsFeatured(!isFeatured)}
-            className={`
-      relative
-      h-8
-      w-14
-      shrink-0
-      rounded-full
-      border
-      transition-all duration-150 ease-out
+            className={`relative h-8 w-14 shrink-0 rounded-full border transition-all duration-150 ease-out
       ${
         isFeatured
           ? "border-black/[0.08] bg-black/[0.92]"
@@ -375,14 +427,7 @@ const ProductForm = ({
     `}
           >
             <div
-              className={`
-        absolute top-1 left-1
-        h-6
-        w-6
-        rounded-full
-        bg-white
-        shadow-[0_2px_10px_rgba(0,0,0,0.08)]
-        transition-all duration-150 ease-out
+              className={` absolute top-1 left-1 h-6 w-6 rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.08)] transition-all duration-150 ease-out
         ${isFeatured ? "translate-x-6" : "translate-x-0"}
       `}
             />

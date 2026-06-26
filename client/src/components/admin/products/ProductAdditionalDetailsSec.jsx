@@ -37,6 +37,7 @@ const ProductAdditionalDetailsSec = ({
         {productInfo.map((info, index) => (
           <div key={index} className="flex gap-4 items-center">
             <input
+              id={`info-${index}`}
               type="text"
               placeholder="Enter product detail"
               value={info}

@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
 const PrimaryButton = ({
+  type = "button",
   children,
   className = "",
   disabled = false,
@@ -8,6 +9,7 @@ const PrimaryButton = ({
 }) => {
   return (
     <button
+    type={type}
       disabled={disabled}
       {...props}
       className={`

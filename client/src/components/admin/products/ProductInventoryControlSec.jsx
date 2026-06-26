@@ -23,11 +23,22 @@ const ProductInventoryControlSec = ({ sizes, handleStockChange }) => {
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
-        {sizes.map((item) => (
-          <div key={item.size} className="space-y-2">
-            <p className="text-xs tracking-wide text-gray-500">{item.size}</p>
+        {sizes.map((item, index) => (
+          <div
+            id="inventory"
+            tabIndex={-1}
+            key={item.size}
+            className="space-y-2.5"
+          >
+            <label
+              htmlFor={`size-${index}`}
+              className="text-xs tracking-wide text-gray-500"
+            >
+              {item.size}
+            </label>
 
             <input
+              id={`size-${index}`}
               type="number"
               min={0}
               value={item.stock}

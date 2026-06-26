@@ -22,6 +22,12 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
+const focusField = (id) => {
+  const el = document.getElementById(id);
+  el?.scrollIntoView({ behavior: "smooth", block: "center" });
+  el?.focus();
+};
+
 const ReviewModal = ({
   reviewProduct,
   setReviewProduct,
@@ -65,28 +71,34 @@ const ReviewModal = ({
     return () => window.removeEventListener("keydown", handleEsc);
   }, [isOpen]);
 
-  const handleSubmitReview = async () => {
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+
     if (reviewLoading) return;
+
     if (!content.trim()) {
-      toast({
+      focusField("reviewContent");
+
+      return toast({
         variant: "destructive",
         description: "Please write a review",
       });
-      return;
     }
+
     if (!rating) {
-      toast({
+      focusField("reviewRating");
+
+      return toast({
         variant: "destructive",
         description: "Please select a rating",
       });
-      return;
     }
+
     if (!reviewProduct?._id) {
-      toast({
+      return toast({
         variant: "destructive",
         description: "Something went wrong. Try again.",
       });
-      return;
     }
     try {
       await addReview({
@@ -116,22 +128,23 @@ const ReviewModal = ({
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          className=" fixed inset-0 z-[200]
+        <form onSubmit={handleSubmitReview}>
+          <motion.div
+            className=" fixed inset-0 z-[200]
           flex items-center justify-center
           px-4
           bg-black/30
           backdrop-blur-md
           cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          onClick={() => setReviewProduct(null)}
-        >
-          <motion.div
-            onClick={(e) => e.stopPropagation()}
-            className="
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={() => setReviewProduct(null)}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              className="
                   relative
                   w-full
                   max-w-md
@@ -147,34 +160,34 @@ const ReviewModal = ({
                   shadow-[0_30px_80px_rgba(0,0,0,0.2)]
                   cursor-default
                 "
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.96 }}
-            transition={{
-              type: "spring",
-              stiffness: 180,
-              damping: 22,
-              mass: 0.8,
-            }}
-          >
-            <div
-              className="
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.96 }}
+              transition={{
+                type: "spring",
+                stiffness: 180,
+                damping: 22,
+                mass: 0.8,
+              }}
+            >
+              <div
+                className="
     absolute inset-0
     bg-[linear-gradient(180deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0)_34%)]
     pointer-events-none
   "
-            />
+              />
 
-            <motion.div
-              variants={container}
-              initial="hidden"
-              animate="show"
-              className="relative z-10"
-            >
-              <div className="text-center">
-                <motion.h2
-                  variants={item}
-                  className="
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="relative z-10"
+              >
+                <div className="text-center">
+                  <motion.h2
+                    variants={item}
+                    className="
         text-[24px]
         leading-none
 
@@ -183,13 +196,13 @@ const ReviewModal = ({
 
         text-black/90
       "
-                >
-                  {isEditing ? "Edit Review" : "Add Review"}
-                </motion.h2>
+                  >
+                    {isEditing ? "Edit Review" : "Add Review"}
+                  </motion.h2>
 
-                <motion.p
-                  variants={item}
-                  className="
+                  <motion.p
+                    variants={item}
+                    className="
         mt-3
 
         text-[13px]
@@ -198,22 +211,25 @@ const ReviewModal = ({
 
         text-black/40
       "
-                >
-                  {isEditing
-                    ? "Update your review to reflect your latest experience with this product."
-                    : "Share your experience with this product to help other customers."}
-                </motion.p>
-              </div>
+                  >
+                    {isEditing
+                      ? "Update your review to reflect your latest experience with this product."
+                      : "Share your experience with this product to help other customers."}
+                  </motion.p>
+                </div>
 
-              <motion.div variants={item} className="mt-8 flex justify-center">
-                <div className="flex gap-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      onMouseEnter={() => setHover(star)}
-                      onMouseLeave={() => setHover(null)}
-                      onClick={() => setRating(star)}
-                      className={`
+                <motion.div
+                  variants={item}
+                  className="mt-8 flex justify-center"
+                >
+                  <div id="reviewRating" tabIndex={-1} className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        onMouseEnter={() => setHover(star)}
+                        onMouseLeave={() => setHover(null)}
+                        onClick={() => setRating(star)}
+                        className={`
             w-7
             h-7
 
@@ -230,21 +246,24 @@ const ReviewModal = ({
 
             active:scale-[0.985]
           `}
-                    />
-                  ))}
-                </div>
-              </motion.div>
+                      />
+                    ))}
+                  </div>
+                </motion.div>
 
-              <motion.div variants={item} className="mt-8">
-                <textarea
-                  rows={3}
-                  autoFocus
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder={
-                    isEditing ? "Update your review..." : "Write your review..."
-                  }
-                  className="
+                <motion.div variants={item} className="mt-8">
+                  <textarea
+                    id="reviewContent"
+                    rows={5}
+                    autoFocus
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    placeholder={
+                      isEditing
+                        ? "Update your review..."
+                        : "Write your review..."
+                    }
+                    className="
                  resize-none
   w-full
   bg-transparent
@@ -256,12 +275,12 @@ const ReviewModal = ({
   transition-all duration-150
   px-2
 "
-                />
-              </motion.div>
+                  />
+                </motion.div>
 
-              <motion.div
-                variants={item}
-                className="
+                <motion.div
+                  variants={item}
+                  className="
       mt-8
 
       flex
@@ -272,34 +291,33 @@ const ReviewModal = ({
 
       gap-3
     "
-              >
-                <SecondaryButton
-                  onClick={() => {
-                    setReviewProduct(null);
-                    setRating(0);
-                    setHover(null);
-                    setContent("");
-                  }}
                 >
-                  Cancel
-                </SecondaryButton>
+                  <SecondaryButton
+                    type="button"
+                    onClick={() => {
+                      setReviewProduct(null);
+                      setRating(0);
+                      setHover(null);
+                      setContent("");
+                    }}
+                  >
+                    Cancel
+                  </SecondaryButton>
 
-                <PrimaryButton
-                  disabled={reviewLoading}
-                  onClick={handleSubmitReview}
-                >
-                  {reviewLoading
-                    ? isEditing
-                      ? "Updating..."
-                      : "Submitting..."
-                    : isEditing
-                      ? "Update Review"
-                      : "Submit Review"}
-                </PrimaryButton>
+                  <PrimaryButton type="submit" disabled={reviewLoading}>
+                    {reviewLoading
+                      ? isEditing
+                        ? "Updating..."
+                        : "Submitting..."
+                      : isEditing
+                        ? "Update Review"
+                        : "Submit Review"}
+                  </PrimaryButton>
+                </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </form>
       )}
     </AnimatePresence>,
     document.body,

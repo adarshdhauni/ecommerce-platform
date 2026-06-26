@@ -28,7 +28,6 @@ const EditProfileModal = ({
   onConfirm,
   isLoading,
   isChanged,
-  isValid,
 }) => {
   useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow;
@@ -55,6 +54,7 @@ const EditProfileModal = ({
 
     return () => window.removeEventListener("keydown", handleEsc);
   }, [open]);
+
   return createPortal(
     <AnimatePresence>
       {open && (
@@ -181,27 +181,30 @@ scrollbar-none
                 </motion.p>
               </div>
 
-              <motion.div variants={item} className="mt-8 space-y-5">
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="name"
-                    className="
+              <form onSubmit={onConfirm}>
+                <motion.div variants={item} className="mt-8 space-y-5">
+                  <div className="space-y-2.5">
+                    <Label
+                      htmlFor="name"
+                      className="
     text-[12px]
     font-medium
     text-black/65
   "
-                  >
-                    Name
-                  </Label>
+                    >
+                      Name
+                    </Label>
 
-                  <input
-                    autoFocus
-                    id="name"
-                    value={form.name}
-                    placeholder="Name"
-                    disabled={isLoading}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="
+                    <input
+                      autoFocus
+                      id="name"
+                      value={form.name}
+                      placeholder="Name"
+                      disabled={isLoading}
+                      onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                      }
+                      className="
                     h-12
                     bg-transparent
     w-full
@@ -213,30 +216,30 @@ scrollbar-none
     transition-all duration-150
     px-2
   "
-                  />
-                </div>
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="email"
-                    className="
+                  <div className="space-y-2.5">
+                    <Label
+                      htmlFor="email"
+                      className="
     text-[12px]
     font-medium
     text-black/65
   "
-                  >
-                    Email
-                  </Label>
+                    >
+                      Email
+                    </Label>
 
-                  <input
-                    id="email"
-                    value={form.email}
-                    placeholder="Email"
-                    disabled={isLoading}
-                    onChange={(e) =>
-                      setForm({ ...form, email: e.target.value })
-                    }
-                    className="
+                    <input
+                      id="email"
+                      value={form.email}
+                      placeholder="Email"
+                      disabled={isLoading}
+                      onChange={(e) =>
+                        setForm({ ...form, email: e.target.value })
+                      }
+                      className="
                     h-12
     w-full
     border-b border-gray-300
@@ -248,34 +251,35 @@ scrollbar-none
     transition-all duration-150
     px-2
   "
-                  />
-                </div>
-              </motion.div>
+                    />
+                  </div>
+                </motion.div>
 
-              <motion.div
-                variants={item}
-                className="
+                <motion.div
+                  variants={item}
+                  className="
                 mt-8
-
+                
                 flex flex-col-reverse
                 sm:flex-row
-
+                
                 sm:justify-end
-
+                
                 gap-3
-              "
-              >
-                <SecondaryButton onClick={() => setOpen(false)}>
-                  Cancel
-                </SecondaryButton>
-
-                <PrimaryButton
-                  disabled={isLoading || !isChanged || !isValid}
-                  onClick={onConfirm}
+                "
                 >
-                  {isLoading ? "Processing..." : "Save Changes"}
-                </PrimaryButton>
-              </motion.div>
+                  <SecondaryButton type="button" onClick={() => setOpen(false)}>
+                    Cancel
+                  </SecondaryButton>
+
+                  <PrimaryButton
+                    type="submit"
+                    disabled={isLoading || !isChanged}
+                  >
+                    {isLoading ? "Processing..." : "Save Changes"}
+                  </PrimaryButton>
+                </motion.div>
+              </form>
             </motion.div>
           </motion.div>
         </motion.div>

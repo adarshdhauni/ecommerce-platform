@@ -159,7 +159,7 @@ const Admin = () => {
               }
             />
           ) : orders?.length === 0 ? (
-            <AdminOrdersEmpty compact search={""} />
+            <AdminOrdersEmpty compact search={""} emptyTitle={"No Recent Orders"} emptyDescription={"Your Recent Orders Will Appear Here"} />
           ) : (
             <div className="space-y-8 p-5">
               {orders?.map((order) => (

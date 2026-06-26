@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "@/redux/api/apiSlice";
@@ -22,6 +22,12 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const nameRef = useRef(null);
+  const phoneRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
 
   const handleChange = (e) => {
     setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -49,53 +55,76 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
   const isPasswordMatch =
     values.password && values.password === values.confirmPassword;
 
-  const isFormValid =
-    values.name &&
-    /^[6-9]\d{9}$/.test(values.phone) &&
-    isEmailValid &&
-    Object.values(passwordRules).every(Boolean) &&
-    isPasswordMatch;
-
   const validateForm = () => {
     const { name, phone, email, password, confirmPassword } = values;
 
-    if (!name || !phone || !email || !password || !confirmPassword) {
-      return "Please fill in all fields";
+    if (!name.trim()) {
+      nameRef.current?.focus();
+      return "Enter your name";
+    }
+
+    if (!phone.trim()) {
+      phoneRef.current?.focus();
+      return "Enter your phone number";
     }
 
     if (!/\S+@\S+\.\S+/.test(email)) {
+      emailRef.current?.focus();
       return "Invalid email format";
     }
 
     if (!/^[6-9]\d{9}$/.test(phone)) {
+      phoneRef.current?.focus();
       return "Invalid phone number";
     }
 
+    if (!email.trim()) {
+      emailRef.current?.focus();
+      return "Enter your email";
+    }
+
+    if (!password.trim()) {
+      passwordRef.current?.focus();
+      return "Enter your password";
+    }
+
     if (password !== confirmPassword) {
+      confirmPasswordRef.current?.focus();
       return "Passwords do not match";
     }
 
+    if (!confirmPassword.trim()) {
+      confirmPasswordRef.current?.focus();
+      return "Confirm your password";
+    }
+
     if (password.length < 8) {
+      passwordRef.current?.focus();
       return "Password must be at least 8 characters";
     }
 
     if (password.length > 64) {
+      passwordRef.current.focus();
       return "Password cannot exceed 64 characters";
     }
 
     if (!/[A-Z]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 uppercase letter";
     }
 
     if (!/[a-z]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 lowercase letter";
     }
 
     if (!/\d/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 number";
     }
 
     if (!/[@$!%*?&]/.test(password)) {
+      passwordRef.current.focus();
       return "Add at least 1 special character";
     }
 
@@ -151,7 +180,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
 
         <form onSubmit={handleRegister} className="space-y-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <label
                 className="
     text-[12px]
@@ -162,6 +191,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
                 NAME
               </label>
               <input
+                ref={nameRef}
                 id="name"
                 type="text"
                 placeholder="Rahul Sharma"
@@ -174,7 +204,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <label
                 className="
     text-[12px]
@@ -185,6 +215,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
                 PHONE
               </label>
               <input
+                ref={phoneRef}
                 id="phone"
                 type="tel"
                 placeholder="10-digit mobile number"
@@ -198,7 +229,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             <label
               className="
     text-[12px]
@@ -209,6 +240,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
               EMAIL
             </label>
             <input
+              ref={emailRef}
               id="email"
               type="email"
               placeholder="Email"
@@ -225,7 +257,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
           </div>
 
           <div className="space-y-6">
-            <div className="space-y-2 relative">
+            <div className="space-y-2.5 relative">
               <label
                 className="
     text-[12px]
@@ -238,6 +270,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
 
               <div className="relative">
                 <input
+                  ref={passwordRef}
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -251,10 +284,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
                 <button
                   type="button"
                   onClick={() => setShowPassword((p) => !p)}
-                  className="
-  absolute
-  right-2
-  top-1/2
+                  className="absolute right-2 top-1/2
   -translate-y-1/2
   text-gray-400
   transition-colors duration-150
@@ -322,19 +352,14 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
             )}
           </div>
 
-          <div className="space-y-2 relative">
-            <label
-              className="
-    text-[12px]
-    font-medium
-    text-black/65
-  "
-            >
+          <div className="space-y-2.5 relative">
+            <label className="text-[12px] font-medium text-black/65">
               CONFIRM PASSWORD
             </label>
 
             <div className="relative">
               <input
+                ref={confirmPasswordRef}
                 id="confirmPassword"
                 type={showConfirm ? "text" : "password"}
                 placeholder="Confirm Password"
@@ -348,15 +373,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
               <button
                 type="button"
                 onClick={() => setShowConfirm((p) => !p)}
-                className="
-  absolute
-  right-2
-  top-1/2
-  -translate-y-1/2
-  text-gray-400
-  transition-colors duration-150
-  hover-supported:hover:text-black
-"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-150 hover-supported:hover:text-black"
               >
                 {showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
@@ -370,7 +387,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
           <div className="space-y-4 pt-4">
             <PrimaryButton
               type="submit"
-              disabled={!isFormValid || isRegistering}
+              disabled={isRegistering}
               className="w-full"
             >
               {isRegistering ? "Creating..." : "Create Account"}
@@ -396,18 +413,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
             onClick={() =>
               toast({ description: "Google sign-in is coming soon." })
             }
-            className="flex h-12 items-center justify-center gap-3 w-full rounded-lg border border-black/[0.08]
-    bg-white
-    transition-[transform,background-color,border-color]
-    duration-150
-    hover-supported:hover:bg-black/[0.02]
-    hover-supported:hover:border-black/[0.12]
-    active:scale-[0.985]
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-black
-    focus-visible:ring-offset-2
-  "
+            className="flex h-12 items-center justify-center gap-3 w-full rounded-lg border border-black/[0.08] bg-white transition-[transform,background-color,border-color]duration-150 hover-supported:hover:bg-black/[0.02] hover-supported:hover:border-black/[0.12] active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
             <img
               src="/imagesSection/google.png"
@@ -427,15 +433,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
           <button
             type="button"
             onClick={() => setMode("signin")}
-            className="font-medium text-black transition-all
-      duration-150
-      hover-supported:hover:text-black/60
-      active:scale-[0.985]
-      focus-visible:outline-none
-      focus-visible:ring-2
-      focus-visible:ring-black
-      focus-visible:ring-offset-2
-    "
+            className="font-medium text-black transition-all duration-150 hover-supported:hover:text-black/60 active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
             Sign in
           </button>

@@ -89,6 +89,8 @@ const Product = () => {
     useWishlistApiMutation();
   const isInWishlist = wishlist.some((item) => item._id === product?._id);
 
+  const [optimisticWishlist, setOptimisticWishlist] = useState(isInWishlist);
+
   const [addRecentlyViewed] = useAddRecentlyViewedMutation();
 
   const {
@@ -100,6 +102,10 @@ const Product = () => {
     () => recentProducts?.filter((p) => p._id !== product?._id) ?? [],
     [recentProducts, product?._id],
   );
+
+  useEffect(() => {
+    setOptimisticWishlist(isInWishlist);
+  }, [isInWishlist]);
 
   useEffect(() => {
     if (size) {
@@ -129,21 +135,27 @@ const Product = () => {
 
   const handleWishlist = async () => {
     if (loadingToggle) return;
+
     if (!token) {
       navigate("/auth", {
         state: { from: location.pathname },
       });
       return;
     }
-    const wasInWishlist = isInWishlist;
+
+    const previous = optimisticWishlist;
+
+    setOptimisticWishlist(!previous);
+
     try {
       await toggleWishlist(product._id).unwrap();
+
       toast({
-        description: wasInWishlist
-          ? "Removed from wishlist"
-          : "Added to wishlist",
+        description: previous ? "Removed from wishlist" : "Added to wishlist",
       });
     } catch (err) {
+      setOptimisticWishlist(previous);
+
       toast({
         variant: "destructive",
         description: err?.data?.message || "Something went wrong. Try again.",
@@ -229,7 +241,7 @@ px-6
     setQuantity(1);
   };
 
-  console.log(recentProducts)
+  console.log(recentProducts);
 
   const showRecentlyViewed =
     token &&
@@ -290,7 +302,7 @@ px-6
               product={product}
               loadingToggle={loadingToggle}
               handleWishlist={handleWishlist}
-              isInWishlist={isInWishlist}
+              isInWishlist={optimisticWishlist}
               quantity={quantity}
               setQuantity={setQuantity}
               toast={toast}
@@ -385,21 +397,7 @@ px-6
               <h2 className="text-xl font-light text-center tracking-wide">
                 Your Recently Viewed
               </h2>
-              <div
-                className="
-    flex 
-    sm:grid
-    sm:grid-cols-2
-    lg:grid-cols-3
-    gap-6 sm:gap-8 lg:gap-10 
-    overflow-x-auto 
-    sm:overflow-visible
-    scrollbar-hide 
-    snap-x snap-mandatory sm:snap-none
-    scroll-smooth
-    pb-2 sm:pb-0
-  "
-              >
+              <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 overflow-x-auto sm:overflow-visible scrollbar-hide snap-x snap-mandatory sm:snap-none scroll-smooth pb-2 sm:pb-0">
                 {loadingRecentlyViewed
                   ? Array.from({ length: 8 }).map((_, i) => (
                       <ProductsLoadingState key={i} />
