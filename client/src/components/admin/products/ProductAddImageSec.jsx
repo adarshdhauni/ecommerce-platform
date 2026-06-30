@@ -43,7 +43,7 @@ const ProductAddImageSec = ({
               value={image}
               onChange={(e) => handleImageChange(index, e.target.value)}
               className="
-                 w-full h-12 border-b border-gray-300 py-2 text-sm focus:outline-none  focus:border-black transition-all duration-150 px-2"
+                 w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm focus:outline-none  focus:border-black transition-all duration-150 px-2"
             />
 
             {images.length > 1 && (

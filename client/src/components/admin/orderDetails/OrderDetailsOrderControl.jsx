@@ -52,7 +52,7 @@ const OrderDetailsOrderControl = ({
               : "border-black/[0.045] bg-white/[0.88]"
           }
            px-4
-              text-[13px]
+              text-base sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -90,7 +90,7 @@ const OrderDetailsOrderControl = ({
                 h-12
             rounded-lg
             px-3
-            text-[13px]
+            text-base sm:text-sm
             font-medium
             tracking-[-0.01em]
             text-black/75

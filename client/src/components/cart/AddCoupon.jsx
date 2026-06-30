@@ -102,7 +102,7 @@ const AddCoupon = ({
             autoComplete="off"
             spellCheck={false}
             placeholder="Enter promo code"
-            className="w-full border-b border-gray-300 py-2 text-sm
+            className="w-full border-b border-gray-300 py-2 text-base sm:text-sm
             focus:outline-none focus:border-black transition-all duration-150
 px-2 h-12"
           />

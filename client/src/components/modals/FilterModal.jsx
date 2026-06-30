@@ -196,7 +196,7 @@ const FilterModal = ({
                       >
                         <span
                           className={`
-              text-[13px]
+               text-base sm:text-sm
               tracking-[-0.01em]
               transition-colors
               duration-150

@@ -153,7 +153,8 @@ const ToolbarSec = ({
               }
               pl-11
               pr-4
-              text-[13px]
+              text-base
+              sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -254,7 +255,7 @@ const ToolbarSec = ({
         shrink-0    
         object-cover
         transition-transform
-        duration-300
+        duration-150
         ease-out
         group-hover/suggestion:scale-[1.04]
       "
@@ -264,7 +265,7 @@ const ToolbarSec = ({
                           <p
                             className="
           line-clamp-2
-          text-[13px]
+          text-sm
           leading-5
           tracking-[-0.01em]
           text-black/80
@@ -372,7 +373,7 @@ const ToolbarSec = ({
               }
 
               px-4
-              text-[13px]
+              text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80

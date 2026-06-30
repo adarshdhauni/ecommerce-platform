@@ -42,7 +42,7 @@ const AddNote = ({
             rows={3}
             value={noteValue}
             onChange={(e) => setNoteValue(e.target.value)}
-            className="resize-none w-full border-b border-gray-300 py-2 text-[12px] pr-8
+            className="resize-none w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                     focus:outline-none focus:border-black transition-all 
     duration-150 px-2"
             placeholder="Add a note for your order..."

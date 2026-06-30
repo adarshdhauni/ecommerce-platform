@@ -30,7 +30,7 @@ const ShippingInputs = ({
               }))
             }
             placeholder="Rahul Sharma"
-            className="w-full  h-12 border-b border-gray-300 py-2 text-sm pr-8
+            className="w-full  h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
           />
         </div>
@@ -49,7 +49,7 @@ const ShippingInputs = ({
             value={shippingValue.phone}
             onChange={handleChange}
             placeholder="10-digit mobile number"
-            className="w-full  h-12 border-b border-gray-300 py-2 text-sm pr-8
+            className="w-full  h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
           />
         </div>
@@ -69,7 +69,7 @@ const ShippingInputs = ({
           value={shippingValue.address1}
           onChange={handleChange}
           placeholder="House no., building, street"
-          className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+          className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
         />
       </div>
@@ -88,7 +88,7 @@ const ShippingInputs = ({
           value={shippingValue.address2}
           onChange={handleChange}
           placeholder="Area, locality (optional)"
-          className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+          className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
         />
       </div>
@@ -107,7 +107,7 @@ const ShippingInputs = ({
           value={shippingValue.landmark}
           onChange={handleChange}
           placeholder="Nearby landmark (optional)"
-          className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+          className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
         />
       </div>
@@ -128,7 +128,7 @@ const ShippingInputs = ({
             value={shippingValue.postalCode}
             onChange={handleChange}
             placeholder="6-digit PIN code"
-            className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+            className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
           />
         </div>
@@ -153,7 +153,7 @@ const ShippingInputs = ({
               }))
             }
             placeholder="city"
-            className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+            className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
           />
         </div>
@@ -179,7 +179,7 @@ const ShippingInputs = ({
             }))
           }
           placeholder="State"
-          className="w-full h-12 border-b border-gray-300 py-2 text-sm pr-8
+          className="w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all duration-150 px-2"
         />
       </div>

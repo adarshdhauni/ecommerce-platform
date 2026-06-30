@@ -33,6 +33,7 @@ const ResetPassword = () => {
     number: /\d/.test(values.password),
     special: /[@$!%*?&]/.test(values.password),
   };
+
   const getPasswordStrength = () => {
     const passed = Object.values(passwordRules).filter(Boolean).length;
     if (passed <= 2) return "weak";
@@ -98,6 +99,7 @@ const ResetPassword = () => {
     e.preventDefault();
 
     const error = validateForm();
+
     if (error) {
       toast({
         variant: "destructive",
@@ -109,12 +111,12 @@ const ResetPassword = () => {
     try {
       const res = await resetPassword({
         token,
-        password: values.password,
-        confirmPassword: values.confirmPassword,
+        password: values.password.trim(),
+        confirmPassword: values.confirmPassword.trim(),
       }).unwrap();
 
       toast({
-        title: res?.message || "Password reset successful ✅",
+        title: res.message || "Password reset successful ✅",
       });
 
       setValues({
@@ -126,8 +128,14 @@ const ResetPassword = () => {
     } catch (err) {
       toast({
         variant: "destructive",
-        description: err?.data?.message || "Invalid or expired token",
+        description:
+          err?.data?.message ||
+          "This password reset link is invalid or has expired.",
       });
+
+      setTimeout(() => {
+        navigate("/auth?mode=forgot-password", { replace: true });
+      }, 2000);
     }
   };
 

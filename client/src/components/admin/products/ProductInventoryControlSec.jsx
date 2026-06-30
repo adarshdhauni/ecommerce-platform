@@ -45,7 +45,7 @@ const ProductInventoryControlSec = ({ sizes, handleStockChange }) => {
               onChange={(e) => handleStockChange(item.size, e.target.value)}
               placeholder="5"
               className="
-                   w-full h-12 border-b border-gray-300 py-2 text-sm
+                   w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm
             focus:outline-none  focus:border-black transition-all duration-150 px-2"
             />
           </div>

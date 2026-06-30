@@ -108,9 +108,9 @@ const Footer = () => {
                 required
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+                className="h-12 w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
               focus:outline-none  focus:border-black transition-all 
-              duration-200 px-2"
+              duration-150 px-2"
               />
             </div>
 

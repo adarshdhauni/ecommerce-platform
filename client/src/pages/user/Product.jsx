@@ -241,8 +241,6 @@ px-6
     setQuantity(1);
   };
 
-  console.log(recentProducts);
-
   const showRecentlyViewed =
     token &&
     (loadingRecentlyViewed || recentlyViewedError || filteredItems.length > 0);

@@ -198,7 +198,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="First Name"
-                  className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+                  className="h-12 w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none  focus:border-black transition-all 
                 duration-150 px-2"
                 />
@@ -220,7 +220,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Last Name"
-                  className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+                  className="h-12 w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
                 focus:outline-none focus:border-black transition-all 
                 duration-150 px-2"
                 />
@@ -245,7 +245,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Email"
-                className="h-12 w-full border-b border-gray-300 py-2 text-sm pr-8
+                className="h-12 w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
               focus:outline-none focus:border-black transition-all 
               duration-150 px-2"
               />
@@ -266,7 +266,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Your message..."
-                className="resize-none min-h-32 w-full border-b border-gray-300 py-2 text-sm pr-8
+                className="resize-none min-h-32 w-full border-b border-gray-300 py-2 text-base sm:text-sm pr-8
               focus:outline-none focus:border-black transition-all 
               duration-150 px-2"
               />

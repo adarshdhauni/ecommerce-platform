@@ -135,7 +135,8 @@ const Faq = () => {
       }
      pl-11
               pr-4
-              text-[13px]
+              text-base
+              sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80

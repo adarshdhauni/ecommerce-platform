@@ -50,7 +50,8 @@ const AdminUsersFilter = ({ search, setSearch, roleFilter, setRoleFilter }) => {
               }
               pl-11
               pr-4
-              text-[13px]
+              text-base
+              sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -73,7 +74,6 @@ const AdminUsersFilter = ({ search, setSearch, roleFilter, setRoleFilter }) => {
                   absolute left-4 top-1/2
                   z-20
                   -translate-y-1/2
-                  text-[12px]
                   transition-colors
                   duration-150
     
@@ -103,7 +103,7 @@ const AdminUsersFilter = ({ search, setSearch, roleFilter, setRoleFilter }) => {
                              : "border-black/[0.045] bg-white/[0.92]"
                          }
                         px-4
-              text-[13px]
+              text-base sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -141,7 +141,7 @@ const AdminUsersFilter = ({ search, setSearch, roleFilter, setRoleFilter }) => {
                                 h-12
             rounded-lg
             px-3
-            text-[13px]
+            text-base sm:text-sm
             font-medium
             tracking-[-0.01em]
             text-black/75

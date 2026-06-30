@@ -66,7 +66,7 @@ const ProductInfoSec = ({
               onChange={(e) => setName(e.target.value)}
               placeholder="Essential oversized hoodie"
               className="
-          w-full h-12 border-b border-gray-300 py-2 text-sm
+          w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm
             focus:outline-none  focus:border-black transition-all duration-150 px-2"
             />
           </div>
@@ -88,7 +88,7 @@ const ProductInfoSec = ({
               onChange={(e) => setPrice(e.target.value)}
               placeholder="249"
               className="
-           w-full h-12 border-b border-gray-300 py-2 text-sm
+           w-full h-12 border-b border-gray-300 py-2 text-base sm:text-sm
             focus:outline-none  focus:border-black transition-all duration-150 px-2"
             />
           </div>
@@ -119,7 +119,7 @@ const ProductInfoSec = ({
                       : "border-black/[0.045] bg-white/[0.88]"
                   }
                   px-4
-              text-[13px]
+              text-base sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -156,7 +156,7 @@ const ProductInfoSec = ({
                            h-12
             rounded-lg
             px-3
-            text-[13px]
+            text-base sm:text-sm
             font-medium
             tracking-[-0.01em]
             text-black/75
@@ -208,7 +208,7 @@ const ProductInfoSec = ({
                      : "border-black/[0.045] bg-white/[0.88]"
                  }
                px-4
-              text-[13px]
+              text-base sm:text-sm
               font-medium
               tracking-[-0.01em]
               text-black/80
@@ -244,7 +244,7 @@ const ProductInfoSec = ({
                           h-12
             rounded-lg
             px-3
-            text-[13px]
+            text-base sm:text-sm
             font-medium
             tracking-[-0.01em]
             text-black/75
@@ -289,12 +289,11 @@ const ProductInfoSec = ({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Relaxed fit heavyweight hoodie crafted from premium cotton fleece."
-            className="resize-none w-full border-b  border-gray-300 py-2 text-sm focus:outline-none  focus:border-black transition-all duration-150 px-2"
+            className="resize-none w-full border-b  border-gray-300 py-2 text-base sm:text-sm focus:outline-none  focus:border-black transition-all duration-150 px-2"
           />
         </div>
       </div>
     </div>
   );
 };
-
 export default memo(ProductInfoSec);
