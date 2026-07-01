@@ -692,7 +692,6 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-// GET /admin/users/:id
 const getUserById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -715,19 +714,34 @@ const getUserById = async (req, res, next) => {
         .json({ success: false, message: "User not found" });
     }
 
+    const [stats] = await Order.aggregate([
+      {
+        $match: {
+          userId: new mongoose.Types.ObjectId(id),
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          totalOrders: { $sum: 1 },
+          totalSpent: {
+            $sum: {
+              $cond: [{ $eq: ["$status", "Delivered"] }, "$finalAmount", 0],
+            },
+          },
+        },
+      },
+    ]);
+
     const orders = await Order.find({ userId: id })
       .select("orderId finalAmount status createdAt products")
       .sort({ createdAt: -1 })
-      .lean()
       .skip(skip)
-      .limit(limit);
+      .limit(limit)
+      .lean();
 
-    const totalSpent = orders.reduce(
-      (acc, order) => acc + (order.finalAmount || 0),
-      0,
-    );
-
-    const totalOrders = orders.length;
+    const totalOrders = stats?.totalOrders || 0;
+    const totalSpent = stats?.totalSpent || 0;
 
     res.status(200).json({
       success: true,

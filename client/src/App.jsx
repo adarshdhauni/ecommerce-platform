@@ -67,7 +67,7 @@ const AdminLayout = () => {
     <div className="flex min-h-screen bg-white text-black">
       <Sidebar />
 
-      <div className="flex-1 flex flex-col relative lg:pl-72">
+      <div className="min-w-0 flex-1 flex flex-col relative lg:pl-72">
         <Topbar />
         <main className="flex-1">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-4">
