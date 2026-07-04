@@ -384,19 +384,22 @@ ecommerce-platform/
 
 <table>
   <tr>
-    <td align="center" width="25%">
+    <td align="center" width="50%">
       <img src="assets/screenshots/mobile/mobile-home.png" alt="Home" width="100%">
       <br><sub><b>Home</b></sub>
     </td>
-    <td align="center" width="25%">
+    <td align="center" width="50%">
       <img src="assets/screenshots/mobile/mobile-products.png" alt="Products" width="100%">
       <br><sub><b>Products</b></sub>
     </td>
-    <td align="center" width="25%">
+  </tr>
+
+  <tr>
+    <td align="center">
       <img src="assets/screenshots/mobile/mobile-products-filter.png" alt="Filter" width="100%">
       <br><sub><b>Filter</b></sub>
     </td>
-    <td align="center" width="25%">
+    <td align="center">
       <img src="assets/screenshots/mobile/mobile-product-details.png" alt="Product Details" width="100%">
       <br><sub><b>Product Details</b></sub>
     </td>
@@ -411,6 +414,9 @@ ecommerce-platform/
       <img src="assets/screenshots/mobile/mobile-checkout.png" alt="Checkout" width="100%">
       <br><sub><b>Checkout</b></sub>
     </td>
+  </tr>
+
+  <tr>
     <td align="center">
       <img src="assets/screenshots/mobile/mobile-orders.png" alt="Orders" width="100%">
       <br><sub><b>Orders</b></sub>
@@ -430,6 +436,9 @@ ecommerce-platform/
       <img src="assets/screenshots/mobile/mobile-profile.png" alt="Profile" width="100%">
       <br><sub><b>Profile</b></sub>
     </td>
+  </tr>
+
+  <tr>
     <td align="center">
       <img src="assets/screenshots/mobile/mobile-admin-dashboard.png" alt="Admin Dashboard" width="100%">
       <br><sub><b>Admin Dashboard</b></sub>
@@ -441,13 +450,10 @@ ecommerce-platform/
   </tr>
 
   <tr>
-    <td align="center">
-      <img src="assets/screenshots/mobile/mobile-register.png" alt="Register" width="100%">
+    <td align="center" colspan="2">
+      <img src="assets/screenshots/mobile/mobile-register.png" alt="Register" width="50%">
       <br><sub><b>Register</b></sub>
     </td>
-    <td></td>
-    <td></td>
-    <td></td>
   </tr>
 </table>
 
