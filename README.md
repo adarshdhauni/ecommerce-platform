@@ -922,6 +922,10 @@ Licensed under the [MIT License](LICENSE).
 
 **Adarsh Dhauni**
 
-📧 [adarshdhauni186@gmail.com](mailto:adarshdhauni186@gmail.com)
+🌐 [Portfolio](https://portfolio-xi-silk-b3un2mc452.vercel.app)
 &nbsp;·&nbsp;
-🐙 [@adarshdhauni](https://github.com/adarshdhauni)
+💼 [LinkedIn](https://www.linkedin.com/in/adarsh-dhauni-7146903a6/)
+&nbsp;·&nbsp;
+🐙 [GitHub](https://github.com/adarshdhauni)
+&nbsp;·&nbsp;
+📧 <adarshdhauni186@gmail.com>
