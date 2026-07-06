@@ -311,94 +311,152 @@ ecommerce-platform/
 
 ### Desktop
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-home.png" width="49%" alt="Home" />
-  <img src="assets/screenshots/desktop/desktop-products.png" width="49%" alt="Products" />
-</p>
-<p align="center">
-  <em>Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Products</em>
-</p>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/desktop/desktop-home.png" alt="Home" width="100%">
+      <br><sub><b>Home</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/desktop/desktop-products.png" alt="Products" width="100%">
+      <br><sub><b>Products</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-product-details.png" width="49%" alt="Product Details" />
-  <img src="assets/screenshots/desktop/desktop-cart.png" width="49%" alt="Cart" />
-</p>
-<p align="center">
-  <em>Product Details &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cart</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-product-details.png" alt="Product Details" width="100%">
+      <br><sub><b>Product Details</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-cart.png" alt="Cart" width="100%">
+      <br><sub><b>Cart</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-checkout.png" width="49%" alt="Checkout" />
-  <img src="assets/screenshots/desktop/desktop-orders.png" width="49%" alt="Orders" />
-</p>
-<p align="center">
-  <em>Checkout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Orders</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-checkout.png" alt="Checkout" width="100%">
+      <br><sub><b>Checkout</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-orders.png" alt="Orders" width="100%">
+      <br><sub><b>Orders</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-order-details.png" width="49%" alt="Order Details" />
-  <img src="assets/screenshots/desktop/desktop-wishlist.png" width="49%" alt="Wishlist" />
-</p>
-<p align="center">
-  <em>Order Details &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wishlist</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-order-details.png" alt="Order Details" width="100%">
+      <br><sub><b>Order Details</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-wishlist.png" alt="Wishlist" width="100%">
+      <br><sub><b>Wishlist</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-profile.png" width="49%" alt="Profile" />
-  <img src="assets/screenshots/desktop/desktop-admin-dashboard.png" width="49%" alt="Admin Dashboard" />
-</p>
-<p align="center">
-  <em>Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Dashboard</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-profile.png" alt="Profile" width="100%">
+      <br><sub><b>Profile</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-admin-dashboard.png" alt="Admin Dashboard" width="100%">
+      <br><sub><b>Admin Dashboard</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/desktop/desktop-login.png" width="49%" alt="Login" />
-  <img src="assets/screenshots/desktop/desktop-register.png" width="49%" alt="Register" />
-</p>
-<p align="center">
-  <em>Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Register</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-login.png" alt="Login" width="100%">
+      <br><sub><b>Login</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/desktop/desktop-register.png" alt="Register" width="100%">
+      <br><sub><b>Register</b></sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ### Mobile
 
-<p align="center">
-  <img src="assets/screenshots/mobile/mobile-home.png" width="24%" alt="Home" />
-  <img src="assets/screenshots/mobile/mobile-products.png" width="24%" alt="Products" />
-  <img src="assets/screenshots/mobile/mobile-products-filter.png" width="24%" alt="Products Filter" />
-  <img src="assets/screenshots/mobile/mobile-product-details.png" width="24%" alt="Product Details" />
-</p>
-<p align="center">
-  <em>Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Filter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product Details</em>
-</p>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/mobile/mobile-home.png" alt="Home" width="100%">
+      <br><sub><b>Home</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/screenshots/mobile/mobile-products.png" alt="Products" width="100%">
+      <br><sub><b>Products</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/mobile/mobile-cart.png" width="24%" alt="Cart" />
-  <img src="assets/screenshots/mobile/mobile-checkout.png" width="24%" alt="Checkout" />
-  <img src="assets/screenshots/mobile/mobile-orders.png" width="24%" alt="Orders" />
-  <img src="assets/screenshots/mobile/mobile-order-details.png" width="24%" alt="Order Details" />
-</p>
-<p align="center">
-  <em>Cart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Checkout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Orders &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Order Details</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-products-filter.png" alt="Filter" width="100%">
+      <br><sub><b>Filter</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-product-details.png" alt="Product Details" width="100%">
+      <br><sub><b>Product Details</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/mobile/mobile-wishlist.png" width="24%" alt="Wishlist" />
-  <img src="assets/screenshots/mobile/mobile-profile.png" width="24%" alt="Profile" />
-  <img src="assets/screenshots/mobile/mobile-admin-dashboard.png" width="24%" alt="Admin Dashboard" />
-  <img src="assets/screenshots/mobile/mobile-login.png" width="24%" alt="Login" />
-</p>
-<p align="center">
-  <em>Wishlist &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-cart.png" alt="Cart" width="100%">
+      <br><sub><b>Cart</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-checkout.png" alt="Checkout" width="100%">
+      <br><sub><b>Checkout</b></sub>
+    </td>
+  </tr>
 
-<p align="center">
-  <img src="assets/screenshots/mobile/mobile-register.png" width="24%" alt="Register" />
-</p>
-<p align="center">
-  <em>Register</em>
-</p>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-orders.png" alt="Orders" width="100%">
+      <br><sub><b>Orders</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-order-details.png" alt="Order Details" width="100%">
+      <br><sub><b>Order Details</b></sub>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-wishlist.png" alt="Wishlist" width="100%">
+      <br><sub><b>Wishlist</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-profile.png" alt="Profile" width="100%">
+      <br><sub><b>Profile</b></sub>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-admin-dashboard.png" alt="Admin Dashboard" width="100%">
+      <br><sub><b>Admin Dashboard</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/mobile/mobile-login.png" alt="Login" width="100%">
+      <br><sub><b>Login</b></sub>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" colspan="2">
+      <img src="assets/screenshots/mobile/mobile-register.png" alt="Register" width="50%">
+      <br><sub><b>Register</b></sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
