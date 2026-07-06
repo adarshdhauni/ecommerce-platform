@@ -6,52 +6,39 @@ const AdminUsersSkeleton = () => {
     <div
       className="
         flex flex-col gap-5
-
         px-6
         py-5
-
         sm:flex-row
         sm:items-center
         sm:justify-between
       "
     >
-      <div className="flex min-w-0 items-center gap-4 flex-1">
+      <div className="flex min-w-0 flex-1 items-center gap-4">
         <Skeleton
           className="
             h-12
             w-12
-
             shrink-0
-
             rounded-full
-
-           
-
             shadow-[0_8px_24px_rgba(0,0,0,0.04)]
           "
         />
 
-        <div className="min-w-0 flex-1 space-y-1.5">
+        <div className="min-w-0 flex-1 space-y-1">
           <Skeleton
             className="
               h-[14px]
               w-32
-
               rounded-full
-
-           
             "
           />
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Skeleton
               className="
                 h-[12px]
                 w-16
-
                 rounded-full
-
-               
               "
             />
 
@@ -59,13 +46,9 @@ const AdminUsersSkeleton = () => {
 
             <Skeleton
               className="
- 
-    h-[12px]
-    w-40
-
+                h-[12px]
+                w-40
                 rounded-full
-
-               
               "
             />
           </div>
@@ -75,43 +58,41 @@ const AdminUsersSkeleton = () => {
       <div
         className="
           flex items-center justify-between gap-4
-
           sm:justify-end
         "
       >
         <Skeleton
           className="
-            hidden lg:block
-
+            hidden
             h-[13px]
             w-20
-
             rounded-full
-
-           
+            lg:block
           "
         />
 
         <Skeleton
           className="
-            h-7
+            h-[23px]
             w-16
-
             rounded-full
-
-           
           "
         />
 
-        <div className="flex items-center gap-[5px]">
+        <div className="flex items-center gap-2">
           <Skeleton
             className="
               h-[13px]
-              w-11
-
+              w-8
               rounded-full
+            "
+          />
 
-             
+          <Skeleton
+            className="
+              h-[13px]
+              w-[13px]
+              rounded-full
             "
           />
         </div>
