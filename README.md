@@ -72,14 +72,14 @@
 
 NOVA STONE & CO. is a full-stack fashion e-commerce application built to cover the complete retail loop — product browsing, cart management, multi-step checkout, order tracking, reviews, and wishlists — backed by a role-based admin panel for managing products, orders, and users.
 
-| | |
-|---|---|
-| **Type** | Full-stack e-commerce (fashion / apparel) |
-| **Architecture** | React SPA + Express REST API |
-| **Frontend** | React 19, Vite 7, React Router 7 |
-| **Backend** | Express 5, Mongoose 8, MongoDB |
-| **Auth** | JWT — Bearer token, 7-day expiry |
-| **Payments** | Simulated — stores last 4 digits and expiry only; no live payment processor |
+|                  |                                                                             |
+| ---------------- | --------------------------------------------------------------------------- |
+| **Type**         | Full-stack e-commerce (fashion / apparel)                                   |
+| **Architecture** | React SPA + Express REST API                                                |
+| **Frontend**     | React 19, Vite 7, React Router 7                                            |
+| **Backend**      | Express 5, Mongoose 8, MongoDB                                              |
+| **Auth**         | JWT — Bearer token, 7-day expiry                                            |
+| **Payments**     | Simulated — stores last 4 digits and expiry only; no live payment processor |
 
 ---
 
@@ -114,17 +114,17 @@ NOVA STONE & CO. is a full-stack fashion e-commerce application built to cover t
 
 This project demonstrates practical competency across the full web development stack — not just individual layers in isolation.
 
-| Skill Area | What's Demonstrated |
-|---|---|
-| **Full-stack architecture** | Independently deployable React SPA + Express API, communicating via RTK Query |
-| **REST API design** | 35+ typed endpoints with ownership checks, rate limiting, and pagination |
-| **Authentication** | JWT issuance, bcrypt hashing, account lockout, and hashed password reset flow |
-| **State management** | Deliberate split between RTK Query (server state), Redux (cart), and Context (UI state) |
-| **Security** | Helmet, CORS, rate limiting, NoSQL sanitization, HPP, body-size limits, JWT expiry |
-| **Database design** | 8 Mongoose models with compound indexes, pre-save hooks, and aggregation pipelines |
-| **Performance** | Code splitting, memoization, debounced search, lazy loading, server-side pagination |
-| **Responsive UI** | Mobile-first Tailwind layout covering storefront, checkout, and admin across all breakpoints |
-| **Deployment** | Frontend on Vercel, backend on Railway, with environment-scoped configuration |
+| Skill Area                  | What's Demonstrated                                                                          |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| **Full-stack architecture** | Independently deployable React SPA + Express API, communicating via RTK Query                |
+| **REST API design**         | 35+ typed endpoints with ownership checks, rate limiting, and pagination                     |
+| **Authentication**          | JWT issuance, bcrypt hashing, account lockout, and hashed password reset flow                |
+| **State management**        | Deliberate split between RTK Query (server state), Redux (cart), and Context (UI state)      |
+| **Security**                | Helmet, CORS, rate limiting, NoSQL sanitization, HPP, body-size limits, JWT expiry           |
+| **Database design**         | 8 Mongoose models with compound indexes, pre-save hooks, and aggregation pipelines           |
+| **Performance**             | Code splitting, memoization, debounced search, lazy loading, server-side pagination          |
+| **Responsive UI**           | Mobile-first Tailwind layout covering storefront, checkout, and admin across all breakpoints |
+| **Deployment**              | Frontend on Vercel, backend on Railway, with environment-scoped configuration                |
 
 ---
 
@@ -168,12 +168,12 @@ flowchart LR
 
 ### 🛠️ Admin Panel
 
-| Section | Capabilities |
-|---|---|
+| Section       | Capabilities                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **Dashboard** | Revenue (delivered orders), order/user/product totals, 5 recent orders, low-stock alerts (≤5 units), top 5 sellers |
-| **Products** | Search + filter by gender & category, create, edit, delete |
-| **Orders** | Search by order ID or user, filter by status, view detail, advance or cancel status |
-| **Users** | Search + filter by role, view detail with paginated order history and total spend |
+| **Products**  | Search + filter by gender & category, create, edit, delete                                                         |
+| **Orders**    | Search by order ID or user, filter by status, view detail, advance or cancel status                                |
+| **Users**     | Search + filter by role, view detail with paginated order history and total spend                                  |
 
 Order status flow: `Placed → Processing → Shipped → Out for Delivery → Delivered` (or `Cancelled`). Status transitions are one-directional; `Delivered` and `Cancelled` are terminal states.
 
@@ -183,40 +183,40 @@ Order status flow: `Placed → Processing → Shipped → Out for Delivery → D
 
 ### Frontend
 
-| Category | Libraries |
-|---|---|
-| Core | React 19, Vite 7 |
-| Routing | React Router DOM 7 |
-| State & Data | Redux Toolkit, RTK Query, React-Redux |
-| Styling | Tailwind CSS 3, tailwindcss-animate, tailwind-scrollbar |
+| Category      | Libraries                                                                  |
+| ------------- | -------------------------------------------------------------------------- |
+| Core          | React 19, Vite 7                                                           |
+| Routing       | React Router DOM 7                                                         |
+| State & Data  | Redux Toolkit, RTK Query, React-Redux                                      |
+| Styling       | Tailwind CSS 3, tailwindcss-animate, tailwind-scrollbar                    |
 | UI Components | Radix UI (Dialog, Tabs, Select, Accordion, Toast), shadcn-style components |
-| Animation | Framer Motion |
-| Icons | Lucide React |
-| HTTP | Axios via RTK Query `fetchBaseQuery` |
-| Resilience | react-error-boundary |
-| Utilities | clsx, tailwind-merge, class-variance-authority |
+| Animation     | Framer Motion                                                              |
+| Icons         | Lucide React                                                               |
+| HTTP          | Axios via RTK Query `fetchBaseQuery`                                       |
+| Resilience    | react-error-boundary                                                       |
+| Utilities     | clsx, tailwind-merge, class-variance-authority                             |
 
 ### Backend
 
-| Category | Libraries |
-|---|---|
-| Runtime | Node.js, Express 5 |
-| Database | MongoDB, Mongoose 8 |
-| Auth | jsonwebtoken, bcryptjs |
-| Security | helmet, cors, express-rate-limit, hpp, @exortek/express-mongo-sanitize, xss-clean |
-| File Uploads | multer |
-| Email | Resend |
-| IDs | nanoid (custom alphabet for human-readable order IDs) |
-| Config | dotenv |
+| Category     | Libraries                                                                         |
+| ------------ | --------------------------------------------------------------------------------- |
+| Runtime      | Node.js, Express 5                                                                |
+| Database     | MongoDB, Mongoose 8                                                               |
+| Auth         | jsonwebtoken, bcryptjs                                                            |
+| Security     | helmet, cors, express-rate-limit, hpp, @exortek/express-mongo-sanitize, xss-clean |
+| File Uploads | multer                                                                            |
+| Email        | Resend                                                                            |
+| IDs          | nanoid (custom alphabet for human-readable order IDs)                             |
+| Config       | dotenv                                                                            |
 
 ### Services
 
-| Service | Usage |
-|---|---|
-| MongoDB | Primary database |
-| Resend | Transactional email (password reset) |
-| Vercel | Frontend hosting |
-| Railway | Backend hosting |
+| Service | Usage                                |
+| ------- | ------------------------------------ |
+| MongoDB | Primary database                     |
+| Resend  | Transactional email (password reset) |
+| Vercel  | Frontend hosting                     |
+| Railway | Backend hosting                      |
 
 ---
 
@@ -238,11 +238,11 @@ graph TD
 
 ### Authorization Layers
 
-| Layer | Mechanism |
-|---|---|
-| **Public** | Products, search, reviews (read), contact, subscribe |
-| **Authenticated** | Profile, wishlist, shipping, payment, orders, reviews (write), recently viewed |
-| **Admin** | `protect` + `adminOnly` middleware — requires `isAdmin: true` and `role: "Admin"` |
+| Layer             | Mechanism                                                                         |
+| ----------------- | --------------------------------------------------------------------------------- |
+| **Public**        | Products, search, reviews (read), contact, subscribe                              |
+| **Authenticated** | Profile, wishlist, shipping, payment, orders, reviews (write), recently viewed    |
+| **Admin**         | `protect` + `adminOnly` middleware — requires `isAdmin: true` and `role: "Admin"` |
 
 Resource ownership for orders, addresses, payments, and reviews is enforced by scoping every database query to `req.user._id`.
 
@@ -258,7 +258,8 @@ ecommerce-platform/
 ├── assets/
 │   └── screenshots/
 │       ├── desktop/
-│       └── mobile/
+│       ├── mobile/
+│       └── social-preview.jpg
 ├── client/
 │   ├── public/
 │   └── src/
@@ -459,20 +460,20 @@ cd ../client && npm install
 
 ### Server — `server/.env`
 
-| Variable | Required | Description |
-|---|---|---|
-| `MONGO_URI` | ✅ | MongoDB connection string |
-| `JWT_SECRET` | ✅ | Secret used to sign JWTs |
-| `CLIENT_URL` | ✅ (prod) | CORS origin and password reset link base URL |
-| `RESEND_API_KEY` | ✅ | Resend API key for transactional email |
-| `PORT` | — | Server port (default `3000`) |
-| `NODE_ENV` | — | Set to `development` to enable `/api/seed/products` |
+| Variable         | Required  | Description                                         |
+| ---------------- | --------- | --------------------------------------------------- |
+| `MONGO_URI`      | ✅        | MongoDB connection string                           |
+| `JWT_SECRET`     | ✅        | Secret used to sign JWTs                            |
+| `CLIENT_URL`     | ✅ (prod) | CORS origin and password reset link base URL        |
+| `RESEND_API_KEY` | ✅        | Resend API key for transactional email              |
+| `PORT`           | —         | Server port (default `3000`)                        |
+| `NODE_ENV`       | —         | Set to `development` to enable `/api/seed/products` |
 
 ### Client — `client/.env`
 
-| Variable | Required | Description |
-|---|---|---|
-| `VITE_API_URL` | — | API base URL (default `http://localhost:3000`) |
+| Variable       | Required | Description                                    |
+| -------------- | -------- | ---------------------------------------------- |
+| `VITE_API_URL` | —        | API base URL (default `http://localhost:3000`) |
 
 ---
 
@@ -497,22 +498,22 @@ Base path: `/api` — all routes prefixed.
 
 ### Products (Public)
 
-| Method | Path | Description |
-|---|---|---|
-| GET | `/products` | List with filters, sort, and pagination |
-| GET | `/products/search-suggestions` | Search autocomplete (top 5) |
-| GET | `/featured-products` | Featured products for the homepage |
-| GET | `/products/:id` | Product detail |
-| GET | `/products/:id/related` | Related products (same category + gender) |
+| Method | Path                           | Description                               |
+| ------ | ------------------------------ | ----------------------------------------- |
+| GET    | `/products`                    | List with filters, sort, and pagination   |
+| GET    | `/products/search-suggestions` | Search autocomplete (top 5)               |
+| GET    | `/featured-products`           | Featured products for the homepage        |
+| GET    | `/products/:id`                | Product detail                            |
+| GET    | `/products/:id/related`        | Related products (same category + gender) |
 
 ### Orders (Authenticated)
 
-| Method | Path |
-|---|---|
-| POST | `/orders/place` |
-| GET | `/orders/my-orders` |
-| GET | `/orders/:id` |
-| PATCH | `/orders/cancel/:id` |
+| Method | Path                 |
+| ------ | -------------------- |
+| POST   | `/orders/place`      |
+| GET    | `/orders/my-orders`  |
+| GET    | `/orders/:id`        |
+| PATCH  | `/orders/cancel/:id` |
 
 <details>
 <summary><strong>Users, Reviews, Wishlist, Shipping & Payment</strong></summary>
@@ -520,49 +521,49 @@ Base path: `/api` — all routes prefixed.
 
 #### Users
 
-| Method | Path | Auth | Rate Limit |
-|---|---|---|---|
-| POST | `/user/register` | — | 5 / 10 min |
-| POST | `/user/login` | — | 5 / 10 min |
-| POST | `/user/forgot-password` | — | 5 / 10 min |
-| POST | `/user/reset-password/:token` | — | 5 / 10 min |
-| GET | `/user/profile` | ✅ | — |
-| PUT | `/user/profile` | ✅ | — |
-| PUT | `/user/update-password` | ✅ | — |
-| POST | `/user/recently-viewed/:productId` | ✅ | — |
-| GET | `/user/recently-viewed` | ✅ | — |
+| Method | Path                               | Auth | Rate Limit |
+| ------ | ---------------------------------- | ---- | ---------- |
+| POST   | `/user/register`                   | —    | 5 / 10 min |
+| POST   | `/user/login`                      | —    | 5 / 10 min |
+| POST   | `/user/forgot-password`            | —    | 5 / 10 min |
+| POST   | `/user/reset-password/:token`      | —    | 5 / 10 min |
+| GET    | `/user/profile`                    | ✅   | —          |
+| PUT    | `/user/profile`                    | ✅   | —          |
+| PUT    | `/user/update-password`            | ✅   | —          |
+| POST   | `/user/recently-viewed/:productId` | ✅   | —          |
+| GET    | `/user/recently-viewed`            | ✅   | —          |
 
 #### Reviews
 
-| Method | Path | Auth |
-|---|---|---|
-| GET | `/products/:productId/reviews` | — |
-| GET | `/products/reviews/my` | ✅ |
-| POST | `/products/:productId/reviews` | ✅ · 20 / 15 min |
-| DELETE | `/products/:productId/reviews/:reviewId` | ✅ |
+| Method | Path                                     | Auth             |
+| ------ | ---------------------------------------- | ---------------- |
+| GET    | `/products/:productId/reviews`           | —                |
+| GET    | `/products/reviews/my`                   | ✅               |
+| POST   | `/products/:productId/reviews`           | ✅ · 20 / 15 min |
+| DELETE | `/products/:productId/reviews/:reviewId` | ✅               |
 
 #### Wishlist
 
-| Method | Path | Auth |
-|---|---|---|
-| GET | `/wishlist` | ✅ |
-| POST | `/wishlist/:productId` | ✅ (toggle) |
+| Method | Path                   | Auth        |
+| ------ | ---------------------- | ----------- |
+| GET    | `/wishlist`            | ✅          |
+| POST   | `/wishlist/:productId` | ✅ (toggle) |
 
 #### Shipping
 
-| Method | Path | Auth | Rate Limit |
-|---|---|---|---|
-| POST | `/shipping/add` | ✅ | 5 / 10 min |
-| GET | `/shipping/my-addresses` | ✅ | — |
-| DELETE | `/shipping/:id` | ✅ | — |
+| Method | Path                     | Auth | Rate Limit |
+| ------ | ------------------------ | ---- | ---------- |
+| POST   | `/shipping/add`          | ✅   | 5 / 10 min |
+| GET    | `/shipping/my-addresses` | ✅   | —          |
+| DELETE | `/shipping/:id`          | ✅   | —          |
 
 #### Payment
 
-| Method | Path | Auth | Rate Limit |
-|---|---|---|---|
-| POST | `/payment/add` | ✅ | 5 / 10 min |
-| GET | `/payment/saved` | ✅ | — |
-| DELETE | `/payment/:id` | ✅ | — |
+| Method | Path             | Auth | Rate Limit |
+| ------ | ---------------- | ---- | ---------- |
+| POST   | `/payment/add`   | ✅   | 5 / 10 min |
+| GET    | `/payment/saved` | ✅   | —          |
+| DELETE | `/payment/:id`   | ✅   | —          |
 
 </details>
 
@@ -572,20 +573,20 @@ Base path: `/api` — all routes prefixed.
 
 All admin routes require `isAdmin: true` and `role: "Admin"`.
 
-| Method | Path |
-|---|---|
-| GET | `/admin/stats` |
-| GET | `/admin/orders/recent` |
-| GET | `/admin/orders` |
-| GET | `/admin/orders/:id` |
-| PATCH | `/admin/orders/status-update` |
-| GET | `/admin/products` |
-| POST | `/admin/products/add` |
-| PUT | `/admin/products/edit/:id` |
-| DELETE | `/admin/products/delete/:id` |
-| GET | `/admin/users` |
-| GET | `/admin/users/:id` |
-| GET | `/admin/dashboard/analytics` |
+| Method | Path                          |
+| ------ | ----------------------------- |
+| GET    | `/admin/stats`                |
+| GET    | `/admin/orders/recent`        |
+| GET    | `/admin/orders`               |
+| GET    | `/admin/orders/:id`           |
+| PATCH  | `/admin/orders/status-update` |
+| GET    | `/admin/products`             |
+| POST   | `/admin/products/add`         |
+| PUT    | `/admin/products/edit/:id`    |
+| DELETE | `/admin/products/delete/:id`  |
+| GET    | `/admin/users`                |
+| GET    | `/admin/users/:id`            |
+| GET    | `/admin/dashboard/analytics`  |
 
 </details>
 
@@ -629,6 +630,7 @@ sequenceDiagram
 <br>
 
 **User**
+
 ```
 name, phone (unique), email (unique), password (select: false)
 wishlist[], recentlyViewed[]
@@ -638,6 +640,7 @@ role (Admin | User), isAdmin (bool)
 ```
 
 **Product**
+
 ```
 name, price, description, productInfo[]
 ratingsAverage, ratingsCount
@@ -647,6 +650,7 @@ sold, isFeatured
 ```
 
 **Order**
+
 ```
 orderId (unique, nanoid), userId, shippingAddressId, paymentId
 items[{ productId, quantity, size, name, basePrice, taxRate, taxPrice, total }]
@@ -654,27 +658,32 @@ note, coupon{ code, discountAmount }
 subtotalAmount, totalAmount, taxAmount, finalAmount
 status, per-status timestamps, deliveryDate, isPaid, paidAt
 ```
+
 > A pre-save hook recalculates `subtotal`, `tax`, and `finalAmount` on every save.
 
 **Review**
+
 ```
 content, rating (1–5), product (ref), user (ref)
 unique compound index: (product, user)
 ```
 
 **Shipping**
+
 ```
 userId, fullName, phone
 address1, address2, landmark, postalCode, city, state
 ```
 
 **Payment**
+
 ```
 userId, name, last4, month, year
 compound index: (userId, last4)
 ```
 
 **Contact / Subscription**
+
 ```
 Contact: firstName, lastName, email, message, createdAt
 Subscription: email (unique)
@@ -686,13 +695,13 @@ Subscription: email (unique)
 
 ## 🧠 State Management
 
-| Store | Purpose |
-|---|---|
-| RTK Query (`apiSlice`) | All server data — products, auth, orders, admin, reviews, wishlist |
-| Redux `cart` slice | Cart items, persisted to `localStorage` |
-| `FilterContext` | Filter UI state (modal open/close, price slider); URL params are the source of truth on the Products page |
-| `localStorage` | Token, cart items, checkout drafts, coupon, order note, active step |
-| `sessionStorage` | Auth-expiry flash messages |
+| Store                  | Purpose                                                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| RTK Query (`apiSlice`) | All server data — products, auth, orders, admin, reviews, wishlist                                        |
+| Redux `cart` slice     | Cart items, persisted to `localStorage`                                                                   |
+| `FilterContext`        | Filter UI state (modal open/close, price slider); URL params are the source of truth on the Products page |
+| `localStorage`         | Token, cart items, checkout drafts, coupon, order note, active step                                       |
+| `sessionStorage`       | Auth-expiry flash messages                                                                                |
 
 RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refetchOnReconnect`, and optimistic wishlist updates on the product page.
 
@@ -700,16 +709,16 @@ RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refe
 
 ## ⚡ Performance
 
-| Optimization | Implementation |
-|---|---|
-| Code splitting | `React.lazy()` for all routes and heavy modals |
-| Suspense | Global loader fallback + per-modal fallbacks |
-| Memoization | `memo()` on Navbar, ProductCard, Filter, and other frequently re-rendered components |
-| Debounced search | 300ms debounce on the Products page |
-| Server-side pagination | Products, orders, reviews, and all admin lists |
-| Image optimization | `srcSet`, `loading="lazy"`, `decoding="async"`, explicit `width`/`height` attributes |
-| Scroll listener | `requestAnimationFrame` + `{ passive: true }` for the sticky navbar |
-| Lean DB queries | `.lean()` on analytics and search-suggestion queries |
+| Optimization           | Implementation                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Code splitting         | `React.lazy()` for all routes and heavy modals                                       |
+| Suspense               | Global loader fallback + per-modal fallbacks                                         |
+| Memoization            | `memo()` on Navbar, ProductCard, Filter, and other frequently re-rendered components |
+| Debounced search       | 300ms debounce on the Products page                                                  |
+| Server-side pagination | Products, orders, reviews, and all admin lists                                       |
+| Image optimization     | `srcSet`, `loading="lazy"`, `decoding="async"`, explicit `width`/`height` attributes |
+| Scroll listener        | `requestAnimationFrame` + `{ passive: true }` for the sticky navbar                  |
+| Lean DB queries        | `.lean()` on analytics and search-suggestion queries                                 |
 
 ---
 
@@ -717,20 +726,20 @@ RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refe
 
 ### Backend
 
-| Measure | Detail |
-|---|---|
-| **Helmet** | Secure HTTP response headers |
-| **CORS** | Whitelist of `localhost:5173` and `CLIENT_URL`; credentials enabled |
-| **Rate Limiting** | Auth (5/10 min), contact, subscribe, shipping, payment, reviews (20/15 min) |
-| **NoSQL Injection** | Mongo sanitization on all incoming request data |
-| **HPP** | HTTP parameter pollution protection; `category` and `gender` whitelisted |
-| **XSS Protection** | xss-clean middleware |
-| **Body Size Limit** | 10kb cap on JSON and URL-encoded payloads |
-| **Account Lockout** | 5 failed logins → 15-minute lock |
-| **Password Policy** | Enforced on registration, reset, and password change |
-| **JWT Expiry** | 7-day tokens with explicit `TokenExpiredError` handling |
-| **Hashed Reset Tokens** | SHA-256 hash stored in DB; 10-minute expiry |
-| **Ownership Checks** | Orders, addresses, payments, and reviews scoped to `req.user._id` |
+| Measure                 | Detail                                                                      |
+| ----------------------- | --------------------------------------------------------------------------- |
+| **Helmet**              | Secure HTTP response headers                                                |
+| **CORS**                | Whitelist of `localhost:5173` and `CLIENT_URL`; credentials enabled         |
+| **Rate Limiting**       | Auth (5/10 min), contact, subscribe, shipping, payment, reviews (20/15 min) |
+| **NoSQL Injection**     | Mongo sanitization on all incoming request data                             |
+| **HPP**                 | HTTP parameter pollution protection; `category` and `gender` whitelisted    |
+| **XSS Protection**      | xss-clean middleware                                                        |
+| **Body Size Limit**     | 10kb cap on JSON and URL-encoded payloads                                   |
+| **Account Lockout**     | 5 failed logins → 15-minute lock                                            |
+| **Password Policy**     | Enforced on registration, reset, and password change                        |
+| **JWT Expiry**          | 7-day tokens with explicit `TokenExpiredError` handling                     |
+| **Hashed Reset Tokens** | SHA-256 hash stored in DB; 10-minute expiry                                 |
+| **Ownership Checks**    | Orders, addresses, payments, and reviews scoped to `req.user._id`           |
 
 ### Frontend
 
@@ -743,14 +752,14 @@ RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refe
 
 ## ♿ Accessibility
 
-| Feature | Implementation |
-|---|---|
-| Semantic HTML | `<main>`, `<nav>`, `<footer>`, properly labeled form inputs |
-| Accessible primitives | Radix UI — keyboard navigation, focus trapping, and ARIA roles built in |
-| Focus management | `focus-visible:ring-*` on all interactive elements; auto-focus on checkout validation errors |
-| ARIA labels | Applied to cart, profile icon, pagination controls, and admin action buttons |
-| Contrast | High-contrast black/white design throughout |
-| Language | `<html lang="en">` declared |
+| Feature               | Implementation                                                                               |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| Semantic HTML         | `<main>`, `<nav>`, `<footer>`, properly labeled form inputs                                  |
+| Accessible primitives | Radix UI — keyboard navigation, focus trapping, and ARIA roles built in                      |
+| Focus management      | `focus-visible:ring-*` on all interactive elements; auto-focus on checkout validation errors |
+| ARIA labels           | Applied to cart, profile icon, pagination controls, and admin action buttons                 |
+| Contrast              | High-contrast black/white design throughout                                                  |
+| Language              | `<html lang="en">` declared                                                                  |
 
 ---
 
@@ -765,10 +774,10 @@ RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refe
 
 ## 🚀 Deployment
 
-| | |
-|---|---|
-| **Frontend** | [Vercel](https://ecommerce-platform-f4qc.vercel.app/) — `npm run build` from `/client` |
-| **Backend** | [Railway](https://ecommerce-platform-production-81f5.up.railway.app) — `npm start` from `/server` |
+|              |                                                                                                   |
+| ------------ | ------------------------------------------------------------------------------------------------- |
+| **Frontend** | [Vercel](https://ecommerce-platform-f4qc.vercel.app/) — `npm run build` from `/client`            |
+| **Backend**  | [Railway](https://ecommerce-platform-production-81f5.up.railway.app) — `npm start` from `/server` |
 
 To deploy your own instance, provision a Node.js host for the backend and a static host for the frontend, configure the environment variables listed [above](#-environment-variables), and set `CLIENT_URL` on the backend to match the deployed frontend origin for CORS and password reset links.
 
@@ -793,25 +802,28 @@ Manual testing was performed end-to-end across authentication (register, login, 
 
 - Implementing the full retail loop rather than just CRUD exposed real-world edge cases — mid-checkout stockouts, terminal order states, ownership enforcement — that a narrower project would never have surfaced
 - Security is significantly easier to build in than bolt on; rate limiting, sanitization, and ownership scoping added naturally as each route was built would have been far more disruptive to retrofit
-- Being deliberate about *where* state lives (server cache in RTK Query, user-driven cart in Redux, ephemeral UI in context) produces a much cleaner data flow than defaulting everything to a single store
-- Shipping a working application and producing a *complete* one are different goals — deployment configuration, tests, and environment templates are easy to deprioritize solo, and recognizing that gap early is itself a useful lesson
+- Being deliberate about _where_ state lives (server cache in RTK Query, user-driven cart in Redux, ephemeral UI in context) produces a much cleaner data flow than defaulting everything to a single store
+- Shipping a working application and producing a _complete_ one are different goals — deployment configuration, tests, and environment templates are easy to deprioritize solo, and recognizing that gap early is itself a useful lesson
 
 ---
 
 ## 🗺️ Future Improvements
 
 ### High Priority
+
 - [ ] Real payment integration — Stripe or Razorpay with PCI-compliant handling
 - [ ] Image upload — multer + cloud storage (S3 / Cloudinary) for the admin panel
 - [ ] CI/CD pipeline and `.env.example` for reproducible deployments
 - [ ] Automated tests — API integration + frontend component / E2E
 
 ### Security & Auth
+
 - [ ] Refresh tokens with httpOnly cookie storage
 - [ ] Server-side token validation on `ProtectedRoute` entry
 - [ ] Role management API — promote/demote users from the admin UI
 
 ### Features
+
 - [ ] Server-side cart sync across devices and sessions
 - [ ] Transactional emails for order confirmation and shipping updates
 - [ ] MongoDB text index or Elasticsearch for scalable product search
@@ -820,6 +832,7 @@ Manual testing was performed end-to-end across authentication (register, login, 
 - [ ] Admin views for inbound contact messages and the subscriber list
 
 ### Code Quality
+
 - [ ] Fix `getProducts` crash when the `search` query param is absent
 - [ ] Skip card/CVV validation when using a saved payment method
 - [ ] Skip `useGetRecentlyViewedQuery` for unauthenticated users on the product page
@@ -828,6 +841,7 @@ Manual testing was performed end-to-end across authentication (register, login, 
 - [ ] Centralize coupon constants (currently duplicated in Cart and `orderController`)
 
 ### Accessibility & UX
+
 - [ ] Skip navigation link, `prefers-reduced-motion`, and toast live regions
 - [ ] `react-helmet` with Open Graph and structured product data for SEO
 - [ ] PWA support with offline cart
