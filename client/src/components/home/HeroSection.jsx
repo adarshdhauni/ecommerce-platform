@@ -1,6 +1,4 @@
 import React, { memo } from "react";
-import { Button } from "@/components/ui/button";
-import PrimaryButton from "../customButtons/PrimaryButton";
 
 const HeroSection = ({ navigate }) => {
   return (
@@ -50,7 +48,7 @@ const HeroSection = ({ navigate }) => {
         <p className="hero-sub  text-lg md:text-3xl font-light">
           Introducing the Capsule Collection
         </p>
-        <Button
+        <button
           onClick={() => navigate("/products")}
           className="
           hero-btn
@@ -87,7 +85,7 @@ const HeroSection = ({ navigate }) => {
   "
         >
           SHOP NOW
-        </Button>
+        </button>
       </div>
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white opacity-70 scroll-indicator">
         <span className="text-[10px] tracking-[0.3em]">SCROLL</span>
