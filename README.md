@@ -924,8 +924,10 @@ Licensed under the [MIT License](LICENSE).
 
 🌐 [Portfolio](https://portfolio-xi-silk-b3un2mc452.vercel.app)
 &nbsp;·&nbsp;
+🐙 [GitHub](https://github.com/adarshdhauni)
+&nbsp;·&nbsp;
 💼 [LinkedIn](https://www.linkedin.com/in/adarsh-dhauni-7146903a6/)
 &nbsp;·&nbsp;
-🐙 [GitHub](https://github.com/adarshdhauni)
+💻 [Leetcode](https://leetcode.com/u/Adarsh_49/)
 &nbsp;·&nbsp;
 📧 <adarshdhauni186@gmail.com>
