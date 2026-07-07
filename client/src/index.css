@@ -7,6 +7,11 @@
     transform: translateX(100%);
   }
 }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -14,6 +19,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .editorial-img {
   transform: scale(1);
   transition: transform 0.7s ease-out;
@@ -58,9 +64,11 @@
 .featured-grid > *:nth-child(1) {
   animation-delay: 0.05s;
 }
+
 .featured-grid > *:nth-child(2) {
   animation-delay: 0.1s;
 }
+
 .featured-grid > *:nth-child(3) {
   animation-delay: 0.15s;
 }
@@ -272,6 +280,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+  
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
