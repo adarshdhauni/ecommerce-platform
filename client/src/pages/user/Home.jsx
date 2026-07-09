@@ -5,18 +5,18 @@ import {
   useGetRecentlyViewedQuery,
 } from "../../redux/api/apiSlice.js";
 import { lazy, Suspense } from "react";
-import FadeIn from "@/components/customFadeIn/FadeIn.jsx";
-import HeroSection from "@/components/home/HeroSection.jsx";
-import CategoriesSection from "@/components/home/CategoriesSection.jsx";
-import ProductCard from "@/components/productCard/ProductCard.jsx";
+import FadeIn from "@/components/common/FadeIn.jsx";
+import HeroSection from "@/features/home/components/HeroSection.jsx";
+import CategoriesSection from "@/features/home/components/CategoriesSection.jsx";
+import ProductCard from "@/features/products/components/catalog/ProductCard.jsx";
 const ProductQuickView = lazy(
   () => import("@/components/modals/ProductQuickViewModal.jsx"),
 );
-import EditorialSection from "@/components/home/EditorialSection.jsx";
-import ProductsErrorState from "@/components/ErrorState/ErrorState.jsx";
-import ProductsLoadingState from "@/components/loadingStates/ProductsLoadingState.jsx";
-import ProductsEmptyState from "@/components/EmptyState/EmptyState.jsx";
-import TextButton from "@/components/customButtons/TextButton.jsx";
+import EditorialSection from "@/features/home/components/EditorialSection.jsx";
+import ProductsErrorState from "@/components/feedback/error/ErrorState.jsx";
+import ProductsLoadingState from "@/components/feedback/loading/ProductsLoadingState.jsx";
+import ProductsEmptyState from "@/components/feedback/empty-state/EmptyState.jsx";
+import TextButton from "@/components/ui/buttons/TextButton.jsx";
 
 const Home = () => {
   const token = localStorage.getItem("token");

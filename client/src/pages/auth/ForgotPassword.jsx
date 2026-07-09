@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useForgotPasswordMutation } from "@/redux/api/apiSlice";
-import PrimaryButton from "@/components/customButtons/PrimaryButton";
-import SecondaryButton from "@/components/customButtons/SecondaryButton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import SecondaryButton from "@/components/ui/buttons/SecondaryButton";
 
 const ForgotPassword = () => {
   const [forgotPassword, { isLoading }] = useForgotPasswordMutation();

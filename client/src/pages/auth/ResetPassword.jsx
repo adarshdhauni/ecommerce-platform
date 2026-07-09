@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useResetPasswordMutation } from "@/redux/api/apiSlice";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff } from "lucide-react";
-import PrimaryButton from "@/components/customButtons/PrimaryButton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 
 const ResetPassword = () => {
   const { token } = useParams();

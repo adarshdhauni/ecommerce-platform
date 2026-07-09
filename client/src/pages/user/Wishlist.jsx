@@ -1,15 +1,15 @@
 import React, { lazy, Suspense, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import ProductCard from "@/components/productCard/ProductCard";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import ProductCard from "@/features/products/components/catalog/ProductCard";
 const ProductQuickView = lazy(
   () => import("@/components/modals/ProductQuickViewModal"),
 );
 import { useGetWishlistQuery } from "@/redux/api/apiSlice";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import EmptyState from "@/components/EmptyState/EmptyState";
-import ProductsLoadingState from "@/components/loadingStates/ProductsLoadingState";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import EmptyState from "@/components/feedback/empty-state/EmptyState";
+import ProductsLoadingState from "@/components/feedback/loading/ProductsLoadingState";
 
 const Wishlist = () => {
   const navigate = useNavigate();

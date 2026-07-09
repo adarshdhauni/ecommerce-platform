@@ -1,5 +1,5 @@
 import React from "react";
-import FadeIn from "@/components/customFadeIn/FadeIn";
+import FadeIn from "@/components/common/FadeIn";
 
 const About = () => {
   return (

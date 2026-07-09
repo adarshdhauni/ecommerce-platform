@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useGetOrderDetailsQuery } from "@/redux/api/apiSlice";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import EmptyState from "@/components/EmptyState/EmptyState";
-import Skeleton from "@/components/Skeleton/Skeleton";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import PaginationComponent from "@/components/common/PaginationComponent";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import EmptyState from "@/components/feedback/empty-state/EmptyState";
+import Skeleton from "@/components/ui/skeleton";
 
 const formatCurrency = (num) =>
   new Intl.NumberFormat("en-US", {

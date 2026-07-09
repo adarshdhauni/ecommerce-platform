@@ -28,17 +28,17 @@ const AddProduct = lazy(() => import("./pages/admin/AddProduct"));
 const EditProduct = lazy(() => import("./pages/admin/EditProduct"));
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 const AdminUserDetails = lazy(() => import("./pages/admin/AdminUserDetails"));
-const NotFound = lazy(() => import("./pages/notFound/NotFound"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-import Topbar from "./components/admin/topbar/Topbar";
-import Sidebar from "./components/admin/sidebar/Sidebar";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
-import ScrollToTop from "./components/globalComponents/ScrollToTop";
-import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
-import AdminRoute from "./components/admin/adminRoute/AdminRoute";
-import GlobalLoader from "./components/globalComponents/GlobalLoader";
-import RouteError from "./components/routeError/RouteError";
+import Topbar from "./features/admin/components/shared/Topbar";
+import Sidebar from "./features/admin/components/shared/Sidebar";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import ScrollToTop from "./routes/ScrollToTop";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import AdminRoute from "./routes/AdminRoute";
+import GlobalLoader from "./components/feedback/loading/GlobalLoader";
+import RouteError from "./components/feedback/error/RouteError";
 
 const AppLayout = () => {
   return (

@@ -15,18 +15,18 @@ import { addToCart } from "../../redux/cart/cartSlice";
 const ProductQuickView = lazy(
   () => import("@/components/modals/ProductQuickViewModal"),
 );
-import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
-import ProductCard from "@/components/productCard/ProductCard";
-import ProductImage from "@/components/product/ProductImage";
-import ProductImageSkeleton from "@/components/loadingStates/ProductImageSkeleton";
-import FadeIn from "@/components/customFadeIn/FadeIn";
-import ProductDetails from "@/components/product/ProductDetails";
-import ProductDetailsSkeleton from "@/components/loadingStates/ProductDetailsSkeleton";
-import ProductTabSection from "@/components/product/ProductTabSection";
-import ProductsLoadingState from "@/components/loadingStates/ProductsLoadingState.jsx";
-import ErrorState from "@/components/ErrorState/ErrorState.jsx";
-import EmptyState from "@/components/EmptyState/EmptyState.jsx";
-import Skeleton from "@/components/Skeleton/Skeleton";
+import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import ProductCard from "@/features/products/components/catalog/ProductCard";
+import ProductImage from "@/features/products/components/product-details/ProductImage";
+import ProductImageSkeleton from "@/components/feedback/loading/ProductImageSkeleton";
+import FadeIn from "@/components/common/FadeIn";
+import ProductDetails from "@/features/products/components/product-details/ProductDetails";
+import ProductDetailsSkeleton from "@/components/feedback/loading/ProductDetailsSkeleton";
+import ProductTabSection from "@/features/products/components/product-details/ProductTabSection";
+import ProductsLoadingState from "@/components/feedback/loading/ProductsLoadingState.jsx";
+import ErrorState from "@/components/feedback/error/ErrorState.jsx";
+import EmptyState from "@/components/feedback/empty-state/EmptyState.jsx";
+import Skeleton from "@/components/ui/skeleton";
 
 const Product = () => {
   const { id } = useParams();

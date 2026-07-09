@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/accordion";
 import { memo, useEffect } from "react";
 import { createPortal } from "react-dom";
-import PrimaryButton from "../customButtons/PrimaryButton";
-import SecondaryButton from "../customButtons/SecondaryButton";
-import TextButton from "../customButtons/TextButton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import SecondaryButton from "@/components/ui/buttons/SecondaryButton";
+import TextButton from "@/components/ui/buttons/TextButton";
 
 const sortOptions = [
   "Recommended",

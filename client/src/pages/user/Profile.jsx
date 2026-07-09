@@ -1,12 +1,12 @@
 import React, { lazy, Suspense, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { useToast } from "@/hooks/use-toast";
 const EditProfileModal = lazy(
   () => import("@/components/modals/EditProfileModal"),
 );
 const ChangePasswordModal = lazy(
-  () => import("@/components/modals/changePasswordModal/ChangePasswordModal"),
+  () => import("@/components/modals/change-password/ChangePasswordModal"),
 );
 import { useEffect } from "react";
 import {
@@ -14,10 +14,10 @@ import {
   useUpdateProfileMutation,
   useUpdatePasswordMutation,
 } from "@/redux/api/apiSlice";
-import ProfileSkeleton from "@/components/loadingStates/ProfileSkeleton";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import EmptyState from "@/components/EmptyState/EmptyState";
-import TextButton from "@/components/customButtons/TextButton";
+import ProfileSkeleton from "@/components/feedback/loading/ProfileSkeleton";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import EmptyState from "@/components/feedback/empty-state/EmptyState";
+import TextButton from "@/components/ui/buttons/TextButton";
 
 const focusField = (id) => {
   const el = document.getElementById(id);

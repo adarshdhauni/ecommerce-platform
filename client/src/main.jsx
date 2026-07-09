@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
-import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
+import ErrorBoundary from "./components/feedback/error/ErrorBoundary";
 import { FilterProvider } from "@/context/FilterContext";
 
 import Toaster from "./components/ui/toaster";

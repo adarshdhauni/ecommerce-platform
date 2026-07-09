@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { useContactMessageMutation } from "@/redux/api/apiSlice.js";
 import { useToast } from "@/hooks/use-toast";
-import FadeIn from "@/components/customFadeIn/FadeIn.jsx";
-import PrimaryButton from "@/components/customButtons/PrimaryButton.jsx";
+import FadeIn from "@/components/common/FadeIn.jsx";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton.jsx";
 
 const Contact = () => {
   const { toast } = useToast();

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useEffect } from "react";
 import { createPortal } from "react-dom";
-import SecondaryButton from "../customButtons/SecondaryButton";
+import SecondaryButton from "@/components/ui/buttons/SecondaryButton";
 
 const container = {
   hidden: {},

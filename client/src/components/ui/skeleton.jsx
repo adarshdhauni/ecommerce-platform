@@ -1,14 +1,28 @@
-import { cn } from "@/lib/utils"
+import React, { memo } from "react";
 
-function Skeleton({
-  className,
-  ...props
-}) {
+const Skeleton = ({ className = "" }) => {
   return (
     <div
-      className={cn("animate-pulse rounded-md bg-primary/10", className)}
-      {...props} />
+      className={`
+      relative
+      overflow-hidden
+      bg-black/[0.05]
+      ${className}
+    `}
+    >
+      <div
+        className="
+        absolute inset-0
+        -translate-x-full
+        animate-[shimmer_1.8s_infinite]
+        bg-gradient-to-r
+        from-transparent
+        via-white/70
+        to-transparent
+      "
+      />
+    </div>
   );
-}
+};
 
-export { Skeleton }
+export default memo(Skeleton);

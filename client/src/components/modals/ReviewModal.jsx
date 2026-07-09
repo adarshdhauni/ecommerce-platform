@@ -4,8 +4,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Star } from "lucide-react";
 import { useAddReviewMutation } from "@/redux/api/apiSlice";
 import { createPortal } from "react-dom";
-import SecondaryButton from "../customButtons/SecondaryButton";
-import PrimaryButton from "../customButtons/PrimaryButton";
+import SecondaryButton from "@/components/ui/buttons/SecondaryButton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 
 const container = {
   hidden: {},

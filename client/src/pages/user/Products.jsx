@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import {
   useGetProductsQuery,
   useGetSearchSuggestionsQuery,
@@ -9,19 +9,19 @@ const ProductQuickView = lazy(
   () => import("@/components/modals/ProductQuickViewModal"),
 );
 const FilterModal = lazy(() => import("@/components/modals/FilterModal"));
-import Filter from "@/components/products/Filter";
-import ToolbarSec from "@/components/products/ToolbarSec";
-import ProductsLoadingState from "@/components/loadingStates/ProductsLoadingState";
-import ProductsErrorState from "@/components/ErrorState/ErrorState";
-import ProductCard from "@/components/productCard/ProductCard";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
+import Filter from "@/features/products/components/catalog/Filter";
+import ToolbarSec from "@/features/products/components/catalog/ToolbarSec";
+import ProductsLoadingState from "@/components/feedback/loading/ProductsLoadingState";
+import ProductsErrorState from "@/components/feedback/error/ErrorState";
+import ProductCard from "@/features/products/components/catalog/ProductCard";
+import PaginationComponent from "@/components/common/PaginationComponent";
 import {
   useFilter,
   GENDERS as genders,
   CATEGORIES as categories,
 } from "@/context/FilterContext";
 import { useSearchParams } from "react-router-dom";
-import ProductsEmptyState from "@/components/EmptyState/EmptyState";
+import ProductsEmptyState from "@/components/feedback/empty-state/EmptyState";
 
 const Products = () => {
   const { isOpen, setValues, setChecked, setCheckedCategories, setSortBy } =

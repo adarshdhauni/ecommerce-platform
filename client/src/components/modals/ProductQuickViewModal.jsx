@@ -10,8 +10,8 @@ import { Heart, Star } from "lucide-react";
 import { addToCart } from "../../redux/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { createPortal } from "react-dom";
-import PrimaryButton from "../customButtons/PrimaryButton";
-import Skeleton from "../Skeleton/Skeleton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import Skeleton from "@/components/ui/skeleton";
 
 const stars = [1, 2, 3, 4, 5];
 

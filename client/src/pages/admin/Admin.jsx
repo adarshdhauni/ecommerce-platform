@@ -4,13 +4,13 @@ import {
   useGetRecentOrdersQuery,
 } from "@/redux/api/apiSlice";
 
-import AdminStats from "@/components/admin/dashboard/AdminStats";
-import AdminOrdersSkeleton from "@/components/loadingStates/AdminOrdersSkeleton";
-import AdminOrdersEmpty from "@/components/EmptyState/AdminEmptyState";
-import AdminOrdersList from "@/components/admin/orders/AdminOrdersList";
-import AdminLowInventory from "@/components/admin/dashboard/AdminLowInventory";
-import AdminTopProducts from "@/components/admin/dashboard/AdminTopProducts";
-import ErrorState from "@/components/ErrorState/ErrorState";
+import AdminStats from "@/features/admin/components/dashboard/AdminStats";
+import AdminOrdersSkeleton from "@/components/feedback/loading/AdminOrdersSkeleton";
+import AdminOrdersEmpty from "@/components/feedback/empty-state/AdminEmptyState";
+import AdminOrdersList from "@/features/admin/components/orders/AdminOrdersList";
+import AdminLowInventory from "@/features/admin/components/dashboard/AdminLowInventory";
+import AdminTopProducts from "@/features/admin/components/dashboard/AdminTopProducts";
+import ErrorState from "@/components/feedback/error/ErrorState";
 
 const statusStyles = {
   Delivered: "bg-green-50 text-green-600 ring-green-500/10",

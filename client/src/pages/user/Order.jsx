@@ -6,15 +6,15 @@ import {
   useGetOrderByIdQuery,
   useCancelOrderMutation,
 } from "@/redux/api/apiSlice";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { toast } from "@/hooks/use-toast";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import EmptyState from "@/components/EmptyState/EmptyState";
-import OrderSkeleton from "@/components/loadingStates/OrderSkeleton";
-import OrderCard from "@/components/order/OrderCard";
-import OrderTimeline from "@/components/order/OrderTimeline";
-import OrderStatus from "@/components/order/OrderStatus";
-import TextButton from "@/components/customButtons/TextButton";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import EmptyState from "@/components/feedback/empty-state/EmptyState";
+import OrderSkeleton from "@/components/feedback/loading/OrderSkeleton";
+import OrderCard from "@/features/orders/components/OrderCard";
+import OrderTimeline from "@/features/orders/components/OrderTimeline";
+import OrderStatus from "@/features/orders/components/OrderStatus";
+import TextButton from "@/components/ui/buttons/TextButton";
 const ConfirmModal = lazy(() => import("@/components/modals/ConfirmModal"));
 const ReviewModal = lazy(() => import("@/components/modals/ReviewModal"));
 const DeleteReviewDialog = lazy(

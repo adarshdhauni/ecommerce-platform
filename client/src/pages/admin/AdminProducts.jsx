@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
-import AdminProductsFilter from "@/components/admin/products/AdminProductsFilter";
-import AdminProductsSkeleton from "@/components/loadingStates/AdminProductsSkeleton";
-import AdminProductsList from "@/components/admin/products/AdminProductsList";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
+import AdminProductsFilter from "@/features/admin/components/products/AdminProductsFilter";
+import AdminProductsSkeleton from "@/components/feedback/loading/AdminProductsSkeleton";
+import AdminProductsList from "@/features/admin/components/products/AdminProductsList";
+import PaginationComponent from "@/components/common/PaginationComponent";
 const ConfirmDialog = lazy(() => import("@/components/modals/ConfirmModal"));
 import { toast } from "@/hooks/use-toast";
 import {
@@ -10,9 +10,9 @@ import {
   useGetAdminProductsQuery,
 } from "@/redux/api/apiSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import PrimaryButton from "@/components/customButtons/PrimaryButton";
-import AdminEmptyState from "@/components/EmptyState/AdminEmptyState";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import AdminEmptyState from "@/components/feedback/empty-state/AdminEmptyState";
 
 const AdminProducts = () => {
   const navigate = useNavigate();

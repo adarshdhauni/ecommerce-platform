@@ -1,11 +1,11 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import Shipping from "@/components/checkout/shipping/Shipping";
-import Payment from "@/components/checkout/payment/Payment";
-import OrderConfirmation from "@/components/checkout/orderConfirmation/OrderConfirmation";
-import OrderSummary from "@/components/checkout/orderSummary/OrderSummary";
+import Shipping from "@/features/checkout/components/shipping/Shipping";
+import Payment from "@/features/checkout/components/payment/Payment";
+import OrderConfirmation from "@/features/checkout/components/OrderConfirmation";
+import OrderSummary from "@/features/checkout/components/shared/OrderSummary";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import TextButton from "@/components/customButtons/TextButton";
+import TextButton from "@/components/ui/buttons/TextButton";
 const ConfirmDialog = lazy(() => import("@/components/modals/ConfirmModal"));
 
 const steps = ["Shipping", "Payment", "Confirmation"];

@@ -2,8 +2,8 @@ import { Label } from "@radix-ui/react-label";
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useEffect } from "react";
 import { createPortal } from "react-dom";
-import SecondaryButton from "../customButtons/SecondaryButton";
-import PrimaryButton from "../customButtons/PrimaryButton";
+import SecondaryButton from "@/components/ui/buttons/SecondaryButton";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 
 const container = {
   hidden: {},

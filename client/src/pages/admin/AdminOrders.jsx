@@ -1,12 +1,12 @@
 import { useGetAdminOrdersQuery } from "@/redux/api/apiSlice";
 import React, { useEffect, useState } from "react";
-import AdminOrdersSkeleton from "@/components/loadingStates/AdminOrdersSkeleton";
-import AdminOrdersList from "@/components/admin/orders/AdminOrdersList";
-import AdminOrdersFilter from "@/components/admin/orders/AdminOrdersFilter";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
+import AdminOrdersSkeleton from "@/components/feedback/loading/AdminOrdersSkeleton";
+import AdminOrdersList from "@/features/admin/components/orders/AdminOrdersList";
+import AdminOrdersFilter from "@/features/admin/components/orders/AdminOrdersFilter";
+import PaginationComponent from "@/components/common/PaginationComponent";
 import { useSearchParams } from "react-router-dom";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import AdminEmptyState from "@/components/EmptyState/AdminEmptyState";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import AdminEmptyState from "@/components/feedback/empty-state/AdminEmptyState";
 
 const statusStyles = {
   Delivered: "bg-green-50 text-green-600 ring-green-500/10",
@@ -221,7 +221,7 @@ const AdminOrders = () => {
             />
           ) : orders?.length === 0 ? (
             <AdminEmptyState
-            orders
+              orders
               compact
               hasFilters={hasFilters}
               filtersTitle={"No matching orders"}

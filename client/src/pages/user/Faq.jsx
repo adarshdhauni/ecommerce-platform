@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { orderFaq, refundFaq } from "@/data/faqData";
-import FadeIn from "@/components/customFadeIn/FadeIn";
+import FadeIn from "@/components/common/FadeIn";
 import { Search } from "lucide-react";
 
 const FAQ_ITEMS = [

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ProductForm from "@/components/admin/products/ProductForm";
+import ProductForm from "@/features/admin/components/products/product-form/ProductForm";
 import { useCreateProductMutation } from "@/redux/api/apiSlice";
 import { toast } from "@/hooks/use-toast";
 

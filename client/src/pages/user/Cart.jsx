@@ -8,12 +8,12 @@ import {
 } from "../../redux/cart/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import CartItem from "@/components/cart/CartItem";
-import EmptyState from "@/components/EmptyState/EmptyState";
-import AddCoupon from "@/components/cart/AddCoupon";
-import AddNote from "@/components/cart/AddNote";
-import PrimaryButton from "@/components/customButtons/PrimaryButton";
-import TextButton from "@/components/customButtons/TextButton";
+import CartItem from "@/features/cart/components/CartItem";
+import EmptyState from "@/components/feedback/empty-state/EmptyState";
+import AddCoupon from "@/features/cart/components/AddCoupon";
+import AddNote from "@/features/cart/components/AddNote";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import TextButton from "@/components/ui/buttons/TextButton";
 
 const COUPONS = {
   NOVA10: {

@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useGetAllUsersQuery } from "@/redux/api/apiSlice";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
-import AdminUsersFilter from "@/components/admin/users/AdminUsersFilter";
-import AdminUsersSkeleton from "@/components/loadingStates/AdminUsersSkeleton";
-import AdminUsersList from "@/components/admin/users/AdminUsersList";
+import PaginationComponent from "@/components/common/PaginationComponent";
+import AdminUsersFilter from "@/features/admin/components/users/AdminUsersFilter";
+import AdminUsersSkeleton from "@/components/feedback/loading/AdminUsersSkeleton";
+import AdminUsersList from "@/features/admin/components/users/AdminUsersList";
 import { useSearchParams } from "react-router-dom";
-import ErrorState from "@/components/ErrorState/ErrorState";
-import AdminEmptyState from "@/components/EmptyState/AdminEmptyState";
+import ErrorState from "@/components/feedback/error/ErrorState";
+import AdminEmptyState from "@/components/feedback/empty-state/AdminEmptyState";
 
 const AdminUsers = () => {
   const [searchParams, setSearchParams] = useSearchParams();

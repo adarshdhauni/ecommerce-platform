@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useGetAdminUserDetailsQuery } from "@/redux/api/apiSlice";
-import AdminOrdersEmpty from "@/components/EmptyState/AdminEmptyState";
-import AdminOrdersList from "@/components/admin/orders/AdminOrdersList";
-import AdminUserDetailsSkeleton from "@/components/loadingStates/AdminUserDetailsSkeleton";
-import PaginationComponent from "@/components/pagination/PaginationComponent";
+import AdminOrdersEmpty from "@/components/feedback/empty-state/AdminEmptyState";
+import AdminOrdersList from "@/features/admin/components/orders/AdminOrdersList";
+import AdminUserDetailsSkeleton from "@/components/feedback/loading/AdminUserDetailsSkeleton";
+import PaginationComponent from "@/components/common/PaginationComponent";
 import { ArrowLeft } from "lucide-react";
-import ErrorState from "@/components/ErrorState/ErrorState";
+import ErrorState from "@/components/feedback/error/ErrorState";
 
 const statusStyles = {
   Delivered: "bg-green-50 text-green-600 ring-green-500/10",

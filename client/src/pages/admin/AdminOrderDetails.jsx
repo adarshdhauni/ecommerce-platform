@@ -5,12 +5,12 @@ import {
   useUpdateOrderStatusMutation,
 } from "@/redux/api/apiSlice";
 import { toast } from "@/hooks/use-toast";
-import OrderDetailsSkeleton from "@/components/loadingStates/OrderDetailsSkeleton";
-import OrderDetailsCards from "@/components/admin/orderDetails/OrderDetailsCards";
-import OrderDetailsHeader from "@/components/admin/orderDetails/OrderDetailsHeader";
-import OrderDetailsItems from "@/components/admin/orderDetails/OrderDetailsItems";
-import OrderDetailsOrderControl from "@/components/admin/orderDetails/OrderDetailsOrderControl";
-import ErrorState from "@/components/ErrorState/ErrorState";
+import OrderDetailsSkeleton from "@/components/feedback/loading/OrderDetailsSkeleton";
+import OrderDetailsCards from "@/features/admin/components/orders/order-details/OrderDetailsCards";
+import OrderDetailsHeader from "@/features/admin/components/orders/order-details/OrderDetailsHeader";
+import OrderDetailsItems from "@/features/admin/components/orders/order-details/OrderDetailsItems";
+import OrderDetailsOrderControl from "@/features/admin/components/orders/order-details/OrderDetailsOrderControl";
+import ErrorState from "@/components/feedback/error/ErrorState";
 import { ArrowLeft } from "lucide-react";
 
 const infoCard =
