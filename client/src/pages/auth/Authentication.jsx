@@ -1,5 +1,5 @@
-import Signin from "@/features/auth/components/Signin";
-import Signup from "@/features/auth/components/Signup";
+import Signin from "@/features/auth/components/signin/Signin";
+import Signup from "@/features/auth/components/signup/Signup";
 import { useToast } from "@/hooks/use-toast";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";

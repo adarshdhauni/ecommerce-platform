@@ -416,7 +416,7 @@ const Signup = ({ setMode, handleAuthSuccess }) => {
             className="flex h-12 items-center justify-center gap-3 w-full rounded-lg border border-black/[0.08] bg-white transition-[transform,background-color,border-color]duration-150 hover-supported:hover:bg-black/[0.02] hover-supported:hover:border-black/[0.12] active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
             <img
-              src="/imagesSection/google.png"
+              src="/images/google.png"
               alt="Google"
               draggable="false"
               className="h-5 w-5 shrink-0"

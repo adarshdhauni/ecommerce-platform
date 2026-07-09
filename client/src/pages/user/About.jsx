@@ -7,15 +7,15 @@ const About = () => {
       <div className="relative w-full">
         <div className="w-full aspect-[4/5] sm:aspect-[16/9] 2xl:aspect-[21/9]">
           <img
-            src="/imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-800.webp"
-            srcSet="/imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-400.webp 400w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-600.webp 600w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-800.webp 800w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-1200.webp 1200w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-1600.webp 1600w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-2000.webp 2000w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-2400.webp 2400w,
-            /imagesSection/kevin-laminto-paoUHg6k4Kg-unsplash-3000.webp 3000w,
+            src="/images/kevin-laminto-paoUHg6k4Kg-unsplash-800.webp"
+            srcSet="/images/kevin-laminto-paoUHg6k4Kg-unsplash-400.webp 400w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-600.webp 600w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-800.webp 800w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-1200.webp 1200w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-1600.webp 1600w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-2000.webp 2000w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-2400.webp 2400w,
+            /images/kevin-laminto-paoUHg6k4Kg-unsplash-3000.webp 3000w,
             "
             fetchPriority="high"
             loading="eager"

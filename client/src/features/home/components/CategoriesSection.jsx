@@ -33,12 +33,12 @@ const CategoriesSection = ({ navigate }) => {
       "
         >
           <img
-            src="/imagesSection/ayo-ogunseinde-UqT55tGBqzI-unsplash-600.webp"
+            src="/images/ayo-ogunseinde-UqT55tGBqzI-unsplash-600.webp"
             srcSet="
-          /imagesSection/ayo-ogunseinde-UqT55tGBqzI-unsplash-400.webp 400w,
-          /imagesSection/ayo-ogunseinde-UqT55tGBqzI-unsplash-600.webp 600w,
-          /imagesSection/ayo-ogunseinde-UqT55tGBqzI-unsplash-800.webp 800w,
-          /imagesSection/ayo-ogunseinde-UqT55tGBqzI-unsplash-1200.webp 1200w
+          /images/ayo-ogunseinde-UqT55tGBqzI-unsplash-400.webp 400w,
+          /images/ayo-ogunseinde-UqT55tGBqzI-unsplash-600.webp 600w,
+          /images/ayo-ogunseinde-UqT55tGBqzI-unsplash-800.webp 800w,
+          /images/ayo-ogunseinde-UqT55tGBqzI-unsplash-1200.webp 1200w
         "
             sizes="(max-width: 640px) 100vw, 50vw"
             loading="lazy"
@@ -117,13 +117,13 @@ const CategoriesSection = ({ navigate }) => {
       "
         >
           <img
-            src="/imagesSection/pexels-ferhatten-36057248-600.webp"
+            src="/images/pexels-ferhatten-36057248-600.webp"
             alt="Men category"
             srcSet="
-          /imagesSection/karsten-winegeart-3U7zjSgOj7g-unsplash-400.webp 400w,
-          /imagesSection/karsten-winegeart-3U7zjSgOj7g-unsplash-600.webp 600w,
-          /imagesSection/karsten-winegeart-3U7zjSgOj7g-unsplash-800.webp 800w,
-          /imagesSection/karsten-winegeart-3U7zjSgOj7g-unsplash-1200.webp 1200w
+          /images/karsten-winegeart-3U7zjSgOj7g-unsplash-400.webp 400w,
+          /images/karsten-winegeart-3U7zjSgOj7g-unsplash-600.webp 600w,
+          /images/karsten-winegeart-3U7zjSgOj7g-unsplash-800.webp 800w,
+          /images/karsten-winegeart-3U7zjSgOj7g-unsplash-1200.webp 1200w
         "
             sizes="(max-width: 640px) 100vw, 50vw"
             loading="lazy"

@@ -8,24 +8,24 @@ const HeroSection = ({ navigate }) => {
           <source
             media="(min-width: 640px)"
             srcSet="
-           /imagesSection/pexels-cottonbro-6070177-600.webp 600w,
-           /imagesSection/pexels-cottonbro-6070177-800.webp 800w,
-           /imagesSection/pexels-cottonbro-6070177-1200.webp 1200w,
-           /imagesSection/pexels-cottonbro-6070177-1600.webp 1600w,
-           /imagesSection/pexels-cottonbro-6070177-2000.webp 2000w,
-           /imagesSection/pexels-cottonbro-6070177-2400.webp 2400w,
-           /imagesSection/pexels-cottonbro-6070177-3000.webp 3000w,
+           /images/pexels-cottonbro-6070177-600.webp 600w,
+           /images/pexels-cottonbro-6070177-800.webp 800w,
+           /images/pexels-cottonbro-6070177-1200.webp 1200w,
+           /images/pexels-cottonbro-6070177-1600.webp 1600w,
+           /images/pexels-cottonbro-6070177-2000.webp 2000w,
+           /images/pexels-cottonbro-6070177-2400.webp 2400w,
+           /images/pexels-cottonbro-6070177-3000.webp 3000w,
          "
             sizes="100vw"
           />
 
           <img
-            src="/imagesSection/mike-von-YsiSAp3ccvk-unsplash-400.webp"
+            src="/images/mike-von-YsiSAp3ccvk-unsplash-400.webp"
             srcSet="
-           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-400.webp 400w,
-           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-600.webp 600w,
-           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-800.webp 800w,
-           /imagesSection/mike-von-YsiSAp3ccvk-unsplash-1200.webp 1200w
+           /images/mike-von-YsiSAp3ccvk-unsplash-400.webp 400w,
+           /images/mike-von-YsiSAp3ccvk-unsplash-600.webp 600w,
+           /images/mike-von-YsiSAp3ccvk-unsplash-800.webp 800w,
+           /images/mike-von-YsiSAp3ccvk-unsplash-1200.webp 1200w
          "
             sizes="100vw"
             fetchPriority="high"

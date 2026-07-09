@@ -253,54 +253,81 @@ Resource ownership for orders, addresses, payments, and reviews is enforced by s
 <details>
 <summary>Click to expand</summary>
 
-```
+```text
 ecommerce-platform/
 ├── assets/
 │   └── screenshots/
 │       ├── desktop/
 │       ├── mobile/
 │       └── social-preview.jpg
+│
 ├── client/
 │   ├── public/
 │   └── src/
+│       ├── assets/
 │       ├── components/
+│       │   ├── common/
+│       │   ├── feedback/
+│       │   │   ├── empty-state/
+│       │   │   ├── error/
+│       │   │   └── loading/
+│       │   ├── layout/
+│       │   ├── modals/
+│       │   │   └── change-password/
+│       │   └── ui/
+│       │       └── buttons/
+│       │
+│       ├── context/
+│       ├── data/
+│       ├── features/
+│       │   ├── admin/
+│       │   │   └── components/
+│       │   │       ├── dashboard/
+│       │   │       ├── orders/
+│       │   │       │   └── order-details/
+│       │   │       ├── products/
+│       │   │       │   └── product-form/
+│       │   │       ├── shared/
+│       │   │       └── users/
+│       │   ├── auth/
+│       │   │   └── components/
+│       │   │       ├── signin/
+│       │   │       └── signup/
+│       │   ├── cart/
+│       │   │   └── components/
+│       │   ├── checkout/
+│       │   │   └── components/
+│       │   │       ├── payment/
+│       │   │       ├── shared/
+│       │   │       └── shipping/
+│       │   ├── home/
+│       │   │   └── components/
+│       │   ├── orders/
+│       │   │   └── components/
+│       │   └── products/
+│       │       └── components/
+│       │           ├── catalog/
+│       │           └── product-details/
+│       │
+│       ├── hooks/
+│       ├── lib/
+│       ├── pages/
 │       │   ├── admin/
 │       │   ├── auth/
-│       │   ├── cart/
-│       │   ├── checkout/
-│       │   ├── product/ & productCard/
-│       │   ├── products/
-│       │   ├── order/
-│       │   ├── modals/
-│       │   ├── ui/                    # shadcn/Radix primitives
-│       │   ├── loadingStates/
-│       │   ├── EmptyState/ & ErrorState/
-│       │   ├── navbar/ & footer/
-│       │   ├── protectedRoute/ & adminRoute/
-│       │   └── globalComponents/
-│       ├── context/
-│       │   └── FilterContext.jsx
-│       ├── hooks/
-│       │   └── use-toast.js
-│       ├── pages/
-│       │   ├── auth/                  # Login, register, forgot/reset password
-│       │   ├── user/                  # Home, Products, Product, Cart, Checkout, etc.
-│       │   ├── admin/                 # Dashboard, Products, Orders, Users
-│       │   └── notFound/
+│       │   └── user/
 │       ├── redux/
-│       │   ├── api/apiSlice.js        # RTK Query — all API calls
-│       │   ├── cart/cartSlice.js
-│       │   └── store/store.js
-│       ├── App.jsx                    # Router + layouts
-│       └── main.jsx
+│       │   ├── api/
+│       │   ├── cart/
+│       │   └── store/
+│       └── routes/
+│
 └── server/
-    ├── controllers/                   # 10 controllers
-    ├── middlewares/                   # isAuth, isAdmin, errorHandler
-    ├── models/                        # 8 Mongoose models
-    ├── routes/                        # 11 route files
-    ├── seed/                          # Product seed data
-    ├── utils/                         # sendEmail, orderUtils, constants
-    └── server.js                      # Entry point
+    ├── controllers/
+    ├── middlewares/
+    ├── models/
+    ├── routes/
+    ├── seed/
+    └── utils/
 ```
 
 </details>

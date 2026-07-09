@@ -103,16 +103,16 @@ const Contact = () => {
       <div className="relative w-full">
         <div className="w-full aspect-[4/5] sm:aspect-[16/9] 2xl:aspect-[21/9]">
           <img
-            src="/imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-800"
+            src="/images/marjan-taghipour-W_iBXR2m6cw-unsplash-800"
             srcSet="
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-400.webp 400w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-600.webp 600w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-800.webp 800w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-1200.webp 1200w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-1600.webp 1600w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-2000.webp 2000w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-2400.webp 2400w,
-  /imagesSection/marjan-taghipour-W_iBXR2m6cw-unsplash-3000.webp 3000w
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-400.webp 400w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-600.webp 600w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-800.webp 800w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-1200.webp 1200w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-1600.webp 1600w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-2000.webp 2000w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-2400.webp 2400w,
+  /images/marjan-taghipour-W_iBXR2m6cw-unsplash-3000.webp 3000w
   
 "
             fetchPriority="high"

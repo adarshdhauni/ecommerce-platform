@@ -5,15 +5,15 @@ const EditorialSection = ({ navigate }) => {
     <div className="relative w-full overflow-hidden group cursor-pointer will-change-transform">
       <div className="w-full aspect-[4/5] sm:aspect-[16/9] 2xl:aspect-[21/9]">
         <img
-          src="/imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp"
+          src="/images/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp"
           srcSet="
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-400.webp 400w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp 600w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-1200.webp 1200w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-1600.webp 1600w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-2000.webp 2000w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-2400.webp 2400w,
-  /imagesSection/karsten-winegeart-2_RaLT1aqUI-unsplash-3000.webp 3000w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-400.webp 400w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp 600w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-1200.webp 1200w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-1600.webp 1600w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-2000.webp 2000w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-2400.webp 2400w,
+  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-3000.webp 3000w,
   
 "
           width={600}
