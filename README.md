@@ -258,8 +258,7 @@ ecommerce-platform/
 ├── assets/
 │   └── screenshots/
 │       ├── desktop/
-│       ├── mobile/
-│       └── social-preview.jpg
+│       └── mobile/
 │
 ├── client/
 │   ├── public/
