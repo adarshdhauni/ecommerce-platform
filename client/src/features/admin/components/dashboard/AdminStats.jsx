@@ -14,7 +14,7 @@ const AdminStats = ({ formatCurrency }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-      {isLoading ? (
+      {isLoading || isFetching ? (
         [
           { title: "Revenue", width: "w-24" },
           { title: "Orders", width: "w-16" },

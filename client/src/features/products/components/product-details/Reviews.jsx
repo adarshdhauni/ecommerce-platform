@@ -60,7 +60,7 @@ const Reviews = ({ id }) => {
     1: 0,
   };
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div className="space-y-8">
         <Skeleton className="mx-auto h-[10px] w-32 rounded-full" />

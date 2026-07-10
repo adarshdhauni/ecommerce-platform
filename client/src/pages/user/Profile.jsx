@@ -249,10 +249,7 @@ const Profile = () => {
     form.name.trim() !== user?.name?.trim() ||
     form.email.trim().toLowerCase() !== user?.email?.trim().toLowerCase();
 
-  const nameVal = form.name.trim();
-  const emailVal = form.email.trim();
-
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <ProfileSkeleton />;
   }
 

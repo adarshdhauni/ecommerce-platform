@@ -399,7 +399,7 @@ const Payment = ({ setCurrentStep }) => {
           </h2>
         </div>
 
-        {loadingDetails ? (
+        {loadingDetails || isFetching ? (
           <SavedDetailsSkeleton />
         ) : isError ? (
           <ErrorState

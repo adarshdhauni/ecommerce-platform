@@ -231,7 +231,7 @@ const Products = () => {
     lg:px-8
   "
               >
-                {isLoading ? (
+                {isLoading || isFetching ? (
                   Array.from({ length: 8 }).map((_, i) => (
                     <ProductsLoadingState key={i} />
                   ))
@@ -244,7 +244,7 @@ const Products = () => {
                       "We couldn't load the products right now. Please try again in a moment."
                     }
                   />
-                ) : isEmpty ? (
+                ) : isEmpty? (
                   <ProductsEmptyState
                     title={
                       isSearchActive

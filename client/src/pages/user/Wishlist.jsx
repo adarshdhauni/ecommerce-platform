@@ -17,9 +17,32 @@ const Wishlist = () => {
   const [open, setOpen] = useState(false);
   const [previewProduct, setPreviewProduct] = useState(null);
 
-  const { data, isLoading, isError, refetch, isFetching } =
+  const { data, isLoading, isFetching, isError, refetch } =
     useGetWishlistQuery();
-  const wishlist = data?.wishlist || [];
+
+  const wishlist = data?.wishlist ?? [];
+
+  if (isLoading || isFetching) {
+    return (
+      <div className="bg-white text-black animate-fadeIn min-h-[60vh]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-8">
+          <Breadcrumbs />
+        </div>
+
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-10">
+          <h1 className="text-2xl sm:text-3xl font-light tracking-wide mb-8">
+            Wishlist
+          </h1>
+
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <ProductsLoadingState key={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (isError) {
     return (
@@ -32,7 +55,7 @@ const Wishlist = () => {
     );
   }
 
-  if (!isLoading && !isError && !wishlist.length) {
+  if (wishlist.length === 0) {
     return (
       <EmptyState
         title="Your wishlist is empty"
@@ -43,7 +66,6 @@ const Wishlist = () => {
       />
     );
   }
-
   return (
     <>
       <AnimatePresence mode="popLayout">

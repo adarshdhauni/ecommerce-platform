@@ -162,7 +162,7 @@ const Order = () => {
     }
   };
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <OrderSkeleton />;
   }
 

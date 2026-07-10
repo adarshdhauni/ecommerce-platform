@@ -79,7 +79,7 @@ const OrderConfirmation = () => {
     }
   }, [userOrder, navigate]);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div className="max-w-[900px] mx-auto px-4 py-16 animate-pulse space-y-16">
         <div className="text-center space-y-4">

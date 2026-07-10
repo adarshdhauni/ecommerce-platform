@@ -173,7 +173,7 @@ const AdminUsers = () => {
           )}
         </div>
 
-        {isLoading ? (
+        {isLoading || isFetching ? (
           <div className="divide-y divide-black/[0.045]">
             {Array.from({ length: 6 }).map((_, index) => (
               <AdminUsersSkeleton key={index} />

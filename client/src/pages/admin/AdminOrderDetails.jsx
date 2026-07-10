@@ -146,7 +146,7 @@ const AdminOrderDetails = () => {
   const currentIndex = orderFlow.indexOf(order?.status);
   const availableStatuses = [...orderFlow.slice(currentIndex), "Cancelled"];
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <OrderDetailsSkeleton />;
   }
 

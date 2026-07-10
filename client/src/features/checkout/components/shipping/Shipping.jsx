@@ -302,7 +302,7 @@ const Shipping = ({ setCurrentStep }) => {
           </h2>
         </div>
 
-        {loadingAddress ? (
+        {loadingAddress || isFetching ? (
           <SavedDetailsSkeleton address />
         ) : isError ? (
           <ErrorState
@@ -358,10 +358,7 @@ const Shipping = ({ setCurrentStep }) => {
               Back to Cart
             </button>
 
-            <PrimaryButton
-              type="submit"
-              disabled={isLoading}
-            >
+            <PrimaryButton type="submit" disabled={isLoading}>
               {isLoading ? "Saving..." : "Continue"}
             </PrimaryButton>
           </div>

@@ -203,7 +203,7 @@ const AdminOrders = () => {
         />
 
         <div className="relative z-10">
-          {loadingOrders ? (
+          {loadingOrders || isFetching ? (
             <div className="space-y-8 p-5">
               {Array.from({ length: 2 }).map((_, i) => (
                 <AdminOrdersSkeleton key={i} />

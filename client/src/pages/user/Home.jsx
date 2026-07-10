@@ -13,9 +13,9 @@ const ProductQuickView = lazy(
   () => import("@/components/modals/ProductQuickViewModal.jsx"),
 );
 import EditorialSection from "@/features/home/components/EditorialSection.jsx";
-import ProductsErrorState from "@/components/feedback/error/ErrorState.jsx";
+import ErrorState from "@/components/feedback/error/ErrorState.jsx";
 import ProductsLoadingState from "@/components/feedback/loading/ProductsLoadingState.jsx";
-import ProductsEmptyState from "@/components/feedback/empty-state/EmptyState.jsx";
+import EmptyState from "@/components/feedback/empty-state/EmptyState.jsx";
 import TextButton from "@/components/ui/buttons/TextButton.jsx";
 
 const Home = () => {
@@ -33,12 +33,19 @@ const Home = () => {
     data: items,
     isLoading: loadingRecentlyViewed,
     error: recentlyViewedError,
+    refetch: refetchRecentlyViewed,
+    isFetching: fetchingRecentlyViewed,
   } = useGetRecentlyViewedQuery(undefined, {
     skip: !token,
   });
 
   const showRecentlyViewed =
-    token && (loadingRecentlyViewed || recentlyViewedError || items.length > 0);
+    token &&
+    (loadingRecentlyViewed ||
+      fetchingRecentlyViewed ||
+      recentlyViewedError ||
+      items.length > 0);
+
   return (
     <>
       <div className="animate-fadeIn bg-white">
@@ -76,12 +83,12 @@ const Home = () => {
     pb-2 sm:pb-0
   "
               >
-                {isLoading ? (
+                {isLoading || isFetching ? (
                   Array.from({ length: 8 }).map((_, i) => (
                     <ProductsLoadingState key={i} />
                   ))
                 ) : isError ? (
-                  <ProductsErrorState
+                  <ErrorState
                     compact
                     refetch={refetch}
                     isFetching={isFetching}
@@ -91,7 +98,7 @@ const Home = () => {
                     }
                   />
                 ) : products.length == 0 ? (
-                  <ProductsEmptyState
+                  <EmptyState
                     compact
                     title={" No featured products available"}
                     description={
@@ -134,7 +141,7 @@ const Home = () => {
               )}
             </div>
           </FadeIn>
-          {items?.length > 0 && (
+          {showRecentlyViewed && (
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent w-full max-w-[1400px] mx-auto my-16 sm:my-20" />
           )}
           {showRecentlyViewed && (
@@ -164,16 +171,23 @@ const Home = () => {
     pb-2 sm:pb-0
   "
                 >
-                  {loadingRecentlyViewed
-                    ? Array.from({ length: 8 }).map((_, i) => (
-                        <ProductsLoadingState key={i} />
-                      ))
-                    : recentlyViewedError
-                      ? null
-                      : items.slice(0, 8).map((product) => (
-                          <div
-                            key={product._id}
-                            className="
+                  {loadingRecentlyViewed || fetchingRecentlyViewed ? (
+                    Array.from({ length: 8 }).map((_, i) => (
+                      <ProductsLoadingState key={i} />
+                    ))
+                  ) : recentlyViewedError ? (
+                    <ErrorState
+                      compact
+                      refetch={refetchRecentlyViewed}
+                      isFetching={fetchingRecentlyViewed}
+                      title="Failed to load recently viewed products"
+                      description="We couldn't load your recently viewed products. Please try again."
+                    />
+                  ) : (
+                    items.slice(0, 8).map((product) => (
+                      <div
+                        key={product._id}
+                        className="
                          
                           min-w-[220px]
                           w-[220px]
@@ -181,14 +195,15 @@ const Home = () => {
                           sm:min-w-0
                           sm:w-auto
                           snap-start sm:snap-none"
-                          >
-                            <ProductCard
-                              product={product}
-                              setOpen={setOpen}
-                              setPreviewProduct={setPreviewProduct}
-                            />
-                          </div>
-                        ))}
+                      >
+                        <ProductCard
+                          product={product}
+                          setOpen={setOpen}
+                          setPreviewProduct={setPreviewProduct}
+                        />
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </FadeIn>

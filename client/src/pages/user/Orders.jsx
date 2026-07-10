@@ -74,7 +74,7 @@ const Orders = () => {
         </h1>
 
         <div className="space-y-6">
-          {loadingOrders ? (
+          {loadingOrders || isFetching ? (
             <div className="space-y-6">
               {[...Array(5)].map((_, index) => (
                 <div

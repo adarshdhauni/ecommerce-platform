@@ -63,7 +63,7 @@ const AdminUserDetails = () => {
     setSearchParams(params, { replace: true });
   }, [page, setSearchParams]);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <AdminUserDetailsSkeleton infoCard={infoCard} />;
   }
 
@@ -340,7 +340,12 @@ const AdminUserDetails = () => {
 
           <div className="relative z-10">
             {orders?.length === 0 ? (
-              <AdminOrdersEmpty search={""} />
+              <AdminOrdersEmpty
+                compact
+                search={""}
+                emptyTitle="No orders yet"
+                emptyDescription="This customer hasn't placed any orders yet."
+              />
             ) : (
               <div className="space-y-8 p-5">
                 {orders?.map((order) => (

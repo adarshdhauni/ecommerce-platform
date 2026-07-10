@@ -101,7 +101,7 @@ const AdminLowInventory = ({
       />
 
       <div className="relative z-10 divide-y divide-black/[0.03]">
-        {analyticsLoading ? (
+        {analyticsLoading || isFetching ? (
           Array.from({ length: 5 }).map((_, i) => (
             <AdminLowInventorySkeleton key={i} />
           ))

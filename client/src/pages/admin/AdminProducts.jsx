@@ -272,7 +272,7 @@ const AdminProducts = () => {
           </div>
 
           <div>
-            {loadingProducts ? (
+            {loadingProducts || isFetching ? (
               <div className=" divide-y divide-black/[0.04] ">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <AdminProductsSkeleton key={i} />
