@@ -502,7 +502,7 @@ Measured on the deployed production build.
     <tr>
       <td>⚡ Performance</td>
       <td><strong>100</strong></td>
-      <td><strong>97</strong></td>
+      <td><strong>96</strong></td>
     </tr>
     <tr>
       <td>♿ Accessibility</td>
