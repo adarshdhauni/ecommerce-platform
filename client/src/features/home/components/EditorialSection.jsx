@@ -7,13 +7,13 @@ const EditorialSection = ({ navigate }) => {
         <img
           src="/images/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp"
           srcSet="
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-400.webp 400w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp 600w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-1200.webp 1200w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-1600.webp 1600w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-2000.webp 2000w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-2400.webp 2400w,
-  /images/karsten-winegeart-2_RaLT1aqUI-unsplash-3000.webp 3000w,
+  /images/editorial-400.webp 400w,
+  /images/editorial-600.webp 600w,
+  /images/editorial-1200.webp 1200w,
+  /images/editorial-1600.webp 1600w,
+  /images/editorial-2000.webp 2000w,
+  /images/editorial-2400.webp 2400w,
+  /images/editorial-3000.webp 3000w,
   
 "
           width={600}

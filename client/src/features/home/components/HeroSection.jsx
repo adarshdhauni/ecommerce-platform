@@ -8,13 +8,13 @@ const HeroSection = ({ navigate }) => {
           <source
             media="(min-width: 640px)"
             srcSet="
-           /images/pexels-cottonbro-6070177-600.webp 600w,
-           /images/pexels-cottonbro-6070177-800.webp 800w,
-           /images/pexels-cottonbro-6070177-1200.webp 1200w,
-           /images/pexels-cottonbro-6070177-1600.webp 1600w,
-           /images/pexels-cottonbro-6070177-2000.webp 2000w,
-           /images/pexels-cottonbro-6070177-2400.webp 2400w,
-           /images/pexels-cottonbro-6070177-3000.webp 3000w,
+           /images/hero-600.webp 600w,
+           /images/hero-800.webp 800w,
+           /images/hero-1200.webp 1200w,
+           /images/hero-1600.webp 1600w,
+           /images/hero-2000.webp 2000w,
+           /images/hero-2400.webp 2400w,
+           /images/hero-3000.webp 3000w,
          "
             sizes="100vw"
           />
@@ -22,10 +22,10 @@ const HeroSection = ({ navigate }) => {
           <img
             src="/images/mike-von-YsiSAp3ccvk-unsplash-400.webp"
             srcSet="
-           /images/mike-von-YsiSAp3ccvk-unsplash-400.webp 400w,
-           /images/mike-von-YsiSAp3ccvk-unsplash-600.webp 600w,
-           /images/mike-von-YsiSAp3ccvk-unsplash-800.webp 800w,
-           /images/mike-von-YsiSAp3ccvk-unsplash-1200.webp 1200w
+           /images/mobile-hero-400.webp 400w,
+           /images/mobile-hero-600.webp 600w,
+           /images/mobile-hero-800.webp 800w,
+           /images/mobile-hero-1200.webp 1200w
          "
             sizes="100vw"
             fetchPriority="high"
@@ -48,44 +48,43 @@ const HeroSection = ({ navigate }) => {
         <p className="hero-sub  text-lg md:text-3xl font-light">
           Introducing the Capsule Collection
         </p>
-        <button
-          onClick={() => navigate("/products")}
-          className="
-          hero-btn
-    h-12
-    px-9
-
-    bg-white
-    text-black
-    border
-    border-white
-
-    rounded-none
-
-    text-[11px]
-    font-medium
-    uppercase
-    tracking-[0.18em]
-    leading-none
-
-    transition-all
-    duration-150
-
-    hover-supported:hover:bg-black
-    hover-supported:hover:text-white
-    hover-supported:hover:border-black
-
-    active:scale-[0.985]
-
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-white
-    focus-visible:ring-offset-2
-    focus-visible:ring-offset-black
-  "
-        >
-          SHOP NOW
-        </button>
+     <div className="hero-btn">
+  <button
+    onClick={() => navigate("/products")}
+    className="
+      inline-flex
+      items-center
+      justify-center
+      h-12
+      px-10
+      bg-white
+      text-black
+      border
+      border-white
+      rounded-none
+      text-[11px]
+      font-medium
+      uppercase
+      tracking-[0.2em]
+      whitespace-nowrap
+      select-none
+      transition-colors
+      duration-200
+      ease-out
+      hover-supported:hover:bg-transparent
+      hover-supported:hover:text-white
+      hover-supported:hover:border-white
+      active:scale-[0.98]
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-white
+      focus-visible:ring-offset-2
+      focus-visible:ring-offset-black
+    "
+  >
+    Shop Now
+  </button>
+</div>
       </div>
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white opacity-70 scroll-indicator">
         <span className="text-[10px] tracking-[0.3em]">SCROLL</span>
