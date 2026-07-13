@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { createPortal } from "react-dom";
 
-const ProfileModalSmall = ({
+const ProfileModal = ({
   profileOpen,
   setProfileOpen,
   handleClick,
@@ -80,4 +80,4 @@ hover-supported:hover:translate-x-[2px] text-red-500 active:scale-[0.985]"
   );
 };
 
-export default memo(ProfileModalSmall);
+export default memo(ProfileModal);
