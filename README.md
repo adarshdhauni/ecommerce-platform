@@ -96,7 +96,7 @@ NOVA STONE & CO. is a full-stack fashion e-commerce application built to cover t
 
 ---
 
-# 🌐 Live Demo
+## 🌐 Live Demo
 
 ### **Frontend**
 
