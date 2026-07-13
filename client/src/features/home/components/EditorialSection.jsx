@@ -5,7 +5,7 @@ const EditorialSection = ({ navigate }) => {
     <div className="relative w-full overflow-hidden group cursor-pointer will-change-transform">
       <div className="w-full aspect-[4/5] sm:aspect-[16/9] 2xl:aspect-[21/9]">
         <img
-          src="/images/karsten-winegeart-2_RaLT1aqUI-unsplash-600.webp"
+          src="/images/editorial-600.webp"
           srcSet="
   /images/editorial-400.webp 400w,
   /images/editorial-600.webp 600w,

@@ -15,12 +15,13 @@ const HeroSection = ({ navigate }) => {
            /images/hero-2000.webp 2000w,
            /images/hero-2400.webp 2400w,
            /images/hero-3000.webp 3000w,
+           /images/hero-3840.webp 3840w,
          "
             sizes="100vw"
           />
 
           <img
-            src="/images/mike-von-YsiSAp3ccvk-unsplash-400.webp"
+            src="/images/mobile-hero-400.webp"
             srcSet="
            /images/mobile-hero-400.webp 400w,
            /images/mobile-hero-600.webp 600w,
