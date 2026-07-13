@@ -77,6 +77,12 @@ const FilterModal = ({
     <AnimatePresence>
       {isOpen && (
         <div>
+          <div
+            onClick={handleClose}
+            className={`fixed inset-0 bg-black/30 z-[200] transition-opacity
+               ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+              `}
+          />
           <motion.div
             key="menu"
             initial={{ x: "100%" }}
