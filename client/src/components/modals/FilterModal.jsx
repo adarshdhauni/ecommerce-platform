@@ -58,10 +58,10 @@ const FilterModal = ({
     (sortBy !== "Recommended" ? 1 : 0);
 
   const handleClose = () => {
-    setValues(appliedValues);
-    setChecked(appliedChecked);
-    setCheckedCategories(appliedCheckedCategories);
-    setSortBy(appliedSortBy);
+    // setValues(appliedValues);
+    // setChecked(appliedChecked);
+    // setCheckedCategories(appliedCheckedCategories);
+    // setSortBy(appliedSortBy);
 
     setIsOpen(false);
   };
@@ -95,7 +95,7 @@ const FilterModal = ({
             className="
                         fixed
   inset-0
-  h-dvh
+  h-screen
   z-[200]
   flex
   flex-col
