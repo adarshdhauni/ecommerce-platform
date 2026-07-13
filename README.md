@@ -262,6 +262,8 @@ ecommerce-platform/
 │
 ├── client/
 │   ├── public/
+│   │   └── images/
+│   │
 │   └── src/
 │       ├── assets/
 │       ├── components/
