@@ -35,7 +35,7 @@ const HeroSection = ({ navigate }) => {
             width={600}
             height={800}
             alt="Hero Section"
-            className="w-full h-full object-cover object-[center_top] hero-img"
+            className="w-full h-full object-cover hero-img"
           />
         </picture>
       </div>
