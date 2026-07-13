@@ -36,7 +36,7 @@ A modern full-stack e-commerce application built with React, Express, and MongoD
        width="100%">
 </p>
 
-[Features](#features) •
+[Features](#-features) •
 [Architecture](#️-architecture) •
 [Tech Stack](#️-tech-stack) •
 [Screenshots](#-screenshots) •
