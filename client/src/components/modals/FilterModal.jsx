@@ -77,10 +77,13 @@ const FilterModal = ({
     <AnimatePresence>
       {isOpen && (
         <div>
-          <div
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             onClick={handleClose}
-            className={`fixed inset-0 bg-black/30 z-[200] transition-opacity ease-in-out
-               ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+            className={`fixed inset-0 bg-black/30 z-[200]
               `}
           />
           <motion.div
@@ -88,6 +91,7 @@ const FilterModal = ({
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
             exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="
                         fixed
   inset-0
@@ -98,7 +102,6 @@ const FilterModal = ({
   overflow-hidden
   bg-white/80
   backdrop-blur-md
-  transition-transform duration-300
                      "
           >
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-gray-300 rounded-full" />
