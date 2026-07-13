@@ -22,7 +22,7 @@ const Wishlist = () => {
 
   const wishlist = data?.wishlist ?? [];
 
-  if (isLoading || isFetching) {
+  if (isLoading || (isFetching && !data)) {
     return (
       <div className="bg-white text-black animate-fadeIn min-h-[60vh]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-8">
