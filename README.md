@@ -1,61 +1,73 @@
+<div align="center">
+
 # 🛍️ NOVA STONE & CO.
 
-> A full-stack fashion e-commerce platform built with React, Express, and MongoDB — featuring a complete storefront, multi-step checkout, order management, and a dedicated admin dashboard.
+**Production-Ready Full-Stack Fashion E-Commerce Platform**
 
-<p align="left">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
-  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19" />
-  <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite 7" />
-  <img src="https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white" alt="Express 5" />
-  <img src="https://img.shields.io/badge/MongoDB-Mongoose%208-47A248?logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Deployed-Vercel%20%2B%20Railway-black?logo=vercel&logoColor=white" alt="Deployed" />
+A modern full-stack e-commerce application built with React, Express, and MongoDB featuring secure authentication, a complete shopping experience, order management, and a role-based admin dashboard.
+
+<br>
+
+<p>
+  <a href="https://ecommerce-platform-f4qc.vercel.app/">
+    <img src="https://img.shields.io/badge/Live-Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+
+  <a href="https://github.com/adarshdhauni/ecommerce-platform">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="Repository" />
+  </a>
+
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-18181B?style=for-the-badge" alt="MIT License" />
+  </a>
 </p>
 
-<br />
+<p>
+  <img src="https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 19" />
+  <img src="https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white" alt="Express 5" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white" alt="Redux Toolkit" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+</p>
 
-<img src="assets/screenshots/desktop/desktop-home.png" alt="NOVA STONE & CO. — Home Page" width="100%" style="border-radius:8px;" />
+<p>
+  <img src="client/public/nova-stone-og.png"
+       alt="NOVA STONE & CO."
+       width="100%">
+</p>
 
-<br />
-<br />
+[Features](#features) •
+[Architecture](#️-architecture) •
+[Tech Stack](#️-tech-stack) •
+[Screenshots](#-screenshots) •
+[Getting Started](#-getting-started)
 
-<table>
-  <tr>
-    <td>🌐 <strong>Live App</strong></td>
-    <td><a href="https://ecommerce-platform-f4qc.vercel.app/">ecommerce-platform-f4qc.vercel.app</a></td>
-  </tr>
-  <tr>
-    <td>⚙️ <strong>API</strong></td>
-    <td><a href="https://ecommerce-platform-production-81f5.up.railway.app">ecommerce-platform-production-81f5.up.railway.app</a></td>
-  </tr>
-  <tr>
-    <td>📦 <strong>Repository</strong></td>
-    <td><a href="https://github.com/adarshdhauni/ecommerce-platform">github.com/adarshdhauni/ecommerce-platform</a></td>
-  </tr>
-</table>
+</div>
 
 ---
 
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Live Demo](#-live-demo)
 - [Highlights](#-highlights)
-- [Why This Project?](#-why-this-project)
+- [Why I Built This](#-why-i-built-this)
 - [Features](#-features)
 - [Tech Stack](#️-tech-stack)
 - [Architecture](#️-architecture)
 - [Folder Structure](#-folder-structure)
 - [Screenshots](#-screenshots)
 - [Lighthouse Scores](#-lighthouse-scores)
-- [Installation](#️-installation)
-- [Environment Variables](#-environment-variables)
-- [Running Locally](#️-running-locally)
+- [Getting Started](#-getting-started)
+- [Available Scripts](#-available-scripts)
 - [API Overview](#-api-overview)
 - [Authentication Flow](#-authentication-flow)
 - [Database Schema](#️-database-schema)
 - [State Management](#-state-management)
 - [Performance](#-performance)
 - [Security](#-security)
-- [Accessibility](#♿-accessibility)
+- [Accessibility](#-accessibility)
+- [Engineering Decisions](#-engineering-decisions)
 - [Error Handling](#-error-handling)
 - [Deployment](#-deployment)
 - [Testing](#-testing)
@@ -64,7 +76,8 @@
 - [Future Improvements](#️-future-improvements)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Author](#-author)
+- [Contact](#-contact)
+- [Connect With Me](#-connect-with-me)
 
 ---
 
@@ -80,6 +93,22 @@ NOVA STONE & CO. is a full-stack fashion e-commerce application built to cover t
 | **Backend**      | Express 5, Mongoose 8, MongoDB                                              |
 | **Auth**         | JWT — Bearer token, 7-day expiry                                            |
 | **Payments**     | Simulated — stores last 4 digits and expiry only; no live payment processor |
+
+---
+
+## 🌐 Live Demo
+
+### **Frontend**
+
+**https://ecommerce-platform-f4qc.vercel.app/**
+
+Deployed on **Vercel**.
+
+### **Backend API**
+
+**https://ecommerce-platform-production-81f5.up.railway.app**
+
+Deployed on **Railway**.
 
 ---
 
@@ -110,21 +139,13 @@ NOVA STONE & CO. is a full-stack fashion e-commerce application built to cover t
 
 ---
 
-## 💡 Why This Project?
+## 💡 Why I Built This
 
-This project demonstrates practical competency across the full web development stack — not just individual layers in isolation.
+I built this project to create a production-ready e-commerce application that demonstrates the complete lifecycle of a modern full-stack web application—from database design and REST API architecture to frontend implementation and deployment.
 
-| Skill Area                  | What's Demonstrated                                                                          |
-| --------------------------- | -------------------------------------------------------------------------------------------- |
-| **Full-stack architecture** | Independently deployable React SPA + Express API, communicating via RTK Query                |
-| **REST API design**         | 35+ typed endpoints with ownership checks, rate limiting, and pagination                     |
-| **Authentication**          | JWT issuance, bcrypt hashing, account lockout, and hashed password reset flow                |
-| **State management**        | Deliberate split between RTK Query (server state), Redux (cart), and Context (UI state)      |
-| **Security**                | Helmet, CORS, rate limiting, NoSQL sanitization, HPP, body-size limits, JWT expiry           |
-| **Database design**         | 8 Mongoose models with compound indexes, pre-save hooks, and aggregation pipelines           |
-| **Performance**             | Code splitting, memoization, debounced search, lazy loading, server-side pagination          |
-| **Responsive UI**           | Mobile-first Tailwind layout covering storefront, checkout, and admin across all breakpoints |
-| **Deployment**              | Frontend on Vercel, backend on Railway, with environment-scoped configuration                |
+Rather than focusing on isolated CRUD functionality, I wanted to build a system that reflects real-world software development. The project includes authentication, role-based administration, product management, a complete checkout flow, order lifecycle management, and performance optimizations, while emphasizing clean architecture, maintainable code, and a scalable foundation for future features.
+
+Every major architectural decision was made with long-term maintainability, performance, and user experience in mind, making the project representative of how production applications are designed and built.
 
 ---
 
@@ -181,42 +202,82 @@ Order status flow: `Placed → Processing → Shipped → Out for Delivery → D
 
 ## 🛠️ Tech Stack
 
+<table>
+<tr>
+
+<td valign="top" width="50%">
+
 ### Frontend
 
-| Category      | Libraries                                                                  |
-| ------------- | -------------------------------------------------------------------------- |
-| Core          | React 19, Vite 7                                                           |
-| Routing       | React Router DOM 7                                                         |
-| State & Data  | Redux Toolkit, RTK Query, React-Redux                                      |
-| Styling       | Tailwind CSS 3, tailwindcss-animate, tailwind-scrollbar                    |
-| UI Components | Radix UI (Dialog, Tabs, Select, Accordion, Toast), shadcn-style components |
-| Animation     | Framer Motion                                                              |
-| Icons         | Lucide React                                                               |
-| HTTP          | Axios via RTK Query `fetchBaseQuery`                                       |
-| Resilience    | react-error-boundary                                                       |
-| Utilities     | clsx, tailwind-merge, class-variance-authority                             |
+![React](https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+
+### State & Data
+
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)
+![RTK Query](https://img.shields.io/badge/RTK_Query-764ABC?style=flat-square&logo=redux&logoColor=white)
+![React Redux](https://img.shields.io/badge/React_Redux-764ABC?style=flat-square&logo=redux&logoColor=white)
+
+### Routing
+
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)
+
+### Styling
+
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![tailwindcss-animate](https://img.shields.io/badge/tailwindcss--animate-18181B?style=flat-square)
+![tailwind-scrollbar](https://img.shields.io/badge/tailwind--scrollbar-18181B?style=flat-square)
+![clsx](https://img.shields.io/badge/clsx-18181B?style=flat-square)
+![tailwind-merge](https://img.shields.io/badge/tailwind--merge-18181B?style=flat-square)
+![CVA](https://img.shields.io/badge/class--variance--authority-18181B?style=flat-square)
+
+### UI
+
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat-square&logo=radixui&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square)
+![Lucide React](https://img.shields.io/badge/lucide--react-18181B?style=flat-square&logo=lucide&logoColor=white)
+
+</td>
+
+<td valign="top" width="50%">
 
 ### Backend
 
-| Category     | Libraries                                                                         |
-| ------------ | --------------------------------------------------------------------------------- |
-| Runtime      | Node.js, Express 5                                                                |
-| Database     | MongoDB, Mongoose 8                                                               |
-| Auth         | jsonwebtoken, bcryptjs                                                            |
-| Security     | helmet, cors, express-rate-limit, hpp, @exortek/express-mongo-sanitize, xss-clean |
-| File Uploads | multer                                                                            |
-| Email        | Resend                                                                            |
-| IDs          | nanoid (custom alphabet for human-readable order IDs)                             |
-| Config       | dotenv                                                                            |
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-8-880000?style=flat-square&logo=mongoose&logoColor=white)
 
-### Services
+### Authentication & Security
 
-| Service | Usage                                |
-| ------- | ------------------------------------ |
-| MongoDB | Primary database                     |
-| Resend  | Transactional email (password reset) |
-| Vercel  | Frontend hosting                     |
-| Railway | Backend hosting                      |
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
+![bcrypt](https://img.shields.io/badge/bcrypt-18181B?style=flat-square)
+![Helmet](https://img.shields.io/badge/Helmet-18181B?style=flat-square)
+![CORS](https://img.shields.io/badge/CORS-18181B?style=flat-square)
+![express-rate-limit](https://img.shields.io/badge/express--rate--limit-18181B?style=flat-square)
+
+### File Uploads & Email
+
+![Multer](https://img.shields.io/badge/Multer-18181B?style=flat-square)
+![Resend](https://img.shields.io/badge/Resend-000000?style=flat-square)
+
+### Error Handling
+
+![react-error-boundary](https://img.shields.io/badge/react--error--boundary-18181B?style=flat-square)
+
+### Deployment
+
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
+
+</td>
+
+</tr>
+</table>
+
+> [!NOTE]
+> **Framer Motion** is used selectively for route transitions, modal interactions, and other high-value animations. The application also employs lazy loading, responsive image delivery, and server-side data operations to maintain a fast and responsive user experience.
 
 ---
 
@@ -526,55 +587,96 @@ Measured on the deployed production build.
 
 ---
 
-## ⚙️ Installation
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm
+- MongoDB Atlas (or a local MongoDB instance)
+
+### Clone the repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/adarshdhauni/ecommerce-platform.git
 cd ecommerce-platform
-
-# Install backend dependencies
-cd server && npm install
-
-# Install frontend dependencies
-cd ../client && npm install
 ```
 
----
+### Install dependencies
 
-## 🔐 Environment Variables
-
-### Server — `server/.env`
-
-| Variable         | Required  | Description                                         |
-| ---------------- | --------- | --------------------------------------------------- |
-| `MONGO_URI`      | ✅        | MongoDB connection string                           |
-| `JWT_SECRET`     | ✅        | Secret used to sign JWTs                            |
-| `CLIENT_URL`     | ✅ (prod) | CORS origin and password reset link base URL        |
-| `RESEND_API_KEY` | ✅        | Resend API key for transactional email              |
-| `PORT`           | —         | Server port (default `3000`)                        |
-| `NODE_ENV`       | —         | Set to `development` to enable `/api/seed/products` |
-
-### Client — `client/.env`
-
-| Variable       | Required | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `VITE_API_URL` | —        | API base URL (default `http://localhost:3000`) |
-
----
-
-## ▶️ Running Locally
+#### Server
 
 ```bash
-# Terminal 1 — start the backend (from /server)
-npm start
+cd server
+npm install
+```
 
-# Terminal 2 — start the frontend (from /client)
+#### Client
+
+```bash
+cd ../client
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env` file in both the `server` and `client` directories.
+
+#### Server (`server/.env`)
+
+| Variable | Description |
+| -------- | ----------- |
+| `MONGO_URI` | MongoDB connection string |
+| `JWT_SECRET` | Secret used to sign JWTs |
+| `CLIENT_URL` | Frontend URL for CORS and password reset links |
+| `RESEND_API_KEY` | Resend API key |
+| `PORT` | Server port (optional) |
+| `NODE_ENV` | Environment (`development` or `production`) |
+
+#### Client (`client/.env`)
+
+| Variable | Description |
+| -------- | ----------- |
+| `VITE_API_URL` | Backend API base URL |
+
+### Start the development servers
+
+#### Server
+
+```bash
+cd server
+npm start
+```
+
+#### Client
+
+```bash
+cd client
 npm run dev
 ```
 
-- Backend: `http://localhost:3000`
-- Frontend: `http://localhost:5173`
+The application will be available at:
+
+```text
+Frontend: http://localhost:5173
+Backend:  http://localhost:3000
+```
+
+### Build the frontend for production
+
+```bash
+cd client
+npm run build
+```
+
+### Preview the production build
+
+```bash
+cd client
+npm run preview
+```
+
+This serves the optimized production frontend locally before deployment.
 
 ---
 
@@ -849,12 +951,68 @@ RTK Query features in use: tag-based cache invalidation, `refetchOnFocus`, `refe
 
 ---
 
+## 🧠 Engineering Decisions
+
+### Deliberate state management
+
+State is divided by responsibility rather than managed in a single global store. RTK Query handles server state, Redux stores client-side cart data, Context manages transient UI state, and URL search parameters act as the source of truth for product filters. This separation keeps data flow predictable and minimizes unnecessary synchronization.
+
+### Server-side data operations
+
+Product filtering, searching, sorting, and pagination are performed on the server instead of the client. This reduces payload sizes, scales more effectively as the catalog grows, and ensures consistent results across devices.
+
+### Feature-based frontend architecture
+
+The frontend is organized by feature rather than component type. Related pages, components, hooks, and logic are grouped together, making the codebase easier to navigate, maintain, and extend as the application grows.
+
+### Modular backend architecture
+
+The backend separates routes, controllers, middleware, models, utilities, and configuration into distinct layers. This separation of concerns improves maintainability, simplifies testing, and keeps business logic isolated from routing.
+
+### Snapshot-based order design
+
+Orders store product details such as name, price, tax, and size at the time of purchase instead of referencing only the current product data. This preserves historical accuracy even if products or prices change after an order has been placed.
+
+### Progressive loading strategy
+
+Heavy routes and modal components are loaded lazily using `React.lazy()` and `Suspense`, while responsive images are delivered using `srcSet`, native lazy loading, and asynchronous decoding to reduce initial bundle size and improve perceived performance.
+
+### Layered error handling
+
+The frontend uses `react-error-boundary` together with dedicated loading, empty, and error state components to provide graceful degradation. The backend centralizes API error handling through shared middleware, ensuring consistent responses across all endpoints.
+
+### Independent deployment architecture
+
+The frontend and backend are deployed as separate applications on Vercel and Railway, communicating through a REST API. This separation allows each application to be deployed, scaled, and maintained independently.
+
+---
+
 ## 🚨 Error Handling
 
 - Centralized `errorHandler` middleware on the backend, with dedicated handling for `TokenExpiredError`
 - `react-error-boundary` wraps the frontend to isolate component-level failures
 - Dedicated `EmptyState` and `ErrorState` components for empty responses and failed requests
 - Any `401` from the API clears the stored token and redirects to `/auth` with a session-expired message
+
+---
+
+## 📜 Available Scripts
+
+### Client (`/client`)
+
+| Script | Description |
+| ------- | ----------- |
+| `npm run dev` | Starts the Vite development server |
+| `npm run build` | Builds the frontend for production |
+| `npm run preview` | Serves the production build locally |
+| `npm run lint` | Lints the frontend codebase using ESLint |
+
+### Server (`/server`)
+
+| Script | Description |
+| ------- | ----------- |
+| `npm start` | Starts the Express server |
+| `npm run dev` | Starts the server in development mode with automatic reload *(if using Nodemon)* |
 
 ---
 
@@ -936,26 +1094,79 @@ Manual testing was performed end-to-end across authentication (register, login, 
 
 ## 🤝 Contributing
 
-This is a solo portfolio project — active feature contributions aren't expected, but issues and suggestions are welcome. Feel free to open an issue if you spot a bug or have a recommendation.
+Although this is primarily a personal project, feedback, issues, and suggestions are always welcome.
+
+1. Fork the repository
+2. Create a feature branch
+
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+
+3. Commit your changes
+
+   ```bash
+   git commit -m "Add your feature"
+   ```
+
+4. Push your branch
+
+   ```bash
+   git push origin feature/your-feature
+   ```
+
+5. Open a Pull Request
+
+> [!TIP]
+> For larger changes, please open an issue first to discuss the proposed implementation.
 
 ---
 
 ## 📄 License
 
-Licensed under the [MIT License](LICENSE).
+This project is licensed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👤 Author
+## 📬 Contact
 
 **Adarsh Dhauni**
 
-🌐 [Portfolio](https://portfolio-xi-silk-b3un2mc452.vercel.app)
-&nbsp;·&nbsp;
-🐙 [GitHub](https://github.com/adarshdhauni)
-&nbsp;·&nbsp;
-💼 [LinkedIn](https://www.linkedin.com/in/adarsh-dhauni-7146903a6/)
-&nbsp;·&nbsp;
-💻 [Leetcode](https://leetcode.com/u/Adarsh_49/)
-&nbsp;·&nbsp;
-📧 <adarshdhauni186@gmail.com>
+Open to remote, hybrid, and full-time software engineering opportunities, with a preference for remote roles.
+
+📧 **adarshdhauni186@gmail.com**
+
+---
+
+## 🌐 Connect With Me
+
+<p align="left">
+  <a href="https://github.com/adarshdhauni">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+    <a href="https://portfolio-xi-silk-b3un2mc452.vercel.app/">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
+  </a>
+  <a href="https://www.linkedin.com/in/adarsh-dhauni-7146903a6/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://leetcode.com/u/Adarsh_49/">
+    <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode" />
+  </a>
+  <a href="mailto:adarshdhauni186@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
+
+---
+
+<div align="center">
+
+Built with ❤️ using React, Vite, Node.js, Express.js, MongoDB, and Tailwind CSS.
+
+**Designed, developed, deployed, and maintained by
+<a href="https://github.com/adarshdhauni">Adarsh Dhauni</a>.**
+
+</div>
