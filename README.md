@@ -23,8 +23,8 @@ A modern full-stack e-commerce application built with React, Express, and MongoD
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 19" />
-  <img src="https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white" alt="Express 5" />
+  <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" />
   <img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white" alt="Redux Toolkit" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
@@ -36,7 +36,7 @@ A modern full-stack e-commerce application built with React, Express, and MongoD
        width="100%">
 </p>
 
-[Features](#features) •
+[Features](#-features) •
 [Architecture](#️-architecture) •
 [Tech Stack](#️-tech-stack) •
 [Screenshots](#-screenshots) •
